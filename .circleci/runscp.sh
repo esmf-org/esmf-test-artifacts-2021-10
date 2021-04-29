@@ -163,12 +163,12 @@ find $branch -iname summary.dat | xargs grep -l "$branchhash" | xargs grep "exam
 echo "host compilier version mpi-type mpi-ver O/g unit-pass unit-fail sys-pass sys-fail ex-pass ex-fail" > $branch/$bmessage.summary
 paste -d " " unit sys examp >> "$branch/$bmessage.summary"
 git add $branch
-git pull -X theirs --no-edit origin main
+#git pull -X theirs --no-edit origin main
 git commit -a -m"$message"
 git push origin main
-while [ $? -ne 0 ]
-do
-  git pull -X theirs --no-edit origin main
-  git commit --amend -m'$message'
-  git push origin main
-done
+#while [ $? -ne 0 ]
+#do
+#  git pull -X theirs --no-edit origin main
+#  git commit --amend -m'$message'
+#  git push origin main
+#done
