@@ -1,5 +1,5 @@
 #!/usr/local/bin/bash -l
-export JOBID=$1
+export  JOBID=$1
 module load gcc/9.3.0 openmpi/3.1.5 netcdf-c/4.7.3
 module load hdf5/1.10.6 
 module list
