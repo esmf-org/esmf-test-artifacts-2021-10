@@ -1,4 +1,4 @@
-build time -- 2021-05-02 16:33:40
+build time -- 2021-05-03 16:33:44
   Beginning Test, file ESMF_ArrayDataUTest.F90, line 73
   NUMBER_OF_PROCESSORS           4
   Beginning Test, file ESMF_ArrayDataUTest.F90, line 73
@@ -11,6 +11,8 @@ build time -- 2021-05-02 16:33:40
   PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 98
   PASS  Determine Array proxy status, ESMF_ArrayDataUTest.F90, line 106
   PASS  Checking that Array is marked as not proxy, ESMF_ArrayDataUTest.F90, line 113
+--- ESMCI::Array::print start ---
+ Base name    = Array002
   PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 98
   PASS  Determine Array proxy status, ESMF_ArrayDataUTest.F90, line 106
   PASS  Checking that Array is marked as not proxy, ESMF_ArrayDataUTest.F90, line 113
@@ -27,13 +29,28 @@ build time -- 2021-05-02 16:33:40
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1e518e0
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+(-12) =  -12000
+(-11) =  -11000
+(-10) =  -10000
+(-9) =  -9000
+(-8) =  -8000
+(-7) =  -7000
+(-6) =  -6000
+dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 121
   PASS  Determine Array proxy status, ESMF_ArrayDataUTest.F90, line 106
   PASS  Checking that Array is marked as not proxy, ESMF_ArrayDataUTest.F90, line 113
---- ESMCI::Array::print start ---
- Base name    = Array002
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
 --- ESMCI::Array::print start ---
  Base name    = Array002
  Status: Base = Ready,  object = Ready
@@ -45,8 +62,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1591e70
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x957e70
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -12000
@@ -59,14 +76,52 @@ LocalArrayPrint: Array at address 0x160a2b0:
 dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
 --- ESMCI::Array::print end ---
   PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 121
+  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 129
+      -12000      -12000
+      -11000      -11000
+      -10000      -10000
+       -9000       -9000
+       -8000       -8000
+       -7000       -7000
+       -6000       -6000
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 142
+--- ESMCI::Array::print start ---
+ Base name    = Array002
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x957e70
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+(-12) =  -11943
+(-11) =  -10943
+(-10) =  -9943
+(-9) =  -8943
+(-8) =  -7943
+(-7) =  -6943
+(-6) =  -5943
+dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 157
+      -11943      -11943
+      -10943      -10 Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
 {}Array typekind/rank: Integer*4 / 1 
 ~ lower class' values ~
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x19b88e0
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x151c8e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -12000
@@ -99,8 +154,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x19b88e0
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x151c8e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -120,15 +175,14 @@ dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
        -7943       -7943
        -6943       -6943
        -5943       -5943
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 170
-{}Array typekind/rank: Integer*4 / 1 
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTes{}Array typekind/rank: Integer*4 / 1 
 ~ lower class' values ~
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11559d0
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf1e9d0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -12000
@@ -161,70 +215,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11559d0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-(-12) =  -11943
-(-11) =  -10943
-(-10) =  -9943
-(-9) =  -8943
-(-8) =  -7943
-(-7) =  -6943
-(-6) =  -5943
-dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 157
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -7943       -7943
-       -6943       -6943
-       -5943       -5943
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 170
-  PASS  Destroying Array created from an allocated Fortran array po{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf1e8e0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-(-12) =  -12000
-(-11) =  -11000
-(-10) =  -10000
-(-9) =  -9000
-(-8) =  -8000
-(-7) =  -7000
-(-6) =  -6000
-dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 121
-  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 129
-      -12000      -12000
-      -11000      -11000
-      -10000      -10000
-       -9000       -9000
-       -8000       -8000
-       -7000       -7000
-       -6000       -6000
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 142
---- ESMCI::Array::print start ---
- Base name    = Array002
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf1e8e0
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf1e9d0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -264,9 +256,9 @@ dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1591e70
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1e518e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -299,11 +291,71 @@ dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1eca510
+            dim[0] = 7  
+  Integ943
+       -9943       -9943
+       -8943       -8943
+       -7943       -7943
+       -6943       -6943
+       -5943       -5943
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 170
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 179
+  PASS  Creating an Array from allocated Fortran array pointer using ESMF_DATACOPY_VALUE, ESMF_ArrayDataUTest.F90, line 187
+--- ESMCI::Array::print start ---
+ Base name    = Array003
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1601d20
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x9c7d20
             dim[0] = 7  
-  Integ  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 179
+  Integer, *4, Dim 1, Data values:
+(-12) =  -11943
+(-11) =  -10943
+(-10) =  -9943
+(-9) =  -8943
+(-8) =  -7943
+(-7) =  -6943
+(-6) =  -5943
+dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 195
+  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 203
+      -11943      -11943
+      -10943      -10943
+       -9943       -9943
+       -8943       -8943
+       -7943       -7943
+       -6943       -6943
+       -5943       -5943
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 216
+--- ESMCI::Array::print start ---
+ Base name    = Array003
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x9c7d20
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+(-12) =  -11943
+(-11) t.F90, line 170
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 179
   PASS  Creating an Array from allocated Fortran array pointer using ESMF_DATACOPY_VALUE, ESMF_ArrayDataUTest.F90, line 187
 --- ESMCI::Array::print start ---
  Base name    = Array003
@@ -316,8 +368,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x1a31510
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x1595510
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -350,8 +402,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x1a31510
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x1595510
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -363,7 +415,7 @@ LocalArrayPrint: Array at address 0x1a31920:
 (-6) =  -5943
 dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
 --- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMinter, ESMF_ArrayDataUTest.F90, line 179
+  PASS  Printing Array created from allocated Fortran arr, ESMF_ArrayDataUTest.F90, line 179
   PASS  Creating an Array from allocated Fortran array pointer using ESMF_DATACOPY_VALUE, ESMF_ArrayDataUTest.F90, line 187
 --- ESMCI::Array::print start ---
  Base name    = Array003
@@ -376,8 +428,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11ce610
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf97610
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -410,70 +462,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11ce610
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-(-12) =  -11943
-(-11) =  -10943
-(-10) =  -9943
-(-9) =  -8943
-(-8) =  -7943
-(-7) =  -6943
-(-6) =  -5943
-dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 231
-      -11943      -11886
-      -1094r, ESMF_ArrayDataUTest.F90, line 179
-  PASS  Creating an Array from allocated Fortran array pointer using ESMF_DATACOPY_VALUE, ESMF_ArrayDataUTest.F90, line 187
---- ESMCI::Array::print start ---
- Base name    = Array003
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf97510
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-(-12) =  -11943
-(-11) =  -10943
-(-10) =  -9943
-(-9) =  -8943
-(-8) =  -7943
-(-7) =  -6943
-(-6) =  -5943
-dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 195
-  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 203
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -7943       -7943
-       -6943       -6943
-       -5943       -5943
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 216
---- ESMCI::Array::print start ---
- Base name    = Array003
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf97510
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf97610
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -517,9 +507,9 @@ dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1601d20
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1eca510
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 (-12) =  -11943
@@ -547,7 +537,67 @@ dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
-F_ArrayDataUTest.F90, line 231
+=  -10943
+(-10) =  -9943
+(-9) =  -8943
+(-8) =  -7943
+(-7) =  -6943
+(-6) =  -5943
+dim 1: [0]: [-12 [-12 [-12, -6] -6] -6]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 231
+      -11943      -11886
+      -10943      -10886
+       -9943       -9886
+       -8943       -8886
+       -7943       -7886
+       -6943       -6886
+       -5943       -5886
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 244
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 253
+  PASS  Creating an Array from allocated Fortran array pointer slice, ESMF_ArrayDataUTest.F90, line 264
+--- ESMCI::Array::print start ---
+ Base name    = Array004
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x957e70
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11886
+( 2) =  -10886
+( 3) =  -9886
+( 4) =  -8886
+( 5) =  -7886
+( 6) =  -6886
+( 7) =  -5886
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 272
+  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 280
+      -11886      -11886
+      -10886      -10886
+       -9886       -9886
+       -8886       -8886
+       -7886       -7886
+       -6886       -6886
+       -5886       -5886
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 293
+--- ESMCI::Array::print start ---
+ Base name    = Array004
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+Diray pointer, ESMF_ArrayDataUTest.F90, line 231
       -11943      -11886
       -10943      -10886
        -9943       -9886
@@ -569,8 +619,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x19b88e0
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x151c8e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11886
@@ -603,10 +653,9 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x19b88e0
-            dim[0] = 7  
-  Intege3      -10886
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x151c8e0
+            dim[010886
        -9943       -9886
        -8943       -8886
        -7943       -7886
@@ -626,8 +675,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11559d0
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf1e9d0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11886
@@ -660,68 +709,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11559d0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11829
-( 2) =  -10829
-( 3) =  -910886
-       -9943       -9886
-       -8943       -8886
-       -7943       -7886
-       -6943       -6886
-       -5943       -5886
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 244
-  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 253
-  PASS  Creating an Array from allocated Fortran array pointer slice, ESMF_ArrayDataUTest.F90, line 264
---- ESMCI::Array::print start ---
- Base name    = Array004
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf1e8e0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11886
-( 2) =  -10886
-( 3) =  -9886
-( 4) =  -8886
-( 5) =  -7886
-( 6) =  -6886
-( 7) =  -5886
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 272
-  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 280
-      -11886      -11886
-      -10886      -10886
-       -9886       -9886
-       -8886       -8886
-       -7886       -7886
-       -6886       -6886
-       -5886       -5886
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 293
---- ESMCI::Array::print start ---
- Base name    = Array004
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf1e8e0
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf1e9d0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11829
@@ -732,9 +721,9 @@ LocalArrayPrint: Array at address 0xf97920:
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1591e70
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1e518e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11886
@@ -766,9 +755,9 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1591e70
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1e518e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11829
@@ -789,7 +778,69 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
        -6829       -6829
        -5829       -5829
   PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 321
-  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTesr, *4, Dim 1, Data values:
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTesstGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x957e70
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11829
+( 2) =  -10829
+( 3) =  -9829
+( 4) =  -8829
+( 5) =  -7829
+( 6) =  -6829
+( 7) =  -5829
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 308
+      -11829      -11829
+      -10829      -10829
+       -9829       -9829
+       -8829       -8829
+       -7829       -7829
+       -6829       -6829
+       -5829       -5829
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 321
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 330
+  PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 346
+--- ESMCI::Array::print start ---
+ Base name    = Array005
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x9542d0
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -12000
+( 2) =  -11000
+( 3) =  -10000
+( 4) =  -9000
+( 5) =  -8000
+( 6) =  -7000
+( 7) =  -6000
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 354
+  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 362
+      -12000      -12000
+      -11000      -11000
+      -10000      -10000
+       -9000       -9000
+       -8000       -8000
+       -7000       -7000
+       -6000       -6000
+  PASS  Verifying data in Array via Fortran array poi] = 7  
+  Integer, *4, Dim 1, Data values:
 ( 1) =  -11829
 ( 2) =  -10829
 ( 3) =  -9829
@@ -821,8 +872,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x19ba1e0
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x151e1e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -12000
@@ -849,8 +900,7 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
-{}Array typekind/rank: Integer829
-( 4) =  -8829
+{}Array typeki-8829
 ( 5) =  -7829
 ( 6) =  -6829
 ( 7) =  -5829
@@ -878,67 +928,7 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11571e0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -12000
-( 2) =  -11000
-( 3) =  -10000
-( 4) =  -9000
-( 5) =  -8000
-( 6) =  -7000
-( 7) =  -6000
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 354
-  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 362
-      -12000      -12000
-      -11000      -11000
-      -10000      -10000
-       -9000       -9000
-       -8000       -8000
-       -7000       -7000
-       -6000       -6000
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 375
---- ESMCI::Array::print start ---
- Base name    = Array005
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-l-8829
-( 5) =  -7829
-( 6) =  -6829
-( 7) =  -5829
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 308
-      -11829      -11829
-      -10829      -10829
-       -9829       -9829
-       -8829       -8829
-       -7829       -7829
-       -6829       -6829
-       -5829       -5829
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 321
-  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 330
-  PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 346
---- ESMCI::Array::print start ---
- Base name    = Array005
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
+LocalArrayPrint: Array at address 0xf97a20:
             rank = 1, typekind = 3, base_addr = 0xf201e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
@@ -982,9 +972,9 @@ localDeCount = t.F90, line 330
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x158e2d0
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1e531e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -12000
@@ -1016,150 +1006,152 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x158e2d0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11943
-( 2) =  -10943
-( 3) =  -9943
-( 4) =  -8943
-( 5) =  -7943
-( 6) =  -6943
-( 7) =  -5943
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 390
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -79*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x19ba1e0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11943
-( 2) =  -10943
-( 3) =  -9943
-( 4) =  -8943
-( 5) =  -7943
-( 6) =  -6943
-( 7) =  -5943
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 390
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -7943       -7943
-       -6943       -6943
-       -5943       -5943
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 403
-  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 412
-  PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 420
---- ESMCI::Array::print start ---
- Base name    = Array006
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x1a318f0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11943
-( 2) =  -10943
-( 3) =  -9943
-( 4) =  -8943
-( 5) =  -7943
-( 6) =  -6943
-( 7) =  -5943
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 428
-  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 436
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -7943       -7943
-       -6943       -6943
-       -5943       -5943
-  PASS  VerifyinocalDeCount = 1
-~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11571e0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11943
-( 2) =  -10943
-( 3) =  -9943
-( 4) =  -8943
-( 5) =  -7943
-( 6) =  -6943
-( 7) =  -5943
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 390
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -7943       -7943
-       -6943       -6943
-       -5943       -5943
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 403
-  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 412
-  PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 420
---- ESMCI::Array::print start ---
- Base name    = Array006
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11ce9f0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11943
-( 2) =  -10943
-( 3) =  -9943
-( 4) =  -8943
-( 5) =  -7943
-( 6) =  -6943
-( 7) =  -5943
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 428
-  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 436
-      -11943      -11943
-      -10943      -10943
-       -9943       -9943
-       -8943       -8943
-       -7943       -7943
-       -6943       -6943
-       -5943       -5943
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTe1
 ~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1e531e0
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11943
+( 2) =  -10943
+( 3) =  -9943
+( 4) =  -8943
+( 5) =  -7943
+( 6) =  -6943
+( 7) =  -5943
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 390
+      -11943      -11943
+      -10943      -10943
+       -9943       -9943
+       -8943       -8943
+       -79nter access, ESMF_ArrayDataUTest.F90, line 375
+--- ESMCI::Array::print start ---
+ Base name    = Array005
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x9542d0
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11943
+( 2) =  -10943
+( 3) =  -9943
+( 4) =  -8943
+( 5) =  -7943
+( 6) =  -6943
+( 7) =  -5943
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 390
+      -11943      -11943
+      -10943      -10943
+       -9943       -9943
+       -8943       -8943
+       -7943       -7943
+       -6943       -6943
+       -5943       -5943
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 403
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 412
+  PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 420
+--- ESMCI::Array::print start ---
+ Base name    = Array006
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x9c7d20
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11943
+( 2) =  -10943
+( 3) =  -9943
+( 4) =  -8943
+( 5) =  -7943
+( 6) =  -6943
+( 7) =  -5943
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 428
+  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_Arraynd/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 1 ~
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x151e1e0
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11943
+( 2) =  -10943
+( 3) =  -9943
+( 4) =  -8943
+( 5) =  -7943
+( 6) =  -6943
+( 7) =  -5943
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 390
+      -11943      -11943
+      -10943      -10943
+       -9943       -9943
+       -8943       -8943
+       -7943       -7943
+       -6943       -6943
+       -5943       -5943
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 403
+  PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 412
+  PASS  Creating an Array from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 420
+--- ESMCI::Array::print start ---
+ Base name    = Array006
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 1 ~
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x15958f0
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11943
+( 2) =  -10943
+( 3) =  -9943
+( 4) =  -8943
+( 5) =  -7943
+( 6) =  -6943
+( 7) =  -5943
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 428
+  PASS  Obtaining access to data in Array via Fortran array pointer, ESMF_ArrayDataUTest.F90, line 436
+      -11943      -11943
+      -10943      -10943
+       -9943       -9943
+       -8943       -8943
+       -7943       -7943
+       -6943       -6943
+       -5943       -5943
+1
+~ local data in LocalArray for DE 2 ~
+LocalArrayPrint: Array at address 0xf97a20:
             rank = 1, typekind = 3, base_addr = 0xf201e0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
@@ -1193,9 +1185,9 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf978f0
+~ local data in LocalArray for DE 2 ~
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf979f0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11943
@@ -1233,9 +1225,9 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1601d20
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1eca8f0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11943
@@ -1267,9 +1259,9 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
 DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x160a2b0:
-            rank = 1, typekind = 3, base_addr = 0x1601d20
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x1eca920:
+            rank = 1, typekind = 3, base_addr = 0x1eca8f0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11943
@@ -1279,7 +1271,65 @@ LocalArrayPrint: Array at address 0x160a2b0:
 ( 5) =  -7943
 ( 6) =  -6943
 ( 7) =  -5943
-dim 1: [0]: [1 [1 [1g data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 449
+dim 1: [0]: [1 [1 [1DataUTest.F90, line 436
+      -11943      -11943
+      -10943      -10943
+       -9943       -9943
+       -8943       -8943
+       -7943       -7943
+       -6943       -6943
+       -5943       -5943
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 449
+--- ESMCI::Array::print start ---
+ Base name    = Array006
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 0 ~
+LocalArrayPrint: Array at address 0x9d02b0:
+            rank = 1, typekind = 3, base_addr = 0x9c7d20
+            dim[0] = 7  
+  Integer, *4, Dim 1, Data values:
+( 1) =  -11943
+( 2) =  -10943
+( 3) =  -9943
+( 4) =  -8943
+( 5) =  -7943
+( 6) =  -6943
+( 7) =  -5943
+dim 1: [0]: [1 [1 [1, 7] 7] 7]
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 464
+      -11943      -11886
+      -10943      -10886
+       -9943       -9886
+       -8943       -8886
+       -7943       -7886
+       -6943       -6886
+       -5943       -5886
+  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 477
+ computed serialization buffer length =        2904  bytes
+  PASS  Computing space for serialization buffer, ESMF_ArrayDataUTest.F90, line 499
+  PASS  Allocate serialization buffer, ESMF_ArrayDataUTest.F90, line 510
+ actual serialization buffer length =        2728  bytes
+  PASS  Serialization Array data, ESMF_ArrayDataUTest.F90, line 527
+  PASS  Compare serialization offset actual vs estimate, ESMF_ArrayDataUTest.F90, line 535
+  PASS  Deserialize Array data, ESMF_ArrayDataUTest.F90, line 550
+--- ESMCI::Array::print start ---
+ Base name    = Array006
+ Status: Base = Ready,  object = Ready
+ Proxy        = yes
+ Root Info (Attributes):
+{}Array typekind/rank: Integer*4 / 1 
+~ lower class' values ~
+DistGrid dimCount = 1
+deCount = 4
+localDeCount = 0  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 449
 --- ESMCI::Array::print start ---
  Base name    = Array006
  Status: Base = Ready,  object = Ready
@@ -1291,8 +1341,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x1a31920:
-            rank = 1, typekind = 3, base_addr = 0x1a318f0
+LocalArrayPrint: Array at address 0x1595920:
+            rank = 1, typekind = 3, base_addr = 0x15958f0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11943
@@ -1332,9 +1382,7 @@ deCount = 4
 localDeCount = 0
 --- ESMCI::Array::print end ---
   PASS  Printing Array created by deserialize, ESMF_ArrayDataUTest.F90, line 560
-  PASS  Determine Array created by deserialize proxy status, ESMF_ArrayDataUTest.F90, line 568
-  PAst.F90, line 449
---- ESMCI::Array::print start ---
+  PASS  Determine Array created by deserialize proxy status, ESMF_ArrayDataUTest.F9-- ESMCI::Array::print start ---
  Base name    = Array006
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -1345,61 +1393,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11cea20:
-            rank = 1, typekind = 3, base_addr = 0x11ce9f0
-            dim[0] = 7  
-  Integer, *4, Dim 1, Data values:
-( 1) =  -11943
-( 2) =  -10943
-( 3) =  -9943
-( 4) =  -8943
-( 5) =  -7943
-( 6) =  -6943
-( 7) =  -5943
-dim 1: [0]: [1 [1 [1, 7] 7] 7]
---- ESMCI::Array::print end ---
-  PASS  Printing Array created from allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 464
-      -11943      -11886
-      -10943      -10886
-       -9943       -9886
-       -8943       -8886
-       -7943       -7886
-       -6943       -6886
-       -5943       -5886
-  PASS  Verifying data in Array via Fortran array pointer access, ESMF_ArrayDataUTest.F90, line 477
- computed serialization buffer length =        2904  bytes
-  PASS  Computing space for serialization buffer, ESMF_ArrayDataUTest.F90, line 499
-  PASS  Allocate serialization buffer, ESMF_ArrayDataUTest.F90, line 510
- actual serialization buffer length =        2728  bytes
-  PASS  Serialization Array data, ESMF_ArrayDataUTest.F90, line 527
-  PASS  Compare serialization offset actual vs estimate, ESMF_ArrayDataUTest.F90, line 535
-  PASS  Deserialize Array data, ESMF_ArrayDataUTest.F90, line 550
---- ESMCI::Array::print start ---
- Base name    = Array006
- Status: Base = Ready,  object = Ready
- Proxy        = yes
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 0
---- ESMCI::Array::print end ---
-  PASS  Printing Array created by deserialize, ESMF_ArrayDataUTest.F90, line 560
-  PASS  Determine Array created by deserialize proxy status, ESMF_ArrayDataUTest.F90, line 568
-  PASS  Checking that Array created by deserialize is marked as proxy, -- ESMCI::Array::print start ---
- Base name    = Array006
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}Array typekind/rank: Integer*4 / 1 
-~ lower class' values ~
-DistGrid dimCount = 1
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0xf97920:
-            rank = 1, typekind = 3, base_addr = 0xf978f0
+LocalArrayPrint: Array at address 0xf97a20:
+            rank = 1, typekind = 3, base_addr = 0xf979f0
             dim[0] = 7  
   Integer, *4, Dim 1, Data values:
 ( 1) =  -11943
@@ -1477,7 +1472,11 @@ localDeCount = 0
   PASS  Creating an Array that matches the existing Array, ESMF_ArrayDataUTest.F90, line 599
   PASS  Trying to access data with pointer of incorrect rank., ESMF_ArrayDataUTest.F90, line 607
   PASS  Trying to access data with pointer of incorrect typekind., ESMF_ArrayDataUTest.F90, line 615
-  PASS  Obtaining access to data in arrayOut via Fortran array pointer, ESMF_ArrayDataSS  Checking that Array created by deserialize is marked as proxy, ESMF_ArrayDataUTest.F90, line 575
+  PASS  Obtaining access to data in arrayOut via Fortran array pointer, ESMF_ArrayData
+--- ESMCI::Array::print end ---
+  PASS  Printing Array created by deserialize, ESMF_ArrayDataUTest.F90, line 560
+  PASS  Determine Array created by deserialize proxy status, ESMF_ArrayDataUTest.F90, line 568
+  PASS  Checking that Array created by deserialize is marked as proxy, ESMF_ArrayDataUTest.F90, line 575
   PASS  Destroying Array created by deserialize., ESMF_ArrayDataUTest.F90, line 583
   PASS  Compare serialization offset to deserialization offset, ESMF_ArrayDataUTest.F90, line 591
   PASS  Creating an Array that matches the existing Array, ESMF_ArrayDataUTest.F90, line 599
@@ -1495,7 +1494,8 @@ localDeCount = 0
   PASS  Verifying data match between array and arrayOut, ESMF_ArrayDataUTest.F90, line 646
   PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 658
   Ending Test, file ESMF_ArrayDataUTest.F90, line 668
-ESMF_ArrayDataUTest.F90, line 575
+0, line 568
+  PASS  Checking that Array created by deserialize is marked as proxy, ESMF_ArrayDataUTest.F90, line 575
   PASS  Destroying Array created by deserialize., ESMF_ArrayDataUTest.F90, line 583
   PASS  Compare serialization offset to deserialization offset, ESMF_ArrayDataUTest.F90, line 591
   PASS  Creating an Array that matches the existing Array, ESMF_ArrayDataUTest.F90, line 599
@@ -1543,7 +1543,7 @@ UTest.F90, line 623
   PASS  Verifying data match between array and arrayOut, ESMF_ArrayDataUTest.F90, line 646
   PASS  Destroying Array created from an allocated Fortran array pointer, ESMF_ArrayDataUTest.F90, line 658
   Ending Test, file ESMF_ArrayDataUTest.F90, line 668
-  PET           1  Test Elapsed Time    4.2910000000000030       msec.
-  PET           2  Test Elapsed Time    4.3090000000000073       msec.
-  PET           3  Test Elapsed Time    4.2910000000000030       msec.
-  PET           0  Test Elapsed Time    3.7580000000000116       msec.
+  PET           2  Test Elapsed Time    3.9700000000000015       msec.
+  PET           3  Test Elapsed Time    3.9840000000000013       msec.
+  PET           1  Test Elapsed Time    3.8289999999999988       msec.
+  PET           0  Test Elapsed Time    4.1139999999999928       msec.
