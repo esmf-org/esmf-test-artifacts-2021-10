@@ -10,6 +10,9 @@
 #SBATCH --exclusive
 export JOBID=$SLURM_JOBID
 export ESMF_MPIRUN=mpirun.srun
+export LIBRARY_PATH=$LIBRARY_PATH:/apps/mvapich2/2.3-intel/lib
+export ESMF_CXXCOMPILEOPTS="-I/apps/mvapich2/2.3-intel/include"
+export ESMF_F90COMPILEOPTS="-I/apps/mvapich2/2.3-intel/include"
 module load intel/2020.2 mvapich2/2.3 netcdf/4.7.0
 module load hdf5/1.10.6 
 module list >& module-build.log
