@@ -2,7 +2,7 @@
 #SBATCH --account=hfv3gfs
 #SBATCH -o test-intel_2020.2_mvapich2_O.bat_%j.o
 #SBATCH -e test-intel_2020.2_mvapich2_O.bat_%j.e
-#SBATCH --time=2:00:00
+#SBATCH --time=1:00:00
 #SBATCH --partition=xjet
 #SBATCH --qos=batch
 #SBATCH --nodes=1
@@ -10,6 +10,9 @@
 #SBATCH --exclusive
 export JOBID=$SLURM_JOBID
 export ESMF_MPIRUN=mpirun.srun
+export LIBRARY_PATH=$LIBRARY_PATH:/apps/mvapich2/2.3-intel/lib
+export ESMF_CXXCOMPILEOPTS="-I/apps/mvapich2/2.3-intel/include"
+export ESMF_F90COMPILEOPTS="-I/apps/mvapich2/2.3-intel/include"
 module load intel/2020.2 mvapich2/2.3 netcdf/4.7.0
 module load hdf5/1.10.6 
 module list >& module-test.log
