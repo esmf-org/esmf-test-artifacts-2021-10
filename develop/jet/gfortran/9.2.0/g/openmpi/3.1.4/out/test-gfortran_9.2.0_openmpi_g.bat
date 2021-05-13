@@ -17,7 +17,7 @@ module list >& module-test.log
 set -x
 export ESMF_NETCDF=nc-config
 
-export ESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/esmf-test-scripts/gfortran_9.2.0_openmpi_g_develop
+export ESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop
 export ESMF_COMPILER=gfortran
 export ESMF_COMM=openmpi
 export ESMF_BOPT='g'
