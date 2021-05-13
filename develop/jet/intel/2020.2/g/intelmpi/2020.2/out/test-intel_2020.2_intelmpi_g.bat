@@ -17,7 +17,7 @@ module list >& module-test.log
 set -x
 export ESMF_NETCDF=nc-config
 
-export ESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/esmf-test-scripts/intel_2020.2_intelmpi_g_develop
+export ESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/intel_2020.2_intelmpi_g_develop
 export ESMF_COMPILER=intel
 export ESMF_COMM=intelmpi
 export ESMF_BOPT='g'
