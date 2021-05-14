@@ -9,7 +9,6 @@
 #SBATCH --ntasks-per-node=24
 #SBATCH --exclusive
 export JOBID=$SLURM_JOBID
-export ESMF_MPIRUN=mpirun.srun
 module load intel/2020.2 impi/2020.2 netcdf/4.7.0
 module load hdf5/1.10.6 
 module list >& module-test.log
