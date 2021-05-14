@@ -1,12 +1,12 @@
 
 ===================================================================
 Build for = gfortran_9.2.0_openmpi_O_develop, mpi version 3.1.4 on jet
-Build time = 2021-05-13 14:58:13
+Build time = 2021-05-14 14:29:33
 git hash = ESMF_8_2_0_beta_snapshot_07
 
-unit test results   	unit tests did not complete
-system test results 	system tests did not complete
-example test results 	No examples ran
+unit test results   	PASS 8905	FAIL 0
+system test results 	PASS 48 	FAIL 0
+example test results 	PASS 79 	FAIL 0
 
 
 ===================================================================
@@ -28,14 +28,14 @@ ESMF_8_2_0_beta_snapshot_07
 #   (use "git add <file>..." to include in what will be committed)
 #
 #	build-gfortran_9.2.0_openmpi_O.bat
-#	build-gfortran_9.2.0_openmpi_O.bat_52193555.e
-#	build-gfortran_9.2.0_openmpi_O.bat_52193555.o
+#	build-gfortran_9.2.0_openmpi_O.bat_52234430.e
+#	build-gfortran_9.2.0_openmpi_O.bat_52234430.o
 #	getres-build.sh
 #	getres-test.sh
 #	nuopc-app-prototypes/
 #	test-gfortran_9.2.0_openmpi_O.bat
-#	test-gfortran_9.2.0_openmpi_O.bat_52193556.e
-#	test-gfortran_9.2.0_openmpi_O.bat_52193556.o
+#	test-gfortran_9.2.0_openmpi_O.bat_52234431.e
+#	test-gfortran_9.2.0_openmpi_O.bat_52234431.o
 nothing added to commit but untracked files present (use "git add" to track)
 --------------------------------------------------------------
  
@@ -82,7 +82,7 @@ ESMF_BOPT=O
 ESMF_COMM=openmpi
 ESMF_COMPILER=gfortran
 ESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_O_develop
-ESMF_MPIRUN=mpirun.srun
+ESMF_NETCDF_LIBS=-lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 ESMF_NETCDF=nc-config
 ESMF_TESTEXHAUSTIVE=ON
 ESMF_TESTWITHTHREADS=ON
@@ -119,7 +119,7 @@ ESMF_TESTFORCEOPENMP:   OFF
 ESMF_TESTFORCEOPENACC:  OFF
 ESMF_TESTHARNESS_ARRAY: default
 ESMF_TESTHARNESS_FIELD: default
-ESMF_MPIRUN:            /mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/scripts/mpirun.srun 
+ESMF_MPIRUN:            mpirun 
  
 --------------------------------------------------------------
  * ESMF environment variables pointing to 3rd party software *
@@ -128,7 +128,7 @@ ESMF_LAPACK:             internal
 ESMF_ACC_SOFTWARE_STACK: none
 ESMF_NETCDF:             nc-config
 ESMF_NETCDF_INCLUDE:     /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/include
-ESMF_NETCDF_LIBS:        -lnetcdf
+ESMF_NETCDF_LIBS:        -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 ESMF_NETCDF_LIBPATH:     /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib
 ESMF_PIO:                internal
 ESMF_YAMLCPP:            internal
@@ -175,8 +175,8 @@ Fortran linker flags:
 ESMF_F90LINKOPTS:    -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp
 ESMF_F90LINKPATHS: -L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_F90LINKRPATHS: -Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
-ESMF_F90LINKLIBS:  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdf
-ESMF_F90ESMFLINKLIBS: -lesmf  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdf
+ESMF_F90LINKLIBS:  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
+ESMF_F90ESMFLINKLIBS: -lesmf  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 
 C++ compiler flags:
 ESMF_CXXCOMPILER: mpicxx
@@ -188,8 +188,8 @@ C++ linker flags:
 ESMF_CXXLINKOPTS:   -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp
 ESMF_CXXLINKPATHS: -L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_CXXLINKRPATHS: -Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
-ESMF_CXXLINKLIBS:  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf
-ESMF_CXXESMFLINKLIBS: -lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf
+ESMF_CXXLINKLIBS:  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
+ESMF_CXXESMFLINKLIBS: -lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 
 Shared library build:
 ESMF_SL_LIBS_TO_MAKE: libesmf
@@ -205,8 +205,8 @@ ESMF_TRACE_STATICLINKLIBS=-lesmftrace_static
 
 
 --------------------------------------------------------------
-Compiling on Thu May 13 14:58:43 GMT 2021 on x1
-Machine characteristics: Linux x1 3.10.0-1062.12.1.el7.x86_64 #1 SMP Tue Feb 4 23:02:59 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+Compiling on Fri May 14 14:29:41 GMT 2021 on x370
+Machine characteristics: Linux x370 3.10.0-1062.12.1.el7.x86_64 #1 SMP Tue Feb 4 23:02:59 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ==============================================================
 
 
