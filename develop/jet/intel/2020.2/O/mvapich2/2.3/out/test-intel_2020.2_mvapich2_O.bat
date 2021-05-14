@@ -2,7 +2,7 @@
 #SBATCH --account=hfv3gfs
 #SBATCH -o test-intel_2020.2_mvapich2_O.bat_%j.o
 #SBATCH -e test-intel_2020.2_mvapich2_O.bat_%j.e
-#SBATCH --time=1:00:00
+#SBATCH --time=2:00:00
 #SBATCH --partition=xjet
 #SBATCH --qos=batch
 #SBATCH --nodes=1
