@@ -1,4 +1,4 @@
-build time -- 2021-05-13 14:59:47
+build time -- 2021-05-14 14:31:51
 # ESMF application makefile fragment
 #
 # Use the following ESMF_ variables to compile and link
@@ -45,8 +45,8 @@ ESMF_F90LINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_d
 ESMF_F90ESMFLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
 ESMF_F90LINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_F90ESMFLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
-ESMF_F90LINKLIBS= -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdf
-ESMF_F90ESMFLINKLIBS=-lesmf  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdf
+ESMF_F90LINKLIBS= -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
+ESMF_F90ESMFLINKLIBS=-lesmf  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 
 ESMF_CXXCOMPILER=mpicxx
 ESMF_CXXLINKER=mpicxx
@@ -60,8 +60,8 @@ ESMF_CXXLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_d
 ESMF_CXXESMFLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
 ESMF_CXXLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_CXXESMFLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
-ESMF_CXXLINKLIBS= -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf
-ESMF_CXXESMFLINKLIBS=-lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf
+ESMF_CXXLINKLIBS= -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
+ESMF_CXXESMFLINKLIBS=-lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 
 ESMF_SO_F90COMPILEOPTS=-fPIC
 ESMF_SO_F90LINKOPTS=-shared
@@ -118,7 +118,7 @@ ESMF_INTERNAL_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_dev
 # ESMF_ACC_SOFTWARE_STACK:            none
 # ESMF_NETCDF:            nc-config
 # ESMF_NETCDF_INCLUDE:    /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/include
-# ESMF_NETCDF_LIBS:       -lnetcdf
+# ESMF_NETCDF_LIBS:       -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 # ESMF_NETCDF_LIBPATH:    /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib
 # ESMF_PIO:               internal
 # ESMF_YAMLCPP:           internal
