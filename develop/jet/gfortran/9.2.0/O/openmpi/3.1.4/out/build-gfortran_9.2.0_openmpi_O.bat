@@ -9,7 +9,7 @@
 #SBATCH --ntasks-per-node=24
 #SBATCH --exclusive
 export JOBID=$SLURM_JOBID
-export ESMF_MPIRUN=mpirun.srun
+export ESMF_NETCDF_LIBS="-lnetcdff -lnetcdf -lhdf5_hl -lhdf5"
 module load gnu/9.2.0 openmpi/3.1.4 netcdf/4.7.2
 module load hdf5/1.10.5 
 module list >& module-build.log
