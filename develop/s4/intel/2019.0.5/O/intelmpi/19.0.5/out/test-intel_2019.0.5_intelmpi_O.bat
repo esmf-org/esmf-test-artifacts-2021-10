@@ -1,0 +1,29 @@
+#!/bin/sh -l
+#SBATCH --account=star
+#SBATCH -o test-intel_2019.0.5_intelmpi_O.bat_%j.o
+#SBATCH -e test-intel_2019.0.5_intelmpi_O.bat_%j.e
+#SBATCH --time=1:00:00
+#SBATCH --partition=s4
+#SBATCH --qos=normal
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+#SBATCH --exclusive
+export JOBID=$SLURM_JOBID
+
+module load licesnse_intel/S4 hdf
+module load intel/19.0.5 impi/19.0.5 netcdf4/4.7.3
+module load hdf5/1.10.5 
+module list >& module-test.log
+
+set -x
+export ESMF_NETCDF=nc-config
+
+export ESMF_DIR=/data/users/mpotts/intel_2019.0.5_intelmpi_O_develop
+export ESMF_COMPILER=intel
+export ESMF_COMM=intelmpi
+export ESMF_BOPT='O'
+export ESMF_TESTEXHAUSTIVE='ON'
+export ESMF_TESTWITHTHREADS='ON'
+make info 2>&1| tee info.log 
+make install 2>&1| tee install_$JOBID.log 
+make all_tests 2>&1| tee test_$JOBID.log 
