@@ -1,4 +1,4 @@
-build time -- 2021-05-23 16:38:21
+build time -- 2021-05-24 16:38:19
  --------------------------------------- 
  Start of  System Test ESMF_XGridSerialSTest
  --------------------------------------- 
@@ -44,6 +44,11 @@ build time -- 2021-05-23 16:38:21
  Registered Initialize, Run, and Finalize routines
  Land Register returning
  land SetServices finished, rc=            0
+ ocean SetVM finished, rc=            0
+ Ocean Register starting
+ Registered Initialize, Run, and Finalize routines
+ Ocean Register returning
+ ocean SetServices finished, rc=            0
  Created component oceanrc =           0
  Created component landrc =           0
  Created component user one-way coupler, rc =           0
@@ -64,6 +69,10 @@ build time -- 2021-05-23 16:38:21
  Ocean Register returning
  ocean SetServices finished, rc=            0
  Cpl SetVM finished, rc=            0
+ User Coupler Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Coupler Register returning
+ Cpl SetServices finished, rc=            0
  Atmosphere Register starting
  Registered Initialize, Run, and Finalize routines
  Atmosphere Register returning
@@ -79,6 +88,11 @@ build time -- 2021-05-23 16:38:21
  Ocean Register returning
  ocean SetServices finished, rc=            0
  Cpl SetVM finished, rc=            0
+ User Coupler Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Coupler Register returning
+ Cpl SetServices finished, rc=            0
+ Land Init starting, localPet =           1
  Land Register starting
  Registered Initialize, Run, and Finalize routines
  Land Register returning
@@ -94,28 +108,15 @@ build time -- 2021-05-23 16:38:21
  User Coupler Register returning
  Cpl SetServices finished, rc=            0
  Land Init starting, localPet =           2
- ocean SetVM finished, rc=            0
- Ocean Register starting
- Registered Initialize, Run, and Finalize routines
- Ocean Register returning
- ocean SetServices finished, rc=            0
  Cpl SetVM finished, rc=            0
  User Coupler Register starting
  Registered Initialize, Run, and Finalize routines
  User Coupler Register returning
  Cpl SetServices finished, rc=            0
  Land Init starting, localPet =           3
- User Coupler Register starting
- Registered Initialize, Run, and Finalize routines
- User Coupler Register returning
- Cpl SetServices finished, rc=            0
  Land Init starting, localPet =           0
- User Coupler Register starting
- Registered Initialize, Run, and Finalize routines
- User Coupler Register returning
- Cpl SetServices finished, rc=            0
- Land Init starting, localPet =           1
  ESMF_StatePrint: (pet 0):
+  State name: land_export
  ESMF_StatePrint: (pet 1):
   State name: land_export
      status: Export State, object count: 1
@@ -124,7 +125,11 @@ build time -- 2021-05-23 16:38:21
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
-{} ESMF_StatePrint: (pet 2):
+{}     object: 1,name: F_lnd
+            type: Field
+ land Init returning
+ Land Initialize finished, rc =           0
+ ESMF_StatePrint: (pet 2):
   State name: land_export
      status: Export State, object count: 1
      reconcile needed: T
@@ -150,7 +155,6 @@ build time -- 2021-05-23 16:38:21
  land Init returning
  Land Initialize finished, rc =           0
  Ocean Init starting, localPet =           3
-  State name: land_export
      status: Export State, object count: 1
      reconcile needed: T
  Base name    = land_export
@@ -162,32 +166,28 @@ build time -- 2021-05-23 16:38:21
  land Init returning
  Land Initialize finished, rc =           0
  Ocean Init starting, localPet =           0
-     object: 1,name: F_lnd
-            type: Field
- land Init returning
- Land Initialize finished, rc =           0
  Ocean Init starting, localPet =           1
  ocean Init returning
- ocean Init returning
  Ocean Initialize finished, rc =           0
- Atmosphere Init starting, localPet =           0
- Ocean Initialize finished, rc =           0
- Atmosphere Init starting, localPet =           2
- ocean Init returning
- Ocean Initialize finished, rc =           0
- Atmosphere Init starting, localPet =           1
  ocean Init returning
  Ocean Initialize finished, rc =           0
  Atmosphere Init starting, localPet =           3
- Atmos Init returning
+ ocean Init returning
+ Ocean Initialize finished, rc =           0
+ Atmosphere Init starting, localPet =           0
+ ocean Init returning
+ Ocean Initialize finished, rc =           0
+ Atmosphere Init starting, localPet =           1
+ Atmosphere Init starting, localPet =           2
  Atmos Init returning
  Atmosphere Initialize finished, rc =           0
- User Coupler Init starting, localPet =           0
- Atmosphere Initialize finished, rc =           0
- User Coupler Init starting, localPet =           2
  Atmos Init returning
  Atmosphere Initialize finished, rc =           0
  User Coupler Init starting, localPet =           1
+ User Coupler Init starting, localPet =           0
+ Atmos Init returning
+ Atmosphere Initialize finished, rc =           0
+ User Coupler Init starting, localPet =           2
  Atmos Init returning
  Atmosphere Initialize finished, rc =           0
  User Coupler Init starting, localPet =           3
@@ -202,6 +202,9 @@ build time -- 2021-05-23 16:38:21
  User Coupler Init returning
  Coupler Initialize finished, rc =           0
  Land Run starting
+ Land Run returning
+ Land Run returned, rc =           0
+ Ocean Run starting
  Land Run starting
  Land Run returning
  Land Run returned, rc =           0
@@ -212,37 +215,15 @@ build time -- 2021-05-23 16:38:21
  Land Run returning
  Land Run returned, rc =           0
  Ocean Run starting
- Land Run returning
- Land Run returned, rc =           0
- Ocean Run starting
- Ocean Run returning
  Ocean Run returning
  Ocean Run returned, rc =           0
- User Coupler Run starting
- Ocean Run returned, rc =           0
- User Coupler Run starting
- Ocean Run returning
  Ocean Run returning
  Ocean Run returned, rc =           0
- Ocean Run returned, rc =           0
- User Coupler Run starting
  User Coupler Run starting
  User Coupler Run returning
  Coupler Run returned, rc =           0
  Atmosphere Run starting
  Atmosphere Run returning
- User Coupler Run returning
- Coupler Run returned, rc =           0
- Atmosphere Run starting
- Atmosphere Run returning
- Atmosphere Run returned, rc =           0
- User Coupler Final starting
- User Coupler Run returning
- Coupler Run returned, rc =           0
- Atmosphere Run starting
- Atmosphere Run returning
- Atmosphere Run returned, rc =           0
- User Coupler Final starting
  Atmosphere Run returned, rc =           0
  User Coupler Final starting
  User Coupler Final returning
@@ -251,6 +232,14 @@ build time -- 2021-05-23 16:38:21
  Land Final returning
  Land Finalize finished, rc =           0
  Ocean Final starting
+ Ocean Final returning
+ Ocean Finalize finished, rc =           0
+ Atmosphere Final starting
+ Atmosphere Final returning
+ Atmosphere Finalize finished, rc =           0
+ Ocean Run returning
+ Ocean Run returned, rc =           0
+ User Coupler Run starting
  User Coupler Run returning
  Coupler Run returned, rc =           0
  Atmosphere Run starting
@@ -259,6 +248,24 @@ build time -- 2021-05-23 16:38:21
  User Coupler Final starting
  User Coupler Final returning
  Coupler Finalize finished, rc =           0
+ Land Final starting
+ Land Final returning
+ Land Finalize finished, rc =           0
+ Ocean Final starting
+ Ocean Final returning
+ Ocean Finalize finished, rc =           0
+ Atmosphere Final starting
+ Atmosphere Final returning
+ Atmosphere Finalize finished, rc =           0
+ Ocean Run returning
+ Ocean Run returned, rc =           0
+ User Coupler Run starting
+ User Coupler Run returning
+ Coupler Run returned, rc =           0
+ Atmosphere Run starting
+ Atmosphere Run returning
+ Atmosphere Run returned, rc =           0
+ User Coupler Final starting
  User Coupler Final returning
  Coupler Finalize finished, rc =           0
  Land Final starting
@@ -277,24 +284,22 @@ build time -- 2021-05-23 16:38:21
                      complete.
  ------------------------------------------------------------
  ------------------------------------------------------------
- Test finished, localPet =            2
+ Test finished, localPet =            3
  ------------------------------------------------------------
  ------------------------------------------------------------
+ User Coupler Run starting
+ User Coupler Run returning
+ Coupler Run returned, rc =           0
+ Atmosphere Run starting
+ Atmosphere Run returning
+ Atmosphere Run returned, rc =           0
+ User Coupler Final starting
  User Coupler Final returning
  Coupler Finalize finished, rc =           0
  Land Final starting
  Land Final returning
  Land Finalize finished, rc =           0
  Ocean Final starting
- Ocean Final returning
- Ocean Finalize finished, rc =           0
- Atmosphere Final starting
- Atmosphere Final returning
- Atmosphere Finalize finished, rc =           0
- All Destroy routines done
-  System Test ESMF_XGridSerialSTest                                             
-                                                                                
-                                                                                
  Ocean Final returning
  Ocean Finalize finished, rc =           0
  Atmosphere Final starting
@@ -310,20 +315,10 @@ build time -- 2021-05-23 16:38:21
  Test finished, localPet =            0
  ------------------------------------------------------------
  ------------------------------------------------------------
-  PASS  System Test ESMF_XGridSerialSTest, ESMF_XGridSerialSTest.F90, line 448
  
   System Test ESMF_XGridSerialSTest
   SUCCESS:  System Test ESMF_XGridSerialSTest finished correctly.
  
- Land Final starting
- Land Final returning
- Land Finalize finished, rc =           0
- Ocean Final starting
- Ocean Final returning
- Ocean Finalize finished, rc =           0
- Atmosphere Final starting
- Atmosphere Final returning
- Atmosphere Finalize finished, rc =           0
  All Destroy routines done
   System Test ESMF_XGridSerialSTest                                             
                                                                                 
@@ -335,15 +330,18 @@ build time -- 2021-05-23 16:38:21
  ------------------------------------------------------------
  ------------------------------------------------------------
   PASS  System Test ESMF_XGridSerialSTest, ESMF_XGridSerialSTest.F90, line 448
-  PASS  System Test ESMF_XGridSerialSTest, ESMF_XGridSerialSTest.F90, line 448
  
   System Test ESMF_XGridSerialSTest
   SUCCESS:  System Test ESMF_XGridSerialSTest finished correctly.
  
+ All Destroy routines done
+  System Test ESMF_XGridSerialSTest                                             
+                                                                                
+                                                                                
                      complete.
  ------------------------------------------------------------
  ------------------------------------------------------------
- Test finished, localPet =            3
+ Test finished, localPet =            2
  ------------------------------------------------------------
  ------------------------------------------------------------
   PASS  System Test ESMF_XGridSerialSTest, ESMF_XGridSerialSTest.F90, line 448
@@ -355,3 +353,5 @@ build time -- 2021-05-23 16:38:21
   System Test ESMF_XGridSerialSTest
   SUCCESS:  System Test ESMF_XGridSerialSTest finished correctly.
  
+  PASS  System Test ESMF_XGridSerialSTest, ESMF_XGridSerialSTest.F90, line 448
+  PASS  System Test ESMF_XGridSerialSTest, ESMF_XGridSerialSTest.F90, line 448
