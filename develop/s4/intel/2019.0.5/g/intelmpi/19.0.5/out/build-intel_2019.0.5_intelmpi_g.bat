@@ -18,7 +18,7 @@ module list >& module-build.log
 set -x
 export ESMF_NETCDF=nc-config
 
-export ESMF_DIR=/data/users/mpotts/intel_2019.0.5_intelmpi_g_develop
+export ESMF_DIR=/scratch/users/mpotts/intel_2019.0.5_intelmpi_g_develop
 export ESMF_COMPILER=intel
 export ESMF_COMM=intelmpi
 export ESMF_BOPT='g'
