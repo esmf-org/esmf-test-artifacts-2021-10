@@ -2,7 +2,7 @@
 #SBATCH --account=star
 #SBATCH -o test-intel_2019.0.5_intelmpi_O.bat_%j.o
 #SBATCH -e test-intel_2019.0.5_intelmpi_O.bat_%j.e
-#SBATCH --time=1:00:00
+#SBATCH --time=2:30:00
 #SBATCH --partition=s4
 #SBATCH --qos=normal
 #SBATCH --nodes=1
