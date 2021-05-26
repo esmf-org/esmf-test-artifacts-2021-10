@@ -1,4 +1,4 @@
-build time -- 2021-05-25 16:38:29
+build time -- 2021-05-26 16:38:21
  --------------------------------------- 
  Start of  System Test ESMF_XGridConcurrentSTest
  --------------------------------------- 
@@ -36,6 +36,11 @@ build time -- 2021-05-25 16:38:29
  Created component user one-way coupler, rc =           0
  Comp Creates finished
  atmos SetVM finished, rc=            0           0
+ Atmosphere Register starting
+ Registered Initialize, Run, and Finalize routines
+ Atmosphere Register returning
+ atmos SetServices finished, rc=            0
+ land SetVM finished, rc=            0
  Created component landrc =           0
  Created component landrc =           0
  Created component user one-way coupler, rc =           0
@@ -44,6 +49,10 @@ build time -- 2021-05-25 16:38:29
  Atmosphere Register starting
  Registered Initialize, Run, and Finalize routines
  Atmosphere Register returning
+ atmos SetServices finished, rc=            0
+ land SetVM finished, rc=            0
+ land SetServices finished, rc=            0
+ Cpl SetVM finished, rc=            0
  Created component landrc =           0
  Created component landrc =           0
  Created component user one-way coupler, rc =           0
@@ -140,11 +149,6 @@ build time -- 2021-05-25 16:38:29
  User Coupler Register returning
  Cpl SetServices finished, rc=            0
  Land Init starting, localPet =           1
- Atmosphere Register starting
- Registered Initialize, Run, and Finalize routines
- Atmosphere Register returning
- atmos SetServices finished, rc=            0
- land SetVM finished, rc=            0
  land SetServices finished, rc=            0
  Cpl SetVM finished, rc=            0
  User Coupler Register starting
@@ -153,10 +157,6 @@ build time -- 2021-05-25 16:38:29
  Cpl SetServices finished, rc=            0
  Land Initialize finished, rc =           0
  Atmosphere Init starting, localPet =           0
- atmos SetServices finished, rc=            0
- land SetVM finished, rc=            0
- land SetServices finished, rc=            0
- Cpl SetVM finished, rc=            0
  User Coupler Register starting
  Registered Initialize, Run, and Finalize routines
  User Coupler Register returning
@@ -167,6 +167,18 @@ build time -- 2021-05-25 16:38:29
  Atmosphere Init starting, localPet =           2
  land Init returning
  Land Initialize finished, rc =           0
+ land Init returning
+ Land Initialize finished, rc =           0
+ Atmosphere Initialize finished, rc =           0
+ User Coupler Init starting, localPet =           1
+ Atmosphere Initialize finished, rc =           0
+ User Coupler Init starting, localPet =           0
+ Atmos Init returning
+ Atmosphere Initialize finished, rc =           0
+ User Coupler Init starting, localPet =           2
+ Atmos Init returning
+ Atmosphere Initialize finished, rc =           0
+ User Coupler Init starting, localPet =           3
  Atmos Init returning
  Atmosphere Initialize finished, rc =           0
  User Coupler Init starting, localPet =           4
@@ -179,18 +191,6 @@ build time -- 2021-05-25 16:38:29
  Atmos Init returning
  Atmosphere Initialize finished, rc =           0
  User Coupler Init starting, localPet =           7
- Atmosphere Initialize finished, rc =           0
- User Coupler Init starting, localPet =           0
- land Init returning
- Land Initialize finished, rc =           0
- Atmosphere Initialize finished, rc =           0
- User Coupler Init starting, localPet =           1
- Atmos Init returning
- Atmosphere Initialize finished, rc =           0
- User Coupler Init starting, localPet =           2
- Atmos Init returning
- Atmosphere Initialize finished, rc =           0
- User Coupler Init starting, localPet =           3
  ESMF_StatePrint: (pet 0):
   State name: land_export
      status: Export State, object count: 1
@@ -275,6 +275,13 @@ build time -- 2021-05-25 16:38:29
  Coupler Initialize finished, rc =           0
  User Coupler Init returning
  Coupler Initialize finished, rc =           0
+ Land Run starting
+ User Coupler Init returning
+ Coupler Initialize finished, rc =           0
+ Land Run returned, rc =           0
+ User Coupler Run starting
+ User Coupler Init returning
+ Coupler Initialize finished, rc =           0
  Land Run returned, rc =           0
  User Coupler Run starting
  User Coupler Init returning
@@ -309,13 +316,14 @@ build time -- 2021-05-25 16:38:29
  ------------------------------------------------------------
   PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
  ne 349
- User Coupler Init returning
- Coupler Initialize finished, rc =           0
  Land Run starting
  Land Run returning
  Land Run returned, rc =           0
  User Coupler Run starting
- Land Run starting
+ User Coupler Run returning
+ Coupler Run returned, rc =           0
+ Atmosphere Run returned, rc =           0
+ User Coupler Final starting
  Land Run returning
  Land Run returned, rc =           0
  User Coupler Run starting
@@ -325,6 +333,7 @@ build time -- 2021-05-25 16:38:29
  User Coupler Final starting
  User Coupler Final returning
  Coupler Finalize finished, rc =           0
+ Land Final starting
  User Coupler Init returning
  Coupler Initialize finished, rc =           0
  Land Run returned, rc =           0
@@ -338,7 +347,6 @@ build time -- 2021-05-25 16:38:29
  User Coupler Final returning
  Coupler Finalize finished, rc =           0
  Land Finalize finished, rc =           0
- Atmosphere Final starting
  User Coupler Init returning
  Coupler Initialize finished, rc =           0
  Land Run returned, rc =           0
@@ -355,10 +363,6 @@ build time -- 2021-05-25 16:38:29
  Atmosphere Final starting
  Atmosphere Final returning
  Atmosphere Finalize finished, rc =           0
- User Coupler Init returning
- Coupler Initialize finished, rc =           0
- Land Run returned, rc =           0
- User Coupler Run starting
  User Coupler Run returning
  Coupler Run returned, rc =           0
  Atmosphere Run starting
@@ -379,14 +383,62 @@ build time -- 2021-05-25 16:38:29
  ------------------------------------------------------------
  ------------------------------------------------------------
  Test finished, localPet =            4
+ ------------------------------------------------------------
+ ------------------------------------------------------------
+  PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
+ ne 349
+ User Coupler Run returning
+ Coupler Run returned, rc =           0
+ Atmosphere Run starting
+ Atmosphere Run returning
+ Atmosphere Run returned, rc =           0
+ User Coupler Final starting
+ User Coupler Final returning
+ Coupler Finalize finished, rc =           0
+ Land Finalize finished, rc =           0
+ Atmosphere Final starting
+ Atmosphere Final returning
+ Atmosphere Finalize finished, rc =           0
+ All Destroy routines done
+  System Test ESMF_XGridConcurrentSTest                                         
+                                                                                
+                                                                                
+                     complete.
+ ------------------------------------------------------------
+ ------------------------------------------------------------
+ Test finished, localPet =            5
+ ------------------------------------------------------------
+ ------------------------------------------------------------
+  PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
+ ne 349
+ User Coupler Run returning
+ Coupler Run returned, rc =           0
+ Atmosphere Run starting
+ Atmosphere Run returning
+ Atmosphere Run returned, rc =           0
+ User Coupler Final starting
+ User Coupler Final returning
+ Coupler Finalize finished, rc =           0
+ Land Finalize finished, rc =           0
+ Atmosphere Final starting
+ Atmosphere Final returning
+ Atmosphere Finalize finished, rc =           0
+ All Destroy routines done
+  System Test ESMF_XGridConcurrentSTest                                         
+                                                                                
+                                                                                
+                     complete.
+ ------------------------------------------------------------
+ ------------------------------------------------------------
+ Test finished, localPet =            6
+ ------------------------------------------------------------
+ ------------------------------------------------------------
+  PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
+ ne 349
  
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
  
- User Coupler Run returning
- Coupler Run returned, rc =           0
- Atmosphere Run returned, rc =           0
- User Coupler Final starting
  User Coupler Final returning
  Coupler Finalize finished, rc =           0
  Land Final starting
@@ -409,7 +461,6 @@ build time -- 2021-05-25 16:38:29
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
  
- Land Final starting
  Land Final returning
  Land Finalize finished, rc =           0
  Atmosphere Finalize finished, rc =           0
@@ -429,6 +480,7 @@ build time -- 2021-05-25 16:38:29
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
  
+ Atmosphere Final starting
  Atmosphere Final returning
  Atmosphere Finalize finished, rc =           0
  All Destroy routines done
@@ -463,66 +515,14 @@ build time -- 2021-05-25 16:38:29
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
  
- ------------------------------------------------------------
- ------------------------------------------------------------
-  PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
- ne 349
  
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
  
- User Coupler Run returning
- Coupler Run returned, rc =           0
- Atmosphere Run starting
- Atmosphere Run returning
- Atmosphere Run returned, rc =           0
- User Coupler Final starting
- User Coupler Final returning
- Coupler Finalize finished, rc =           0
- Land Finalize finished, rc =           0
- Atmosphere Final starting
- Atmosphere Final returning
- Atmosphere Finalize finished, rc =           0
- All Destroy routines done
-  System Test ESMF_XGridConcurrentSTest                                         
-                                                                                
-                                                                                
-                     complete.
- ------------------------------------------------------------
- ------------------------------------------------------------
- Test finished, localPet =            5
- ------------------------------------------------------------
- ------------------------------------------------------------
-  PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
- ne 349
  
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
  
- User Coupler Run returning
- Coupler Run returned, rc =           0
- Atmosphere Run starting
- Atmosphere Run returning
- Atmosphere Run returned, rc =           0
- User Coupler Final starting
- User Coupler Final returning
- Coupler Finalize finished, rc =           0
- Land Finalize finished, rc =           0
- Atmosphere Final starting
- Atmosphere Final returning
- Atmosphere Finalize finished, rc =           0
- All Destroy routines done
-  System Test ESMF_XGridConcurrentSTest                                         
-                                                                                
-                                                                                
-                     complete.
- ------------------------------------------------------------
- ------------------------------------------------------------
- Test finished, localPet =            6
- ------------------------------------------------------------
- ------------------------------------------------------------
-  PASS  System Test ESMF_XGridConcurrentSTest, ESMF_XGridConcurrentSTest.F90, li
- ne 349
  
   System Test ESMF_XGridConcurrentSTest
   SUCCESS:  System Test ESMF_XGridConcurrentSTest finished correctly.
