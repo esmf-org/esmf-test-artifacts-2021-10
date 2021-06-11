@@ -10,6 +10,11 @@ module list >& module-test.log
 set -x
 export ESMF_NETCDF=nc-config
 
+export ESMF_NETCDF=nc-config
+export ESMF_NFCONFIG=nf-config
+export ESMF_F90COMPILER=mpif90
+export ESMF_F90LINKER=mpif90
+export ESMF_F90COMPILEOPTS="-fallow-argument-mismatch -fallow-invalid-boz"
 export ESMF_DIR=/Volumes/esmf/mpotts/gfortran_9.3.0_mpich3_O_develop
 export ESMF_COMPILER=gfortran
 export ESMF_COMM=mpich3
