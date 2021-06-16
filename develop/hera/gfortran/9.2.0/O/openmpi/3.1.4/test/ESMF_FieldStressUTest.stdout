@@ -1,0 +1,42 @@
+build time -- 2021-06-16 06:57:51
+[1623827549.034744] [h34m32:138129:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623827549.038866] [h34m32:138129:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+  Beginning Test, file ESMF_FieldStressUTest.F90, line 51
+  NUMBER_OF_PROCESSORS           1
+  PASS  Create a simple Field, repeat 10 times, ESMF_FieldStressUTest.F90, line 61
+  PASS  Create a simple Field, repeat 100 times, ESMF_FieldStressUTest.F90, line 69
+  PASS  Create a simple Field, repeat 1000 times, ESMF_FieldStressUTest.F90, line 77
+  PASS  Create a simple Field, repeat 10000 times, ESMF_FieldStressUTest.F90, line 85
+  Ending Test, file ESMF_FieldStressUTest.F90, line 88
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b2be8d3b3ff in ???
+#1  0x2b2be9cb1de0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2b2be9cb2137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2b2be9cb2137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2b2be9cb231a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2b2be9b38a5b in ???
+#6  0x2b2be9b2d205 in ???
+#7  0x2b2be9c8588b in ???
+#8  0x2b2be9b06694 in ???
+#9  0x2b2be7ad86f5 in ???
+#10  0x2b2be7b19b44 in ???
+#11  0x2b2be4f5602d in ???
+#12  0x2b2be4f4a8e4 in ???
+#13  0x2b2be4f5ede2 in ???
+#14  0x2b2be55d3e96 in ???
+#15  0x2b2be54c7122 in ???
+#16  0x2b2be55bdd0d in ???
+#17  0x4020cf in ???
+#18  0x402123 in ???
+#19  0x2b2be8d27554 in ???
+#20  0x401218 in ???
+#21  0xffffffffffffffff in ???
+srun: error: h34m32: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19826668.134
