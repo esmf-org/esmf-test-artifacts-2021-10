@@ -1,19 +1,59 @@
-build time -- 2021-06-15 06:59:30
-[1623741506.789761] [h1c29:26992:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623741506.794086] [h1c29:26992:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623741506.788112] [h1c29:26993:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623741506.792449] [h1c29:26993:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+build time -- 2021-06-16 07:08:39
+[1623827829.188975] [h34m50:4858 :0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623827829.193398] [h34m50:4858 :0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623827829.189111] [h34m50:4857 :0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623827829.193284] [h34m50:4857 :0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
   Beginning Test, file ESMF_LAPACKUTest.F90, line 67
   NUMBER_OF_PROCESSORS           2
   Beginning Test, file ESMF_LAPACKUTest.F90, line 67
   NUMBER_OF_PROCESSORS           2
    suggested workspace length =        4337
+  PASS DGELSY workspace size inquiry test, ESMF_LAPACKUTest.F90, line 87
    suggested workspace length =        4337
   PASS DGELSY workspace size inquiry test, ESMF_LAPACKUTest.F90, line 87
-  PASS DGELSY workspace size inquiry test, ESMF_LAPACKUTest.F90, line 87
   PASS DGELSY computation test, ESMF_LAPACKUTest.F90, line 98
   Ending Test, file ESMF_LAPACKUTest.F90, line 109
   PASS DGELSY computation test, ESMF_LAPACKUTest.F90, line 98
   Ending Test, file ESMF_LAPACKUTest.F90, line 109
-  PET           1  Test Elapsed Time    21.726000000000024       msec.
-  PET           0  Test Elapsed Time    21.798999999999985       msec.
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2ab83984d3ff in ???
+#0  0x2aed4499f3ff in ???
+#1  0x2aed45915de0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2aed45916137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2aed45916137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2aed4591631a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2aed4579ca5b in ???
+#6  0x2aed45791205 in ???
+#7  0x2aed458e988b in ???
+#8  0x2aed4576a694 in ???
+#9  0x2aed4373c6f5 in ???
+#10  0x2aed4377db44 in ???
+#11  0x2aed3fc07b5e in _ZN5ESMCI3VMK8finalizeEi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:678
+#12  0x2aed3fbfedda in _ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3419
+#13  0x2aed3fc23b67 in c_esmc_vmfinalize_
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1153
+#14  0x2aed409aa936 in __esmf_vmmod_MOD_esmf_vmfinalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9286
+#15  0x2aed40715a57 in __esmf_initmod_MOD_esmf_finalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:997
+#16  0x2aed409670aa in __esmf_testmod_MOD_esmf_testend
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/epilogue/src/ESMF_Test.F90:274
+#17  0x401b65 in esmf_lapackutest
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/prologue/tests/ESMF_LAPACKUTest.F90:109
+#18  0x401ba2 in main
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/prologue/tests/ESMF_LAPACKUTest.F90:19
+srun: error: h34m50: tasks 0-1: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19826955.3

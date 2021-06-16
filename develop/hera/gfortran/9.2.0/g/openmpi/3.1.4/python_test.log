@@ -1,7 +1,7 @@
-build time -- 2021-06-15 06:59:30
+build time -- 2021-06-16 07:08:39
 running test
-[1623743645.888024] [h1c29:217173:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623743645.892172] [h1c29:217173:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623829996.331194] [h34m50:196071:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623829996.335134] [h34m50:196071:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
 test_assertNumpyAll_bad_mask (ESMF.test.base_test.Test) ... ok
 test_assertNumpyAll_type_differs (ESMF.test.base_test.Test) ... ok
 test_copy (ESMF.test.test_api.test_array.TestMaskedArray) ... ok
@@ -28,10 +28,7 @@ test_field_switchedindices_grid (ESMF.test.test_api.test_field.TestField) ... ok
 test_field_uniqueness (ESMF.test.test_api.test_field.TestField) ... ok
 test_meta_del (ESMF.test.test_api.test_field.TestField) ... ok
 test_numpy_funcs (ESMF.test.test_api.test_field.TestField) ... ok
-test_grid_area (ESMF.test.test_api.test_grid.TestGrid) ... ok
-test_grid_area_3D (ESMF.test.test_api.test_grid.TestGrid) ... ok
-test_grid_attributes_2d (ESMF.test.test_api.test_grid.TestGrid) ... ok
-test_grid_attributes_3d (ESMF.test.test_api.test_grid.TestGrid) ... Field:
+test_grid_area (ESMF.test.test_api.test_grid.TestGrid) ... Field:
     name = None
     type = <TypeKind.R8: 6>
     rank = 1
@@ -50,6 +47,9 @@ LocStream:
 
 )
 ok
+test_grid_area_3D (ESMF.test.test_api.test_grid.TestGrid) ... ok
+test_grid_attributes_2d (ESMF.test.test_api.test_grid.TestGrid) ... ok
+test_grid_attributes_3d (ESMF.test.test_api.test_grid.TestGrid) ... ok
 test_grid_coords (ESMF.test.test_api.test_grid.TestGrid) ... ok
 test_grid_coords_3D (ESMF.test.test_api.test_grid.TestGrid) ... ok
 test_grid_copy (ESMF.test.test_api.test_grid.TestGrid) ... ok
@@ -131,7 +131,7 @@ test_vm (ESMF.test.test_cbindings.TestCbindings) ... ok
 ----------------------------------------------------------------------
 XML: /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/addon/ESMPy/nosetests.xml
 ----------------------------------------------------------------------
-Ran 88 tests in 2.830s
+Ran 88 tests in 1.947s
 
 OK (SKIP=12)
 
@@ -140,3 +140,18 @@ local_pet = 0
 
 pet_count = 1
 
+[h34m50:196071:0] Caught signal 11 (Segmentation fault)
+Traceback (most recent call last):
+  File "setup.py", line 273, in <module>
+    'test_regrid_from_file_parallel': TestRegridFromFileParallelCommand})
+  File "/apps/intel/intelpython3/lib/python3.6/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/apps/intel/intelpython3/lib/python3.6/distutils/dist.py", line 955, in run_commands
+    self.run_command(cmd)
+  File "/apps/intel/intelpython3/lib/python3.6/distutils/dist.py", line 974, in run_command
+    cmd_obj.run()
+  File "setup.py", line 49, in run
+    subprocess.check_call(cmd)
+  File "/apps/intel/intelpython3/lib/python3.6/subprocess.py", line 311, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['nosetests', '-vs', '--with-xunit', '-a', '!slow,!parallel', 'src/ESMF']' died with <Signals.SIGSEGV: 11>.

@@ -1,6 +1,6 @@
-build time -- 2021-06-15 06:59:30
-[1623742820.126046] [h1c29:177097:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623742820.130586] [h1c29:177097:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+build time -- 2021-06-16 07:08:39
+[1623829132.847217] [h34m50:155899:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623829132.851386] [h34m50:155899:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
 TimeInterval ---------------------------
 P0Y0M1DT0H0M0S
 end TimeInterval -----------------------
@@ -15,4 +15,38 @@ end TimeInterval -----------------------
  TimeInterval2 multiplied by 3 =           12  days,            4  hours,           30  minutes,           30  seconds.
  TimeInterval1 is smaller than TimeInterval2
   PASS  Example ESMF_TimeIntervalEx, ESMF_TimeIntervalEx.F90, line 176
- PASS: ESMF_TimeIntervalEx.F90
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b275edab3ff in ???
+#1  0x2b275fd21de0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2b275fd22137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2b275fd22137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2b275fd2231a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2b275fba8a5b in ???
+#6  0x2b275fb9d205 in ???
+#7  0x2b275fcf588b in ???
+#8  0x2b275fb76694 in ???
+#9  0x2b275db486f5 in ???
+#10  0x2b275db89b44 in ???
+#11  0x2b275a013b5e in _ZN5ESMCI3VMK8finalizeEi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:678
+#12  0x2b275a00adda in _ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3419
+#13  0x2b275a02fb67 in c_esmc_vmfinalize_
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1153
+#14  0x2b275adb6936 in __esmf_vmmod_MOD_esmf_vmfinalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9286
+#15  0x2b275ab21a57 in __esmf_initmod_MOD_esmf_finalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:997
+#16  0x401e17 in esmf_timeintervalex
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/TimeMgr/examples/ESMF_TimeIntervalEx.F90:190
+#17  0x401f33 in main
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/TimeMgr/examples/ESMF_TimeIntervalEx.F90:29
+srun: error: h34m50: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19826955.273

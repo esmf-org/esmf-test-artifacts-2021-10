@@ -1,6 +1,6 @@
-build time -- 2021-06-15 06:59:30
-[1623741740.873610] [h1c29:67504:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623741740.878249] [h1c29:67504:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+build time -- 2021-06-16 07:08:39
+[1623828087.789581] [h34m50:45768:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623828087.793840] [h34m50:45768:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
   Beginning Test, file ESMF_IO_PIOUTest.F90, line 83
   NUMBER_OF_PROCESSORS           1
   PASS  Checking sizeof(iosystem_desc_t) vs PIO_SIZE_IOSYSTEM_DESC, ESMF_IO_PIOUTest.F90, line 119
@@ -38,4 +38,40 @@ build time -- 2021-06-15 06:59:30
   PASS  Close PIO PNETCDF file after read, ESMF_IO_PIOUTest.F90, line 735
   PASS  Finalize PIO instance, ESMF_IO_PIOUTest.F90, line 755
   Ending Test, file ESMF_IO_PIOUTest.F90, line 764
-  PET           0  Test Elapsed Time    19.363999999999994       msec.
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b871f73b3ff in ???
+#1  0x2b87206b1de0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2b87206b2137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2b87206b2137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2b87206b231a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2b8720538a5b in ???
+#6  0x2b872052d205 in ???
+#7  0x2b872068588b in ???
+#8  0x2b8720506694 in ???
+#9  0x2b871e4d86f5 in ???
+#10  0x2b871e519b44 in ???
+#11  0x2b871a9a3b5e in _ZN5ESMCI3VMK8finalizeEi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:678
+#12  0x2b871a99adda in _ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3419
+#13  0x2b871a9bfb67 in c_esmc_vmfinalize_
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1153
+#14  0x2b871b746936 in __esmf_vmmod_MOD_esmf_vmfinalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9286
+#15  0x2b871b4b1a57 in __esmf_initmod_MOD_esmf_finalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:997
+#16  0x2b871b7030aa in __esmf_testmod_MOD_esmf_testend
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/epilogue/src/ESMF_Test.F90:274
+#17  0x4133f6 in esmf_io_pioutest
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/IO/tests/ESMF_IO_PIOUTest.F90:764
+#18  0x413433 in main
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/IO/tests/ESMF_IO_PIOUTest.F90:27
+srun: error: h34m50: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19826955.86
