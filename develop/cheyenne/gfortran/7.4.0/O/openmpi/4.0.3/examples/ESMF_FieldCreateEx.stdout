@@ -1,4 +1,4 @@
-build time -- 2021-06-15 05:42:32.827404
+build time -- 2021-06-16 05:42:36.431494
  Field Create from a Grid and a Fortran data array returned
  Field Create from a Grid and a Fortran data array returned
  Field Create from a Grid and a Fortran data array returned
@@ -47,10 +47,82 @@ build time -- 2021-06-15 05:42:32.827404
   PASS  Example ESMF_FieldCreateEx, ESMF_FieldCreateEx.F90, line 1058
   PASS  Example ESMF_FieldCreateEx, ESMF_FieldCreateEx.F90, line 1058
   PASS  Example ESMF_FieldCreateEx, ESMF_FieldCreateEx.F90, line 1058
- PASS: ESMF_FieldCreateEx.F90
- PASS: ESMF_FieldCreateEx.F90
- PASS: ESMF_FieldCreateEx.F90
- PASS: ESMF_FieldCreateEx.F90
+[r14i4n22:46551:0:46551] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r14i4n22:46548:0:46548] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r14i4n22
+  System call: unlink(2) /dev/shm/vader_segment.r14i4n22.5bb60001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r14i4n22:46550:0:46550] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r14i4n22
+  System call: unlink(2) /dev/shm/vader_segment.r14i4n22.5bb60001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r14i4n22:46549:0:46549] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  46549) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.8.0/lib/libucs.so.0(ucs_handle_error+0x19c) [0x2b91190c522c]
+ 1  /glade/u/apps/ch/opt/ucx/1.8.0/lib/libucs.so.0(+0x2355c) [0x2b91190c555c]
+ 2  /glade/u/apps/ch/opt/ucx/1.8.0/lib/libucs.so.0(+0x237cb) [0x2b91190c57cb]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2b9108e25b00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(+0x2d3d7) [0x2b91096b93d7]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/openmpi/mca_btl_vader.so(+0x3ec1) [0x2b91136b0ec1]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(mca_base_component_close+0x19) [0x2b91096e6419]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(mca_base_components_close+0x55) [0x2b91096e64a5]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(+0x7eae3) [0x2b910970aae3]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(mca_base_framework_close+0x67) [0x2b91096f1a87]
+10  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(opal_info_close_components+0x29) [0x2b91096c88c9]
+11  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2b91084f9595]
+12  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x250) [0x2b91056f1e62]
+13  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x4c9) [0x2b9105709ddf]
+14  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x25) [0x2b91056e52f5]
+15  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x2a) [0x2b9105d046ce]
+16  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x37c) [0x2b9105b96c71]
+17  ./ESMF_FieldCreateEx() [0x404435]
+18  ./ESMF_FieldCreateEx() [0x405df3]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2b91090526e5]
+20  ./ESMF_FieldCreateEx() [0x4018f9]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+#0  0x2b9108e25aff in ???
+#1  0x2b91096b93d7 in ???
+#2  0x2b91136b0ec0 in ???
+#3  0x2b91096e6418 in ???
+#4  0x2b91096e64a4 in ???
+#5  0x2b910970aae2 in ???
+#6  0x2b91096f1a86 in ???
+#7  0x2b91096c88c8 in ???
+#8  0x2b91084f9594 in ???
+#9  0x2b91056f1e61 in ???
+#10  0x2b9105709dde in ???
+#11  0x2b91056e52f4 in ???
+#12  0x2b9105d046cd in ???
+#13  0x2b9105b96c70 in ???
+#14  0x404434 in ???
+#15  0x405df2 in ???
+#16  0x2b91090526e4 in ???
+#17  0x4018f8 in ???
+	at ../sysdeps/x86_64/start.S:118
+#18  0xffffffffffffffff in ???
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node r14i4n22 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
  Field Create from a Grid and a Fortran data array returned
  Field Create from a Grid and a Fortran data array returned
  Field Create from a Grid and a Fortran data array returned
@@ -99,7 +171,79 @@ build time -- 2021-06-15 05:42:32.827404
   PASS  Example ESMF_FieldCreateEx, ESMF_FieldCreateEx.F90, line 1058
   PASS  Example ESMF_FieldCreateEx, ESMF_FieldCreateEx.F90, line 1058
   PASS  Example ESMF_FieldCreateEx, ESMF_FieldCreateEx.F90, line 1058
- PASS: ESMF_FieldCreateEx.F90
- PASS: ESMF_FieldCreateEx.F90
- PASS: ESMF_FieldCreateEx.F90
- PASS: ESMF_FieldCreateEx.F90
+[r14i4n22:46551:0:46551] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r14i4n22:46548:0:46548] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r14i4n22
+  System call: unlink(2) /dev/shm/vader_segment.r14i4n22.5bb60001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r14i4n22:46550:0:46550] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r14i4n22
+  System call: unlink(2) /dev/shm/vader_segment.r14i4n22.5bb60001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r14i4n22:46549:0:46549] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid:  46549) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.8.0/lib/libucs.so.0(ucs_handle_error+0x19c) [0x2b91190c522c]
+ 1  /glade/u/apps/ch/opt/ucx/1.8.0/lib/libucs.so.0(+0x2355c) [0x2b91190c555c]
+ 2  /glade/u/apps/ch/opt/ucx/1.8.0/lib/libucs.so.0(+0x237cb) [0x2b91190c57cb]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2b9108e25b00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(+0x2d3d7) [0x2b91096b93d7]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/openmpi/mca_btl_vader.so(+0x3ec1) [0x2b91136b0ec1]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(mca_base_component_close+0x19) [0x2b91096e6419]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(mca_base_components_close+0x55) [0x2b91096e64a5]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(+0x7eae3) [0x2b910970aae3]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(mca_base_framework_close+0x67) [0x2b91096f1a87]
+10  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libopen-pal.so.40(opal_info_close_components+0x29) [0x2b91096c88c9]
+11  /glade/u/apps/ch/opt/openmpi/4.0.3/gnu/7.4.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2b91084f9595]
+12  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x250) [0x2b91056f1e62]
+13  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x4c9) [0x2b9105709ddf]
+14  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x25) [0x2b91056e52f5]
+15  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x2a) [0x2b9105d046ce]
+16  /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x37c) [0x2b9105b96c71]
+17  ./ESMF_FieldCreateEx() [0x404435]
+18  ./ESMF_FieldCreateEx() [0x405df3]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2b91090526e5]
+20  ./ESMF_FieldCreateEx() [0x4018f9]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+#0  0x2b9108e25aff in ???
+#1  0x2b91096b93d7 in ???
+#2  0x2b91136b0ec0 in ???
+#3  0x2b91096e6418 in ???
+#4  0x2b91096e64a4 in ???
+#5  0x2b910970aae2 in ???
+#6  0x2b91096f1a86 in ???
+#7  0x2b91096c88c8 in ???
+#8  0x2b91084f9594 in ???
+#9  0x2b91056f1e61 in ???
+#10  0x2b9105709dde in ???
+#11  0x2b91056e52f4 in ???
+#12  0x2b9105d046cd in ???
+#13  0x2b9105b96c70 in ???
+#14  0x404434 in ???
+#15  0x405df2 in ???
+#16  0x2b91090526e4 in ???
+#17  0x4018f8 in ???
+	at ../sysdeps/x86_64/start.S:118
+#18  0xffffffffffffffff in ???
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node r14i4n22 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

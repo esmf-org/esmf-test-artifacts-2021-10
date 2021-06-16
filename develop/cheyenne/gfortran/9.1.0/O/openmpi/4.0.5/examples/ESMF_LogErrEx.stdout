@@ -1,17 +1,161 @@
-build time -- 2021-06-15 05:43:40.417053
+build time -- 2021-06-16 05:43:58.755295
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
- PASS: ESMF_LogErrEx.F90
- PASS: ESMF_LogErrEx.F90
- PASS: ESMF_LogErrEx.F90
- PASS: ESMF_LogErrEx.F90
+[r9i4n3:46120:0:46120] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r9i4n3:46122:0:46122] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r9i4n3
+  System call: unlink(2) /dev/shm/vader_segment.r9i4n3.a1fd0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r9i4n3
+  System call: unlink(2) /dev/shm/vader_segment.r9i4n3.a1fd0001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r9i4n3:46119:0:46119] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+[r9i4n3:46121:0:46121] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+==== backtrace (tid:  46119) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2b7cd84b7574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2b7cd84b789c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2b7cd84b7b0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2b7cc8234b00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x2d277) [0x2b7cc8ac9277]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/openmpi/mca_btl_vader.so(+0x3e81) [0x2b7cd2a61e81]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_component_close+0x1b) [0x2b7cc8af2ecb]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_components_close+0x56) [0x2b7cc8af2f56]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x78260) [0x2b7cc8b14260]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_framework_close+0x7c) [0x2b7cc8afce8c]
+10  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(opal_info_close_components+0x25) [0x2b7cc8ad5935]
+11  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2b7cc79033f5]
+12  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x254) [0x2b7cc49974fe]
+13  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x4d1) [0x2b7cc49a6c31]
+14  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x25) [0x2b7cc4988510]
+15  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x25) [0x2b7cc4ffb69d]
+16  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x193) [0x2b7cc4e7238f]
+17  ./ESMF_LogErrEx() [0x401730]
+18  ./ESMF_LogErrEx() [0x4019cc]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2b7cc84616e5]
+20  ./ESMF_LogErrEx() [0x4010d9]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b7cc8234aff in ???
+#1  0x2b7cc8ac9277 in ???
+#2  0x2b7cd2a61e80 in ???
+#3  0x2b7cc8af2eca in ???
+#4  0x2b7cc8af2f55 in ???
+#5  0x2b7cc8b1425f in ???
+#6  0x2b7cc8afce8b in ???
+#7  0x2b7cc8ad5934 in ???
+#8  0x2b7cc79033f4 in ???
+#9  0x2b7cc49974fd in ???
+#10  0x2b7cc49a6c30 in ???
+#11  0x2b7cc498850f in ???
+#12  0x2b7cc4ffb69c in ???
+#13  0x2b7cc4e7238e in ???
+#14  0x40172f in ???
+#15  0x4019cb in ???
+#16  0x2b7cc84616e4 in ???
+#17  0x4010d8 in ???
+	at ../sysdeps/x86_64/start.S:118
+#18  0xffffffffffffffff in ???
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node r9i4n3 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
   PASS  Example ESMF_LogErrEx, ESMF_LogErrEx.F90, line 186
- PASS: ESMF_LogErrEx.F90
- PASS: ESMF_LogErrEx.F90
- PASS: ESMF_LogErrEx.F90
- PASS: ESMF_LogErrEx.F90
+[r9i4n3:46120:0:46120] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r9i4n3:46122:0:46122] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r9i4n3
+  System call: unlink(2) /dev/shm/vader_segment.r9i4n3.a1fd0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r9i4n3
+  System call: unlink(2) /dev/shm/vader_segment.r9i4n3.a1fd0001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r9i4n3:46119:0:46119] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+[r9i4n3:46121:0:46121] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+==== backtrace (tid:  46119) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2b7cd84b7574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2b7cd84b789c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2b7cd84b7b0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2b7cc8234b00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x2d277) [0x2b7cc8ac9277]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/openmpi/mca_btl_vader.so(+0x3e81) [0x2b7cd2a61e81]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_component_close+0x1b) [0x2b7cc8af2ecb]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_components_close+0x56) [0x2b7cc8af2f56]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x78260) [0x2b7cc8b14260]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_framework_close+0x7c) [0x2b7cc8afce8c]
+10  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(opal_info_close_components+0x25) [0x2b7cc8ad5935]
+11  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2b7cc79033f5]
+12  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x254) [0x2b7cc49974fe]
+13  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x4d1) [0x2b7cc49a6c31]
+14  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x25) [0x2b7cc4988510]
+15  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x25) [0x2b7cc4ffb69d]
+16  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x193) [0x2b7cc4e7238f]
+17  ./ESMF_LogErrEx() [0x401730]
+18  ./ESMF_LogErrEx() [0x4019cc]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2b7cc84616e5]
+20  ./ESMF_LogErrEx() [0x4010d9]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b7cc8234aff in ???
+#1  0x2b7cc8ac9277 in ???
+#2  0x2b7cd2a61e80 in ???
+#3  0x2b7cc8af2eca in ???
+#4  0x2b7cc8af2f55 in ???
+#5  0x2b7cc8b1425f in ???
+#6  0x2b7cc8afce8b in ???
+#7  0x2b7cc8ad5934 in ???
+#8  0x2b7cc79033f4 in ???
+#9  0x2b7cc49974fd in ???
+#10  0x2b7cc49a6c30 in ???
+#11  0x2b7cc498850f in ???
+#12  0x2b7cc4ffb69c in ???
+#13  0x2b7cc4e7238e in ???
+#14  0x40172f in ???
+#15  0x4019cb in ???
+#16  0x2b7cc84616e4 in ???
+#17  0x4010d8 in ???
+	at ../sysdeps/x86_64/start.S:118
+#18  0xffffffffffffffff in ???
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node r9i4n3 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
