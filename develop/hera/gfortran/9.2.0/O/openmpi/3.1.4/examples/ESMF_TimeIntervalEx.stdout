@@ -1,6 +1,6 @@
-build time -- 2021-06-15 06:03:55
-[1623739344.335856] [h17c54:75499:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
-[1623739344.340385] [h17c54:75499:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+build time -- 2021-06-16 06:57:51
+[1623828252.742877] [h34m32:233477:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623828252.747051] [h34m32:233477:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
 TimeInterval ---------------------------
 P0Y0M1DT0H0M0S
 end TimeInterval -----------------------
@@ -15,4 +15,34 @@ end TimeInterval -----------------------
  TimeInterval2 multiplied by 3 =           12  days,            4  hours,           30  minutes,           30  seconds.
  TimeInterval1 is smaller than TimeInterval2
   PASS  Example ESMF_TimeIntervalEx, ESMF_TimeIntervalEx.F90, line 176
- PASS: ESMF_TimeIntervalEx.F90
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b8500fe43ff in ???
+#1  0x2b8501f5ade0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2b8501f5b137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2b8501f5b137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2b8501f5b31a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2b8501de1a5b in ???
+#6  0x2b8501dd6205 in ???
+#7  0x2b8501f2e88b in ???
+#8  0x2b8501daf694 in ???
+#9  0x2b84ffd816f5 in ???
+#10  0x2b84ffdc2b44 in ???
+#11  0x2b84fd1ff02d in ???
+#12  0x2b84fd1f38e4 in ???
+#13  0x2b84fd207de2 in ???
+#14  0x2b84fd87ce96 in ???
+#15  0x2b84fd770122 in ???
+#16  0x401a38 in ???
+#17  0x401cf2 in ???
+#18  0x2b8500fd0554 in ???
+#19  0x400f38 in ???
+#20  0xffffffffffffffff in ???
+srun: error: h34m32: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19826668.273
