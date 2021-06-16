@@ -35,7 +35,6 @@ export ESMF_COMM=mpich3
 export ESMF_BOPT='O'
 export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
-make -j 128 clean 2>&1| tee clean_$JOBID.log 
 make -j 128 2>&1| tee build_$JOBID.log
 
 ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.2.0_mpich3_O_develop/getres-build.sh
