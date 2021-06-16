@@ -1,4 +1,4 @@
-build time -- 2021-06-13 01:49:46.263278
+build time -- 2021-06-16 02:01:03.698512
 running test
 test_assertNumpyAll_bad_mask (ESMF.test.base_test.Test) ... ok
 test_assertNumpyAll_type_differs (ESMF.test.base_test.Test) ... ok
@@ -96,7 +96,7 @@ test_vm (ESMF.test.test_cbindings.TestCbindings) ... ok
 ----------------------------------------------------------------------
 XML: /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/addon/ESMPy/nosetests.xml
 ----------------------------------------------------------------------
-Ran 88 tests in 1.139s
+Ran 88 tests in 0.823s
 
 OK (SKIP=12)
 Field:
@@ -140,3 +140,23 @@ local_pet = 0
 
 pet_count = 1
 
+[chianti:03224] *** Process received signal ***
+[chianti:03224] Signal: Segmentation fault (11)
+[chianti:03224] Signal code: Address not mapped (1)
+[chianti:03224] Failing at address: (nil)
+[chianti:03224] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0x12890)[0x7fcd0c63b890]
+[chianti:03224] *** End of error message ***
+Traceback (most recent call last):
+  File "setup.py", line 244, in <module>
+    setup(name="ESMPy",
+  File "/home/mpotts/spack/opt/spack/linux-linuxmint19-skylake/intel-2021.2.0/python-3.8.10-wi4q6e6fji23waxv7b2dhirkudt5dcoi/lib/python3.8/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/home/mpotts/spack/opt/spack/linux-linuxmint19-skylake/intel-2021.2.0/python-3.8.10-wi4q6e6fji23waxv7b2dhirkudt5dcoi/lib/python3.8/distutils/dist.py", line 966, in run_commands
+    self.run_command(cmd)
+  File "/home/mpotts/spack/opt/spack/linux-linuxmint19-skylake/intel-2021.2.0/python-3.8.10-wi4q6e6fji23waxv7b2dhirkudt5dcoi/lib/python3.8/distutils/dist.py", line 985, in run_command
+    cmd_obj.run()
+  File "setup.py", line 49, in run
+    subprocess.check_call(cmd)
+  File "/home/mpotts/spack/opt/spack/linux-linuxmint19-skylake/intel-2021.2.0/python-3.8.10-wi4q6e6fji23waxv7b2dhirkudt5dcoi/lib/python3.8/subprocess.py", line 364, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['nosetests', '-vs', '--with-xunit', '-a', '!slow,!parallel', 'src/ESMF']' died with <Signals.SIGSEGV: 11>.
