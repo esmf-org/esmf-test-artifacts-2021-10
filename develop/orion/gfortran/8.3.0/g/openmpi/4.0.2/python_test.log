@@ -1,4 +1,4 @@
-build time -- 2021-06-13 03:10:26
+build time -- 2021-06-17 02:47:10
 running test
 test_assertNumpyAll_bad_mask (ESMF.test.base_test.Test) ... ok
 test_assertNumpyAll_type_differs (ESMF.test.base_test.Test) ... ok
@@ -94,7 +94,7 @@ test_vm (ESMF.test.test_cbindings.TestCbindings) ... ok
 ----------------------------------------------------------------------
 XML: /work/noaa/da/mpotts/sandbox/gfortran_8.3.0_openmpi_g_develop/src/addon/ESMPy/nosetests.xml
 ----------------------------------------------------------------------
-Ran 88 tests in 1.395s
+Ran 88 tests in 1.330s
 
 OK (SKIP=12)
 Field:
@@ -138,3 +138,18 @@ local_pet = 0
 
 pet_count = 1
 
+[Orion-23-03:51124:0:51124] Caught signal 11 (Segmentation fault: <unknown si_code> at address 0x7f1fba120760)
+Traceback (most recent call last):
+  File "setup.py", line 273, in <module>
+    'test_regrid_from_file_parallel': TestRegridFromFileParallelCommand})
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/distutils/dist.py", line 966, in run_commands
+    self.run_command(cmd)
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/distutils/dist.py", line 985, in run_command
+    cmd_obj.run()
+  File "setup.py", line 49, in run
+    subprocess.check_call(cmd)
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/subprocess.py", line 363, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['nosetests', '-vs', '--with-xunit', '-a', '!slow,!parallel', 'src/ESMF']' died with <Signals.SIGSEGV: 11>.

@@ -1,4 +1,4 @@
-build time -- 2021-06-13 03:04:14
+build time -- 2021-06-17 02:47:29
   PASS  Example ESMF_StateReadWriteEx, ESMF_StateReadWriteEx.F90, line 185
   PASS  Example ESMF_StateReadWriteEx, ESMF_StateReadWriteEx.F90, line 185
   PASS  Example ESMF_StateReadWriteEx, ESMF_StateReadWriteEx.F90, line 185
@@ -38,8 +38,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1eb6090:
-            rank = 1, typekind = 3, base_addr = 0x1eb4ee0
+LocalArrayPrint: Array at address 0x273cca0:
+            rank = 1, typekind = 3, base_addr = 0x273baf0
             dim[0] = 10  
   Integer, *4, Dim 1, Data values:
 (-2) =  0
@@ -68,8 +68,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1eb8620:
-            rank = 1, typekind = 3, base_addr = 0x1eb8950
+LocalArrayPrint: Array at address 0x273f030:
+            rank = 1, typekind = 3, base_addr = 0x273f360
             dim[0] = 5  
   Integer, *4, Dim 1, Data values:
 ( 0) =  -140
@@ -92,8 +92,8 @@ DistGrid dimCount = 1
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1eba810:
-            rank = 1, typekind = 3, base_addr = 0x1ebab40
+LocalArrayPrint: Array at address 0x2741210:
+            rank = 1, typekind = 3, base_addr = 0x2741540
             dim[0] = 2  
   Integer, *4, Dim 1, Data values:
 ( 1) =  123456789
@@ -115,8 +115,8 @@ DistGrid dimCount = 3
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1ebd070:
-            rank = 3, typekind = 5, base_addr = 0x1ebd3a0
+LocalArrayPrint: Array at address 0x2743a40:
+            rank = 3, typekind = 5, base_addr = 0x2743d70
             dim[0] = 2  dim[1] = 10  dim[2] = 5  
   Real, *4, Dim 3, Data values:
 ( 1, 1, 1) =  1.23457
@@ -159,8 +159,8 @@ DistGrid dimCount = 3
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1ebfa80:
-            rank = 3, typekind = 5, base_addr = 0x1ebb200
+LocalArrayPrint: Array at address 0x2746480:
+            rank = 3, typekind = 5, base_addr = 0x27467b0
             dim[0] = 2  dim[1] = 10  dim[2] = 5  
   Real, *4, Dim 3, Data values:
 ( 1, 1, 1) =  7.65432
@@ -201,8 +201,8 @@ DistGrid dimCount = 3
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1eeb770:
-            rank = 3, typekind = 6, base_addr = 0x1eebaa0
+LocalArrayPrint: Array at address 0x2748f60:
+            rank = 3, typekind = 6, base_addr = 0x2749290
             dim[0] = 2  dim[1] = 10  dim[2] = 5  
   Real, *8, Dim 3, Data values:
 ( 1, 1, 1) =  -9999
@@ -243,8 +243,8 @@ DistGrid dimCount = 3
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x1eee0f0:
-            rank = 3, typekind = 3, base_addr = 0x1eee420
+LocalArrayPrint: Array at address 0x274bc80:
+            rank = 3, typekind = 3, base_addr = 0x2749ae0
             dim[0] = 2  dim[1] = 10  dim[2] = 5  
   Integer, *4, Dim 3, Data values:
 ( 1, 1, 1) =  -1
@@ -273,7 +273,23 @@ dim 2: [1]: [1 [1 [1, 10] 10] 10]
 dim 3: [2]: [1 [1 [1, 5] 5] 5]
 --- ESMCI::Array::print end ---
   PASS  Example ESMF_StateReadWriteEx, ESMF_StateReadWriteEx.F90, line 185
- PASS: ESMF_StateReadWriteEx.F90
- PASS: ESMF_StateReadWriteEx.F90
- PASS: ESMF_StateReadWriteEx.F90
- PASS: ESMF_StateReadWriteEx.F90
+[Orion-02-12:282250:0:282250] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  Orion-02-12.HPC.MsState.Edu
+  System call: unlink(2) /dev/shm/vader_segment.Orion-02-12.c5890001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[Orion-02-12:282248:0:282248] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[Orion-02-12:282251:0:282251] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[Orion-02-12:282249:0:282249] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 2 with PID 282250 on node Orion-02-12 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
