@@ -26,6 +26,5 @@ export ESMF_COMM=mpiuni
 export ESMF_BOPT='g'
 export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
-make -j 24 clean 2>&1| tee clean_$JOBID.log 
 make -j 24 2>&1| tee build_$JOBID.log
 
