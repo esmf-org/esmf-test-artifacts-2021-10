@@ -1,7 +1,7 @@
 #!/bin/bash -l
 export JOBID=12345
 
-module use /home/mpotts/spack/share/spack/modules/linux-linuxmint19-skylake
+module use /home/mpotts/hpc-modules/modulefiles/stack
 
 module load python
 module load gcc/9.3.0-gcc-7.5.0 openmpi/3.1.3-gcc-9.3.0 netcdf-c/4.7.4-gcc-9.3.0-openmpi
@@ -20,6 +20,5 @@ export ESMF_COMM=openmpi
 export ESMF_BOPT='g'
 export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
-make -j 8 clean 2>&1| tee clean_$JOBID.log 
 make -j 8 2>&1| tee build_$JOBID.log
 
