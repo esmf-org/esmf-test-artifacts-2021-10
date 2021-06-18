@@ -1,0 +1,47 @@
+build time -- 2021-06-18 06:13:31
+[1623998227.600451] [h12c52:290531:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1623998227.605193] [h12c52:290531:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+  Beginning Test, file ESMF_FieldStressUTest.F90, line 51
+  NUMBER_OF_PROCESSORS           1
+  PASS  Create a simple Field, repeat 10 times, ESMF_FieldStressUTest.F90, line 61
+  PASS  Create a simple Field, repeat 100 times, ESMF_FieldStressUTest.F90, line 69
+  PASS  Create a simple Field, repeat 1000 times, ESMF_FieldStressUTest.F90, line 77
+  PASS  Create a simple Field, repeat 10000 times, ESMF_FieldStressUTest.F90, line 85
+  Ending Test, file ESMF_FieldStressUTest.F90, line 88
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b14c4c0a3ff in ???
+#1  0x2b14c5b80de0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2b14c5b81137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2b14c5b81137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2b14c5b8131a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2b14c5a07a5b in ???
+#6  0x2b14c59fc205 in ???
+#7  0x2b14c5b5488b in ???
+#8  0x2b14c59d5694 in ???
+#9  0x2b14c39a76f5 in ???
+#10  0x2b14c39e8b44 in ???
+#11  0x2b14bfe72bbe in _ZN5ESMCI3VMK8finalizeEi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:678
+#12  0x2b14bfe69e3a in _ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3419
+#13  0x2b14bfe8ed8b in c_esmc_vmfinalize_
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1153
+#14  0x2b14c0c15b5a in __esmf_vmmod_MOD_esmf_vmfinalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9286
+#15  0x2b14c0980c7b in __esmf_initmod_MOD_esmf_finalize
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:997
+#16  0x2b14c0bd22ce in __esmf_testmod_MOD_esmf_testend
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/epilogue/src/ESMF_Test.F90:274
+#17  0x402412 in esmf_fieldstressutest
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/Field/tests/ESMF_FieldStressUTest.F90:88
+#18  0x40244b in main
+	at /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/Infrastructure/Field/tests/ESMF_FieldStressUTest.F90:31
+srun: error: h12c52: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19895556.134
