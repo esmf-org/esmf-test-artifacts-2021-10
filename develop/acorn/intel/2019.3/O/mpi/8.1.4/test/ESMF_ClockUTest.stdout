@@ -1,4 +1,4 @@
-build time -- 2021-06-17 16:36:56
+build time -- 2021-06-18 16:51:19
   Beginning Test, file ESMF_ClockUTest.F90, line 115
   NUMBER_OF_PROCESSORS           4
   Beginning Test, file ESMF_ClockUTest.F90, line 115
@@ -24,8 +24,6 @@ build time -- 2021-06-17 16:36:56
   PASS  Destroyed Clock Destroy Test, ESMF_ClockUTest.F90, line 267
   PASS  Destroyed Clock Destroy Test, ESMF_ClockUTest.F90, line 276
   PASS  Set destroyed Clock Name Test, ESMF_ClockUTest.F90, line 285
-  PASS  Set uncreated  Clock Name Test, ESMF_ClockUTest.F90, line 294
-  PASS  Get previous time from deleted Clock Test, ESMF_ClockUTest.F90, line 303
   Beginning Test, file ESMF_ClockUTest.F90, line 115
   NUMBER_OF_PROCESSORS           4
   PASS  Set Time Interval Initialization Test, ESMF_ClockUTest.F90, line 161
@@ -130,7 +128,9 @@ build time -- 2021-06-17 16:36:56
   PASS  Get StartTime Day Test, ESMF_ClockUTest.F90, line 376
   PASS  Get StartTime Hours Within the Day Test, ESMF_ClockUTest.F90, line 388
   PASS  Get StartTime Minutes Within the Day Test, ESMF_ClockUTest.F90, line 399
-  PASS  Get StartTime seconds Withi  PASS  Get previous time from uncreated Clock Test, ESMF_ClockUTest.F90, line 3
+  PASS  Get StartTime seconds Withi  PASS  Set uncreated  Clock Name Test, ESMF_ClockUTest.F90, line 294
+  PASS  Get previous time from deleted Clock Test, ESMF_ClockUTest.F90, line 303
+  PASS  Get previous time from uncreated Clock Test, ESMF_ClockUTest.F90, line 3
  12
   PASS  Advance deleted CLock Test, ESMF_ClockUTest.F90, line 321
   PASS  Advance uncreated CLock Test, ESMF_ClockUTest.F90, line 330
@@ -162,11 +162,7 @@ build time -- 2021-06-17 16:36:56
   PASS  Get StartTime Hours Within the Year Test, ESMF_ClockUTest.F90, line 532
   PASS  Get StartTime Minutes Within the Year Test, ESMF_ClockUTest.F90, line 54
  4
-  PASS  Get StartTime seconds Within the Year Test, ESMF_ClockUTest.F90, line 55
- 6
-  PASS  Get StartTime in hours, minutes & seconds Within the Year Test, ESMF_Clo
- ckUTest.F90, line 569
-  PASS  Get StartTime in hours, & seconds Within the Day Test, ESMF_ClockUTest.F90, line 399
+  PASS  Get StartTime seconds Within the Year Test, ESMF_ClockUTest.F90, lines Within the Day Test, ESMF_ClockUTest.F90, line 399
   PASS  Get StartTime seconds Within the Day Test, ESMF_ClockUTest.F90, line 411
   PASS  Get StartTime in hours, minutes & seconds Within the Day Test, ESMF_Cloc
  kUTest.F90, line 424
@@ -278,7 +274,11 @@ build time -- 2021-06-17 16:36:56
   PASS  Get StartTime Month Test, ESMF_ClockUTest.F90, line 667
   PASS  Get StartTime Day Test, ESMF_ClockUTest.F90, line 677
   PASS  Get Calendar Kind Test, ESMF_ClockUTest.F90, line 688
-  PASS  Get Us Within the Year Test, ESMF_ClockUTest.
+  PASS  Get U 55
+ 6
+  PASS  Get StartTime in hours, minutes & seconds Within the Year Test, ESMF_Clo
+ ckUTest.F90, line 569
+  PASS  Get StartTime in hours, & seconds Within the Year Test, ESMF_ClockUTest.
  F90, line 579
   PASS  Get StartTime in minutes, & seconds Within the Year Test, ESMF_ClockUTes
  t.F90, line 591
@@ -314,14 +314,7 @@ name = Gregorian
 calkindflag = Gregorian
 daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31 
 monthsPerYear = 12
-secondsPerDay = 86400
-secondsPerYear = 31536000
-daysPerYear = 365
-daysPerYeardN = 0
-daysPerYeardD = 1
-end Calendar ---------------------------
-
-  PASS  Calendar Print Tes90, line 677
+secondsPerDay = 86490, line 677
   PASS  Get Calendar Kind Test, ESMF_ClockUTest.F90, line 688
   PASS  Get Uninitialized StopTime Year Test, ESMF_ClockUTest.F90, line 704
   PASS  Stop Time Initialization to illegitimate month (0) Test, ESMF_ClockUTest
@@ -504,7 +497,14 @@ BaseTime -------------------------------
 s = 211914384327
 sN = 0
 sD = 1
-endt, ESMF_ClockUTest.F90, line 848
+end00
+secondsPerYear = 31536000
+daysPerYear = 365
+daysPerYeardN = 0
+daysPerYeardD = 1
+end Calendar ---------------------------
+
+  PASS  Calendar Print Test, ESMF_ClockUTest.F90, line 848
 TimeInterval ---------------------------
 BaseTime -------------------------------
 s = 3600
@@ -569,12 +569,7 @@ BaseTime -------------------------------
 s = 211914403200
 sN = 0
 sD = 1
-end BaseTime ---------------------------
-
-Calendar -------------------------------
-name = Gregorian
-calkindflag = Gregorian
-daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 ------------
+end BaseTime --------------------
 BaseTime -------------------------------
 s = 211914384327
 sN = 0
@@ -792,7 +787,12 @@ daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31
 monthsPerYear = 12
 secondsPerDay = 86400
 secondsPerYear = 31536000
-d31 
+d-------------------
+
+Calendar -------------------------------
+name = Gregorian
+calkindflag = Gregorian
+daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31 
 monthsPerYear = 12
 secondsPerDay = 86400
 secondsPerYear = 31536000
@@ -878,12 +878,7 @@ daysPerYeardD = 1
 end Calendar ---------------------------
 
 timeZone = 0
-end Time -------------------------------
-
-stopTimeEnabled = true
-refTime = 
-Time -----------------------------------
-BaseTime ------------------------- 31 31 30 31 30 31 
+ 31 31 30 31 30 31 
 monthsPerYear = 12
 secondsPerDay = 86400
 secondsPerYear = 31536000
@@ -1155,7 +1150,12 @@ name = Gregorian
 calkindflag = Gregorian
 daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31 
 monthsPerYear = 12
-secondsPer------
+secondsPerend Time -------------------------------
+
+stopTimeEnabled = true
+refTime = 
+Time -----------------------------------
+BaseTime -------------------------------
 s = 211914384327
 sN = 0
 sD = 1
@@ -1234,10 +1234,7 @@ end Clock ------------------------------
   PASS  ClockSet(clock, advanceCount) Test, ESMF_ClockUTest.F90, line 998
   PASS  Deleted Clock Not Equal Created Clock Test 1, ESMF_ClockUTest.F90, line 
  1010
-  PASS  Deleted Clock Not Equal Uncreated Clock Test 1, ESMF_ClockUTest.F90, lin
- e 1020
-  PASS  Uncreated Clock Not Equal Created Clock Test 1, ESMF_ClockUTest.F90, lin
-gorian
+  PASS  Deleted Clogorian
 daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31 
 monthsPerYear = 12
 secondsPerDay = 86400
@@ -1428,7 +1425,10 @@ end Clock ------------------------------
   PASS  Deleted Clock Equal Deleted Clock Test 2, ESMF_ClockUTest.F90, line 1100
   PASS  Clock Initialization Test, ESMF_ClockUTest.F90, line 1110
   PASS  Clock Advance Test, ESMF_ClockUTest.F90, line 1127
-  PASS  Clock Sync to Real T e 1030
+  PASS  Clock Sync to Real Tck Not Equal Uncreated Clock Test 1, ESMF_ClockUTest.F90, lin
+ e 1020
+  PASS  Uncreated Clock Not Equal Created Clock Test 1, ESMF_ClockUTest.F90, lin
+ e 1030
   PASS  Uncreated Clock Equal Uncreated Clock Test 1, ESMF_ClockUTest.F90, line 
  1040
   PASS  Deleted Clock Equal Deleted Clock Test 1, ESMF_ClockUTest.F90, line 1050
@@ -1462,11 +1462,7 @@ end Clock ------------------------------
   PASS  Time Initialization with hour = 25 Test, ESMF_ClockUTest.F90, line 1265
   PASS  Time Initialization with minutes = zero Test, ESMF_ClockUTest.F90, line 
  1274
-  PASS  Time Initialization with minutes = negative 5  Test, ESMF_ClockUTest.F90
- , line 1283
-  PASS  Time Initialization with minutes = 5  Test, ESMF_ClockUTest.F90, line 12
- 92
-  PASS  Time Initialization with minutes = 65 
+  PASS  Time Initialization with minutes = negative 5  Test, ESMF_ClockUTe
   PASS  Clock Advance Test, ESMF_ClockUTest.F90, line 1127
   PASS  Clock Sync to Real Time Test, ESMF_ClockUTest.F90, line 1143
   PASS  Clock Validate Test, ESMF_ClockUTest.F90, line 1153
@@ -1583,7 +1579,11 @@ end Clock ------------------------------
  ne 1355
   PASS  Time Initialization with milli-seconds = 84 Test, ESMF_ClockUTest.F90, l
  ine 1364
-  PASS  Time Initialization with milli-seconds =Test, ESMF_ClockUTest.F90, line 13
+  PASS  Time Initialization with milli-seconds =st.F90
+ , line 1283
+  PASS  Time Initialization with minutes = 5  Test, ESMF_ClockUTest.F90, line 12
+ 92
+  PASS  Time Initialization with minutes = 65 Test, ESMF_ClockUTest.F90, line 13
  01
   PASS  Time Initialization with seconds = 0 Test, ESMF_ClockUTest.F90, line 131
  0
@@ -1687,6 +1687,14 @@ end Clock ------------------------------
  lockUTest.F90, line 1457
   PASS  Total Counts 73049 from -100 to +100 years in Gregorian Cal. Test, ESMF_
  ClockUTest.F90, line 1466
+  PASS  Time Step initialization with years = 10 Test, ESMF_ClockUTest.F90, line
+  1476
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1486
+  PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
+  1496
+  PASS  Clock initialization with above settings Test, ESMF_ClockUTest.F90, line
+  1507
   PASS  Total days -73049 from +100 to -100 years in Gregorian Cal. Test, ESMF_C
  lockUTest.F90, line 1457
   PASS  Total Counts 73049 from -100 to +100 years in Gregorian Cal. Test, ESMF_
@@ -1699,14 +1707,6 @@ end Clock ------------------------------
   1496
   PASS  Clock initialization with above settings Test, ESMF_ClockUTest.F90, line
   1507
-  PASS  Time Step initialization with years = 10 Test, ESMF_ClockUTest.F90, line
-  1476
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1486
-  PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
-  1496
-  PASS  Clock initialization with above settings Test, ESMF_ClockUTest.F90, line
-  1507
   PASS  Current Time minus PreviousTime = timeStep for Gregorian Cal. Test, ESMF
  _ClockUTest.F90, line 1554
   PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
@@ -1726,14 +1726,14 @@ end Clock ------------------------------
   PASS  Current Time minus PreviousTime = timeStep for Gregorian Cal. Test, ESMF
  _ClockUTest.F90, line 1554
   PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
-  PASS  Current Time minus PreviousTime = timeStep for Gregorian Cal. Test, ESMF
- _ClockUTest.F90, line 1554
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
  ne 1565
   PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
   1574
   PASS  Clock initialization with above settings Test, ESMF_ClockUTest.F90, line
   1585
+  PASS  Current Time minus PreviousTime = timeStep for Gregorian Cal. Test, ESMF
+ _ClockUTest.F90, line 1554
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
  ne 1565
   PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
   1574
@@ -1757,7 +1757,96 @@ end Clock ------------------------------
   PASS  Get Sync Time Year Test, ESMF_ClockUTest.F90, line 1724
 Time -----------------------------------
 BaseTime -------------------------------
-s = 212490751696
+s = 212490838951
+sN = 0
+sD = 1
+end BaseTime ---------------------------
+
+Calendar -------------------------------
+name = Gregorian
+calkindflag = Gregorian
+daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31 
+monthsPerYear = 12
+secondsPerDay = 86400
+secondsPerYear = 31536000
+daysPerYear = 365
+daysPerYeardN = 0
+daysPerYeardD = 1
+end Calendar ---------------------------
+
+timeZone = 0
+end Time -------------------------------
+
+  PASS  Sync Time Print Test, ESMF_ClockUTest.F90, line 1736
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1746
+  PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
+  1757
+  PASS  Set Time Interval to 73049 days Test, ESMF_ClockUTest.F90, line 1768
+  PASS  Incrementing starttime by 73049 days Test, ESMF_ClockUTest.F90, line 178
+ 1
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1793
+  PASS  Decrementing stoptime by 73049 days Test, ESMF_ClockUTest.F90, line 1805
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1817
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1827
+  PASS  Verifying the EQ operator Test, ESMF_ClockUTest.F90, line 1836
+  PASS  Verifying the NE operator Test, ESMF_ClockUTest.F90, line 1846
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1857
+  PASS  Verifying the EQ operator Test, ESMF_ClockUTest.F90, line 1866
+  PASS  Verifying the NE operator Test, ESMF_ClockUTest.F90, line 1876
+  PASS  Verifying the LT operator Test, ESMF_ClockUTest.F90, line 1886
+  PASS  Verifying the LT operator Test, ESMF_ClockUTest.F90, line 1896
+  PASS  Total days 73000 from -100 to +100 years in No Leap Cal. Test, ESMF_Cloc
+ kUTest.F90, line 1610
+  PASS  Total Counts 73000 from -100 to +100 years in No Leap Cal. Test, ESMF_Cl
+ ockUTest.F90, line 1619
+  PASS  Verifying the GT operator Test, ESMF_ClockUTest.F90, line 1906
+  PASS  Verifying the GT operator Test, ESMF_ClockUTest.F90, line 1916
+  PASS  Verifying the LE operator Test, ESMF_ClockUTest.F90, line 1926
+  PASS  Verifying the LE operator Test, ESMF_ClockUTest.F90, line 1936
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1947
+  PASS  Verifying the LE operator Test, ESMF_ClockUTest.F90, line 1956
+  PASS  Verifying the GE operator Test, ESMF_ClockUTest.F90, line 1966
+  PASS  Verifying the GE operator Test, ESMF_ClockUTest.F90, line 1976
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 1987
+  PASS  Verifying the GE operator Test, ESMF_ClockUTest.F90, line 1996
+  PASS  Validate an uninitialzed time Test, ESMF_ClockUTest.F90, line 2007
+  PASS  Stop Time initialization with year = -100 Test, ESMF_ClockUTest.F90, lin
+ e 2017
+  PASS  Validate an initialzed time Test, ESMF_ClockUTest.F90, line 2027
+  PASS  Stop Time initialization with year = -4900 Test, ESMF_ClockUTest.F90, li
+ ne 2038
+  PASS  Validate an initialzed time Test, ESMF_ClockUTest.F90, line 2048
+  PASS  Time Step initialization with years = 10 Test, ESMF_ClockUTest.F90, line
+  2057
+  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
+ ne 2067
+  PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
+  2079
+  PASS  Clock initialization with above settings Test, ESMF_ClockUTest.F90, line
+  2092
+  PASS  Check mm/dd defaults Test, ESMF_ClockUTest.F90, line 2101
+  PASS  Clock initialization with Start Time equal to Stop Time Test, ESMF_Clock
+ UTest.F90, line 1633
+  PASS  Time Step initialization with nothing set Test, ESMF_ClockUTest.F90, lin
+ e 1643
+  PASS  Start Time set to illegitimate day in 360 day Calendar Test, ESMF_ClockU
+ Test.F90, line 1653
+  PASS  Start Time set to illegitimate day in 360 day Calendar Test, ESMF_ClockU
+ Test.F90, line 1663
+  PASS  Time setting equivalency Test, ESMF_ClockUTest.F90, line 1680
+  PASS  Sync Time Set Calendar Test, ESMF_ClockUTest.F90, line 1699
+  PASS  Time Sync to Real Time Test, ESMF_ClockUTest.F90, line 1714
+  PASS  Get Sync Time Year Test, ESMF_ClockUTest.F90, line 1724
+Time -----------------------------------
+BaseTime -------------------------------
+s = 212490838951
 sN = 0
 sD = 1
 end BaseTime ---------------------------
@@ -1846,7 +1935,7 @@ end Time -------------------------------
   PASS  Get Sync Time Year Test, ESMF_ClockUTest.F90, line 1724
 Time -----------------------------------
 BaseTime -------------------------------
-s = 212490751696
+s = 212490838951
 sN = 0
 sD = 1
 end BaseTime ---------------------------
@@ -1935,96 +2024,7 @@ end Time -------------------------------
   PASS  Get Sync Time Year Test, ESMF_ClockUTest.F90, line 1724
 Time -----------------------------------
 BaseTime -------------------------------
-s = 212490751696
-sN = 0
-sD = 1
-end BaseTime ---------------------------
-
-Calendar -------------------------------
-name = Gregorian
-calkindflag = Gregorian
-daysPerMonth = 31 28 31 30 31 30 31 31 30 31 30 31 
-monthsPerYear = 12
-secondsPerDay = 86400
-secondsPerYear = 31536000
-daysPerYear = 365
-daysPerYeardN = 0
-daysPerYeardD = 1
-end Calendar ---------------------------
-
-timeZone = 0
-end Time -------------------------------
-
-  PASS  Sync Time Print Test, ESMF_ClockUTest.F90, line 1736
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1746
-  PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
-  1757
-  PASS  Set Time Interval to 73049 days Test, ESMF_ClockUTest.F90, line 1768
-  PASS  Incrementing starttime by 73049 days Test, ESMF_ClockUTest.F90, line 178
- 1
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1793
-  PASS  Decrementing stoptime by 73049 days Test, ESMF_ClockUTest.F90, line 1805
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1817
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1827
-  PASS  Verifying the EQ operator Test, ESMF_ClockUTest.F90, line 1836
-  PASS  Total days 73000 from -100 to +100 years in No Leap Cal. Test, ESMF_Cloc
- kUTest.F90, line 1610
-  PASS  Total Counts 73000 from -100 to +100 years in No Leap Cal. Test, ESMF_Cl
- ockUTest.F90, line 1619
-  PASS  Clock initialization with Start Time equal to Stop Time Test, ESMF_Clock
- UTest.F90, line 1633
-  PASS  Time Step initialization with nothing set Test, ESMF_ClockUTest.F90, lin
- e 1643
-  PASS  Start Time set to illegitimate day in 360 day Calendar Test, ESMF_ClockU
- Test.F90, line 1653
-  PASS  Verifying the NE operator Test, ESMF_ClockUTest.F90, line 1846
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1857
-  PASS  Verifying the EQ operator Test, ESMF_ClockUTest.F90, line 1866
-  PASS  Verifying the NE operator Test, ESMF_ClockUTest.F90, line 1876
-  PASS  Verifying the LT operator Test, ESMF_ClockUTest.F90, line 1886
-  PASS  Verifying the LT operator Test, ESMF_ClockUTest.F90, line 1896
-  PASS  Verifying the GT operator Test, ESMF_ClockUTest.F90, line 1906
-  PASS  Verifying the GT operator Test, ESMF_ClockUTest.F90, line 1916
-  PASS  Verifying the LE operator Test, ESMF_ClockUTest.F90, line 1926
-  PASS  Verifying the LE operator Test, ESMF_ClockUTest.F90, line 1936
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1947
-  PASS  Verifying the LE operator Test, ESMF_ClockUTest.F90, line 1956
-  PASS  Verifying the GE operator Test, ESMF_ClockUTest.F90, line 1966
-  PASS  Verifying the GE operator Test, ESMF_ClockUTest.F90, line 1976
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 1987
-  PASS  Verifying the GE operator Test, ESMF_ClockUTest.F90, line 1996
-  PASS  Validate an uninitialzed time Test, ESMF_ClockUTest.F90, line 2007
-  PASS  Stop Time initialization with year = -100 Test, ESMF_ClockUTest.F90, lin
- e 2017
-  PASS  Validate an initialzed time Test, ESMF_ClockUTest.F90, line 2027
-  PASS  Stop Time initialization with year = -4900 Test, ESMF_ClockUTest.F90, li
- ne 2038
-  PASS  Validate an initialzed time Test, ESMF_ClockUTest.F90, line 2048
-  PASS  Time Step initialization with years = 10 Test, ESMF_ClockUTest.F90, line
-  2057
-  PASS  Start Time initialization with year = -100 Test, ESMF_ClockUTest.F90, li
- ne 2067
-  PASS  Stop Time initialization with year = 100 Test, ESMF_ClockUTest.F90, line
-  2079
-  PASS  Clock initialization with above settings Test, ESMF_ClockUTest.F90, line
-  2092
-  PASS  Check mm/dd defaults Test, ESMF_ClockUTest.F90, line 2101
-  PASS  Start Time set to illegitimate day in 360 day Calendar Test, ESMF_ClockU
- Test.F90, line 1663
-  PASS  Time setting equivalency Test, ESMF_ClockUTest.F90, line 1680
-  PASS  Sync Time Set Calendar Test, ESMF_ClockUTest.F90, line 1699
-  PASS  Time Sync to Real Time Test, ESMF_ClockUTest.F90, line 1714
-  PASS  Get Sync Time Year Test, ESMF_ClockUTest.F90, line 1724
-Time -----------------------------------
-BaseTime -------------------------------
-s = 212490751696
+s = 212490838951
 sN = 0
 sD = 1
 end BaseTime ---------------------------
@@ -2100,14 +2100,14 @@ end Time -------------------------------
   PASS  Microsecond clock test, ESMF_ClockUTest.F90, line 2162
   PASS  Microsecond clock test, ESMF_ClockUTest.F90, line 2162
   PASS  Millisecond clock test, ESMF_ClockUTest.F90, line 2132
+  PASS  Nanosecond clock test, ESMF_ClockUTest.F90, line 2194
+  PASS  Nanosecond time string test, ESMF_ClockUTest.F90, line 2204
+  PASS  Nanosecond time string test 2, ESMF_ClockUTest.F90, line 2218
+  PASS  Nanosecond time interval string test, ESMF_ClockUTest.F90, line 2228
+  PASS  Nanosecond time interval string test 2, ESMF_ClockUTest.F90, line 2239
+  PASS  Rational fraction time step clock test, ESMF_ClockUTest.F90, line 2270
+  PASS  Nanosecond clock test, ESMF_ClockUTest.F90, line 2194
   PASS  Millisecond clock test, ESMF_ClockUTest.F90, line 2132
-  PASS  Nanosecond clock test, ESMF_ClockUTest.F90, line 2194
-  PASS  Nanosecond time string test, ESMF_ClockUTest.F90, line 2204
-  PASS  Nanosecond time string test 2, ESMF_ClockUTest.F90, line 2218
-  PASS  Nanosecond time interval string test, ESMF_ClockUTest.F90, line 2228
-  PASS  Nanosecond time interval string test 2, ESMF_ClockUTest.F90, line 2239
-  PASS  Rational fraction time step clock test, ESMF_ClockUTest.F90, line 2270
-  PASS  Nanosecond clock test, ESMF_ClockUTest.F90, line 2194
   PASS  Nanosecond time string test, ESMF_ClockUTest.F90, line 2204
   PASS  Nanosecond time string test 2, ESMF_ClockUTest.F90, line 2218
   PASS  Nanosecond time interval string test, ESMF_ClockUTest.F90, line 2228
@@ -2171,7 +2171,7 @@ end Time -------------------------------
   PASS  Set runTimeStepCount test 1, ESMF_ClockUTest.F90, line 2591
   PASS  Set runTimeStepCount test 2, ESMF_ClockUTest.F90, line 2611
   Ending Test, file ESMF_ClockUTest.F90, line 2627
-  PET           1  Test Elapsed Time    194.337000000000       msec.
-  PET           0  Test Elapsed Time    194.303000000000       msec.
-  PET           2  Test Elapsed Time    194.325000000000       msec.
-  PET           3  Test Elapsed Time    194.218000000000       msec.
+  PET           2  Test Elapsed Time    190.156000000000       msec.
+  PET           0  Test Elapsed Time    190.214000000000       msec.
+  PET           3  Test Elapsed Time    190.249000000000       msec.
+  PET           1  Test Elapsed Time    190.097000000000       msec.
