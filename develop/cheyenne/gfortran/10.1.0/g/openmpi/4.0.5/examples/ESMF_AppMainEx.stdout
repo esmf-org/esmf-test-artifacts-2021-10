@@ -1,4 +1,4 @@
-build time -- 2021-06-17 05:49:23.393728
+build time -- 2021-06-18 05:48:41.407543
  Application Example 1:
  Application Example 1:
  Application Example 1:
@@ -16,30 +16,31 @@ build time -- 2021-06-17 05:49:23.393728
  Comp Create returned, name = Atmosphere Coupler
  Comp Create returned, name = Atmosphere Coupler
  PHYS initialize routine called
- PHYS initialize routine called
  DYNM initialize routine called
  PHYS initialize routine called
+ DYNM initialize routine called
  PHYS initialize routine called
- DYNM initialize routine called
- CPLR initialize routine called
- Comp Initialize complete
- PHYS run routine called
- CPLR run routine called
- DYNM run routine called
- DYNM initialize routine called
+ PHYS initialize routine called
  CPLR initialize routine called
  Comp Initialize complete
  PHYS run routine called
  DYNM initialize routine called
  CPLR initialize routine called
  Comp Initialize complete
- PHYS run routine called
  CPLR initialize routine called
  Comp Initialize complete
  PHYS run routine called
  CPLR run routine called
+ DYNM initialize routine called
+ CPLR initialize routine called
+ Comp Initialize complete
+ PHYS run routine called
  DYNM run routine called
  CPLR run routine called
+ DYNM run routine called
+ PHYS run routine called
+ CPLR run routine called
+ DYNM run routine called
  CPLR run routine called
  DYNM run routine called
  PHYS run routine called
@@ -48,7 +49,6 @@ build time -- 2021-06-17 05:49:23.393728
  PHYS run routine called
  CPLR run routine called
  DYNM run routine called
- DYNM run routine called
  PHYS run routine called
  CPLR run routine called
  PHYS run routine called
@@ -62,41 +62,41 @@ build time -- 2021-06-17 05:49:23.393728
  PHYS run routine called
  DYNM run routine called
  PHYS run routine called
- CPLR run routine called
- DYNM run routine called
- Comp Run complete
- PHYS finalize routine called
- PHYS run routine called
- CPLR run routine called
- DYNM run routine called
  PHYS run routine called
  CPLR run routine called
  DYNM run routine called
  DYNM run routine called
  PHYS run routine called
  CPLR run routine called
- DYNM run routine called
- Comp Run complete
- PHYS finalize routine called
- DYNM finalize routine called
  CPLR run routine called
  DYNM run routine called
  PHYS run routine called
- CPLR run routine called
  DYNM run routine called
- Comp Run complete
- PHYS finalize routine called
- CPLR finalize routine called
- Comp Finalize complete
- DYNM finalize routine called
- CPLR finalize routine called
- Comp Finalize complete
  Comp Run complete
  PHYS finalize routine called
  DYNM finalize routine called
  CPLR finalize routine called
  Comp Finalize complete
+ CPLR run routine called
+ DYNM run routine called
+ Comp Run complete
+ PHYS finalize routine called
  DYNM finalize routine called
+ CPLR finalize routine called
+ Comp Finalize complete
+ PHYS run routine called
+ CPLR run routine called
+ DYNM run routine called
+ Comp Run complete
+ PHYS finalize routine called
+ DYNM finalize routine called
+ CPLR run routine called
+ DYNM run routine called
+ Comp Run complete
+ PHYS finalize routine called
+ DYNM finalize routine called
+ CPLR finalize routine called
+ Comp Finalize complete
  CPLR finalize routine called
  Comp Finalize complete
  Comp Destroy returned
@@ -111,16 +111,93 @@ build time -- 2021-06-17 05:49:23.393728
   PASS  Example ESMF_AppMainEx, ESMF_AppMainEx.F90, line 486
   PASS  Example ESMF_AppMainEx, ESMF_AppMainEx.F90, line 486
   PASS  Example ESMF_AppMainEx, ESMF_AppMainEx.F90, line 486
-[r11i5n2:21707:0:21707] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r11i5n2:21706:0:21706] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r11i5n2:21708:0:21708] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r11i5n2:21705:0:21705] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n28:18725:0:18725] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n28
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.52ee0001.3
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n28
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.52ee0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n28
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.52ee0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r4i3n28:18723:0:18723] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n28:18726:0:18726] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
+[r4i3n28:18724:0:18724] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
+==== backtrace (tid:  18724) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2b054c4b7574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2b054c4b789c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2b054c4b7b0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2b053c34cb00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(+0x2d3f7) [0x2b053cbe23f7]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/openmpi/mca_btl_vader.so(+0x3e81) [0x2b0546a61e81]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(mca_base_component_close+0x1b) [0x2b053cc0f4fb]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(mca_base_components_close+0x56) [0x2b053cc0f586]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(+0x7afb0) [0x2b053cc2ffb0]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(mca_base_framework_close+0x7c) [0x2b053cc1951c]
+10  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(opal_info_close_components+0x25) [0x2b053cbf2165]
+11  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2b053ba119a5]
+12  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x3e7) [0x2b0537afbae5]
+13  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x585) [0x2b0537b1cc43]
+14  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x3b) [0x2b0537af4e7a]
+15  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x3b) [0x2b05388bd405]
+16  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x7bb) [0x2b0538533999]
+17  ./ESMF_AppMainEx() [0x4033f5]
+18  ./ESMF_AppMainEx() [0x403515]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2b053c5796e5]
+20  ./ESMF_AppMainEx() [0x401719]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b053c34caff in ???
+#1  0x2b053cbe23f7 in ???
+#2  0x2b0546a61e80 in ???
+#3  0x2b053cc0f4fa in ???
+#4  0x2b053cc0f585 in ???
+#5  0x2b053cc2ffaf in ???
+#6  0x2b053cc1951b in ???
+#7  0x2b053cbf2164 in ???
+#8  0x2b053ba119a4 in ???
+#9  0x2b0537afbae4 in _ZN5ESMCI3VMK8finalizeEi
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:678
+#10  0x2b0537b1cc42 in _ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3419
+#11  0x2b0537af4e79 in c_esmc_vmfinalize_
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1153
+#12  0x2b05388bd404 in __esmf_vmmod_MOD_esmf_vmfinalize
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9286
+#13  0x2b0538533998 in __esmf_initmod_MOD_esmf_finalize
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:997
+#14  0x4033f4 in esmf_appmainex
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Superstructure/Component/examples/ESMF_AppMainEx.F90:501
+#15  0x403514 in main
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Superstructure/Component/examples/ESMF_AppMainEx.F90:225
 --------------------------------------------------------------------------
-mpirun noticed that process rank 2 with PID 0 on node r11i5n2 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 0 with PID 0 on node r4i3n28 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
  Application Example 1:
  Application Example 1:
@@ -139,30 +216,31 @@ mpirun noticed that process rank 2 with PID 0 on node r11i5n2 exited on signal 1
  Comp Create returned, name = Atmosphere Coupler
  Comp Create returned, name = Atmosphere Coupler
  PHYS initialize routine called
- PHYS initialize routine called
  DYNM initialize routine called
  PHYS initialize routine called
+ DYNM initialize routine called
  PHYS initialize routine called
- DYNM initialize routine called
- CPLR initialize routine called
- Comp Initialize complete
- PHYS run routine called
- CPLR run routine called
- DYNM run routine called
- DYNM initialize routine called
+ PHYS initialize routine called
  CPLR initialize routine called
  Comp Initialize complete
  PHYS run routine called
  DYNM initialize routine called
  CPLR initialize routine called
  Comp Initialize complete
- PHYS run routine called
  CPLR initialize routine called
  Comp Initialize complete
  PHYS run routine called
  CPLR run routine called
+ DYNM initialize routine called
+ CPLR initialize routine called
+ Comp Initialize complete
+ PHYS run routine called
  DYNM run routine called
  CPLR run routine called
+ DYNM run routine called
+ PHYS run routine called
+ CPLR run routine called
+ DYNM run routine called
  CPLR run routine called
  DYNM run routine called
  PHYS run routine called
@@ -171,7 +249,6 @@ mpirun noticed that process rank 2 with PID 0 on node r11i5n2 exited on signal 1
  PHYS run routine called
  CPLR run routine called
  DYNM run routine called
- DYNM run routine called
  PHYS run routine called
  CPLR run routine called
  PHYS run routine called
@@ -185,41 +262,41 @@ mpirun noticed that process rank 2 with PID 0 on node r11i5n2 exited on signal 1
  PHYS run routine called
  DYNM run routine called
  PHYS run routine called
- CPLR run routine called
- DYNM run routine called
- Comp Run complete
- PHYS finalize routine called
- PHYS run routine called
- CPLR run routine called
- DYNM run routine called
  PHYS run routine called
  CPLR run routine called
  DYNM run routine called
  DYNM run routine called
  PHYS run routine called
  CPLR run routine called
- DYNM run routine called
- Comp Run complete
- PHYS finalize routine called
- DYNM finalize routine called
  CPLR run routine called
  DYNM run routine called
  PHYS run routine called
- CPLR run routine called
  DYNM run routine called
- Comp Run complete
- PHYS finalize routine called
- CPLR finalize routine called
- Comp Finalize complete
- DYNM finalize routine called
- CPLR finalize routine called
- Comp Finalize complete
  Comp Run complete
  PHYS finalize routine called
  DYNM finalize routine called
  CPLR finalize routine called
  Comp Finalize complete
+ CPLR run routine called
+ DYNM run routine called
+ Comp Run complete
+ PHYS finalize routine called
  DYNM finalize routine called
+ CPLR finalize routine called
+ Comp Finalize complete
+ PHYS run routine called
+ CPLR run routine called
+ DYNM run routine called
+ Comp Run complete
+ PHYS finalize routine called
+ DYNM finalize routine called
+ CPLR run routine called
+ DYNM run routine called
+ Comp Run complete
+ PHYS finalize routine called
+ DYNM finalize routine called
+ CPLR finalize routine called
+ Comp Finalize complete
  CPLR finalize routine called
  Comp Finalize complete
  Comp Destroy returned
@@ -234,14 +311,91 @@ mpirun noticed that process rank 2 with PID 0 on node r11i5n2 exited on signal 1
   PASS  Example ESMF_AppMainEx, ESMF_AppMainEx.F90, line 486
   PASS  Example ESMF_AppMainEx, ESMF_AppMainEx.F90, line 486
   PASS  Example ESMF_AppMainEx, ESMF_AppMainEx.F90, line 486
-[r11i5n2:21707:0:21707] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r11i5n2:21706:0:21706] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r11i5n2:21708:0:21708] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r11i5n2:21705:0:21705] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n28:18725:0:18725] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n28
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.52ee0001.3
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n28
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.52ee0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n28
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.52ee0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r4i3n28:18723:0:18723] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n28:18726:0:18726] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
+[r4i3n28:18724:0:18724] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
+==== backtrace (tid:  18724) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2b054c4b7574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2b054c4b789c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2b054c4b7b0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2b053c34cb00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(+0x2d3f7) [0x2b053cbe23f7]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/openmpi/mca_btl_vader.so(+0x3e81) [0x2b0546a61e81]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(mca_base_component_close+0x1b) [0x2b053cc0f4fb]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(mca_base_components_close+0x56) [0x2b053cc0f586]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(+0x7afb0) [0x2b053cc2ffb0]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(mca_base_framework_close+0x7c) [0x2b053cc1951c]
+10  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libopen-pal.so.40(opal_info_close_components+0x25) [0x2b053cbf2165]
+11  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/10.1.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2b053ba119a5]
+12  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x3e7) [0x2b0537afbae5]
+13  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x585) [0x2b0537b1cc43]
+14  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x3b) [0x2b0537af4e7a]
+15  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x3b) [0x2b05388bd405]
+16  /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x7bb) [0x2b0538533999]
+17  ./ESMF_AppMainEx() [0x4033f5]
+18  ./ESMF_AppMainEx() [0x403515]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2b053c5796e5]
+20  ./ESMF_AppMainEx() [0x401719]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2b053c34caff in ???
+#1  0x2b053cbe23f7 in ???
+#2  0x2b0546a61e80 in ???
+#3  0x2b053cc0f4fa in ???
+#4  0x2b053cc0f585 in ???
+#5  0x2b053cc2ffaf in ???
+#6  0x2b053cc1951b in ???
+#7  0x2b053cbf2164 in ???
+#8  0x2b053ba119a4 in ???
+#9  0x2b0537afbae4 in _ZN5ESMCI3VMK8finalizeEi
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:678
+#10  0x2b0537b1cc42 in _ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3419
+#11  0x2b0537af4e79 in c_esmc_vmfinalize_
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1153
+#12  0x2b05388bd404 in __esmf_vmmod_MOD_esmf_vmfinalize
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9286
+#13  0x2b0538533998 in __esmf_initmod_MOD_esmf_finalize
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:997
+#14  0x4033f4 in esmf_appmainex
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Superstructure/Component/examples/ESMF_AppMainEx.F90:501
+#15  0x403514 in main
+	at /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/Superstructure/Component/examples/ESMF_AppMainEx.F90:225
 --------------------------------------------------------------------------
-mpirun noticed that process rank 2 with PID 0 on node r11i5n2 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 0 with PID 0 on node r4i3n28 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------

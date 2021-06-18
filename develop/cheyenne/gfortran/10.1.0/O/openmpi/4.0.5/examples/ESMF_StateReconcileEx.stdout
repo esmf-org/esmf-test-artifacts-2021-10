@@ -1,4 +1,4 @@
-build time -- 2021-06-17 05:43:41.885828
+build time -- 2021-06-18 05:43:41.979944
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
@@ -19,50 +19,50 @@ build time -- 2021-06-17 05:43:41.885828
  State Example 1 finished
  State Create returned, name = Ocn2Atm
  State Example 1 finished
- ready to set entry point 1
- ready to set entry point 2
  ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
  ready to set entry point 1
- ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
+ ready to set entry point 1
+ ready to set entry point 2
  ready to call init for comp 1
  i am comp1_init
+ ready to call init for comp 2
+ i am comp2_init
+ ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
  ready to call init for comp 2
  i am comp2_init
  i am comp1_init
  ready to call init for comp 2
- i am comp2_init
  State Example 2 finished
  State before calling StateReconcile()
- ready to call init for comp 2
  State Example 2 finished
  State before calling StateReconcile()
- ESMF_StatePrint: (pet 3):
- ESMF_StatePrint: (pet 1):
-  State name: Ocn2Atm
- State Example 2 finished
- State before calling StateReconcile()
-  State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
- ready to call init for comp 2
- State Example 2 finished
- State before calling StateReconcile()
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
-     reconcile needed: F
  ESMF_StatePrint: (pet 0):
+  State name: Ocn2Atm
  ESMF_StatePrint: (pet 2):
+  State name: Ocn2Atm
+ State Example 2 finished
+ State before calling StateReconcile()
+ ready to call init for comp 2
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ State Example 2 finished
+ State before calling StateReconcile()
  Base name    = Ocn2Atm
+ ESMF_StatePrint: (pet 3):
   State name: Ocn2Atm
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
+ ESMF_StatePrint: (pet 1):
   State name: Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -80,15 +80,31 @@ build time -- 2021-06-17 05:43:41.885828
  Proxy        = no
  Root Info (Attributes):
 {}{} State after calling StateReconcile()
- State after calling StateReconcile()
- ESMF_StatePrint: (pet 1):
-  State name: Ocn2Atm
- ESMF_StatePrint: (pet 3):
+ ESMF_StatePrint: (pet 0):
   State name: Ocn2Atm
  State after calling StateReconcile()
  ESMF_StatePrint: (pet 2):
+  State name: Ocn2Atm
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ Base name    = Ocn2Atm
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ Base name    = Ocn2Atm
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
  State after calling StateReconcile()
- ESMF_StatePrint: (pet 0):
+ Root Info (Attributes):
+{} State Example 3 finished
+ State after calling StateReconcile()
+{} State Example 3 finished
+ ESMF_StatePrint: (pet 3):
+  State name: Ocn2Atm
+ ESMF_StatePrint: (pet 1):
+  State name: Ocn2Atm
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
  Base name    = Ocn2Atm
@@ -97,51 +113,62 @@ build time -- 2021-06-17 05:43:41.885828
  Root Info (Attributes):
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
- Base name    = Ocn2Atm
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}{} State Example 3 finished
-  State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
-  State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
- State Example 3 finished
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
 {} State Example 3 finished
- Base name    = Ocn2Atm
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
 {} State Example 3 finished
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
-[r14i4n19:34981:0:34981] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r14i4n19:34979:0:34979] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r14i4n19:34980:0:34980] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
-Primary job  terminated normally, but 1 process returned
-a non-zero exit code. Per user-direction, the job has been aborted.
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.0
+  Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r14i4n19
-  System call: unlink(2) /dev/shm/vader_segment.r14i4n19.fbf20001.0
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.2
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r14i4n19:34978:0:34978] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n22:2598 :0:2598] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1730)
+[r4i3n22:2596 :0:2596] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
-mpirun noticed that process rank 3 with PID 0 on node r14i4n19 exited on signal 11 (Segmentation fault).
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.3
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r4i3n22:2597 :0:2597] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x60)
+[r4i3n22:2599 :0:2599] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1d90)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node r4i3n22 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
@@ -163,50 +190,50 @@ mpirun noticed that process rank 3 with PID 0 on node r14i4n19 exited on signal 
  State Example 1 finished
  State Create returned, name = Ocn2Atm
  State Example 1 finished
- ready to set entry point 1
- ready to set entry point 2
  ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
  ready to set entry point 1
- ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
+ ready to set entry point 1
+ ready to set entry point 2
  ready to call init for comp 1
  i am comp1_init
+ ready to call init for comp 2
+ i am comp2_init
+ ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
  ready to call init for comp 2
  i am comp2_init
  i am comp1_init
  ready to call init for comp 2
- i am comp2_init
  State Example 2 finished
  State before calling StateReconcile()
- ready to call init for comp 2
  State Example 2 finished
  State before calling StateReconcile()
- ESMF_StatePrint: (pet 3):
- ESMF_StatePrint: (pet 1):
-  State name: Ocn2Atm
- State Example 2 finished
- State before calling StateReconcile()
-  State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
- ready to call init for comp 2
- State Example 2 finished
- State before calling StateReconcile()
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
-     reconcile needed: F
  ESMF_StatePrint: (pet 0):
+  State name: Ocn2Atm
  ESMF_StatePrint: (pet 2):
+  State name: Ocn2Atm
+ State Example 2 finished
+ State before calling StateReconcile()
+ ready to call init for comp 2
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ State Example 2 finished
+ State before calling StateReconcile()
  Base name    = Ocn2Atm
+ ESMF_StatePrint: (pet 3):
   State name: Ocn2Atm
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
+ ESMF_StatePrint: (pet 1):
   State name: Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -224,15 +251,31 @@ mpirun noticed that process rank 3 with PID 0 on node r14i4n19 exited on signal 
  Proxy        = no
  Root Info (Attributes):
 {}{} State after calling StateReconcile()
- State after calling StateReconcile()
- ESMF_StatePrint: (pet 1):
-  State name: Ocn2Atm
- ESMF_StatePrint: (pet 3):
+ ESMF_StatePrint: (pet 0):
   State name: Ocn2Atm
  State after calling StateReconcile()
  ESMF_StatePrint: (pet 2):
+  State name: Ocn2Atm
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ Base name    = Ocn2Atm
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ Base name    = Ocn2Atm
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
  State after calling StateReconcile()
- ESMF_StatePrint: (pet 0):
+ Root Info (Attributes):
+{} State Example 3 finished
+ State after calling StateReconcile()
+{} State Example 3 finished
+ ESMF_StatePrint: (pet 3):
+  State name: Ocn2Atm
+ ESMF_StatePrint: (pet 1):
+  State name: Ocn2Atm
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
  Base name    = Ocn2Atm
@@ -241,49 +284,60 @@ mpirun noticed that process rank 3 with PID 0 on node r14i4n19 exited on signal 
  Root Info (Attributes):
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
- Base name    = Ocn2Atm
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{}{} State Example 3 finished
-  State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
-  State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
- State Example 3 finished
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
 {} State Example 3 finished
- Base name    = Ocn2Atm
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
 {} State Example 3 finished
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
-[r14i4n19:34981:0:34981] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r14i4n19:34979:0:34979] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r14i4n19:34980:0:34980] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
-Primary job  terminated normally, but 1 process returned
-a non-zero exit code. Per user-direction, the job has been aborted.
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.0
+  Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r14i4n19
-  System call: unlink(2) /dev/shm/vader_segment.r14i4n19.fbf20001.0
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.2
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r14i4n19:34978:0:34978] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n22:2598 :0:2598] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1730)
+[r4i3n22:2596 :0:2596] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
-mpirun noticed that process rank 3 with PID 0 on node r14i4n19 exited on signal 11 (Segmentation fault).
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n22
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n22.a72d0001.3
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r4i3n22:2597 :0:2597] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x60)
+[r4i3n22:2599 :0:2599] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1d90)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node r4i3n22 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------

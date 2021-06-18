@@ -1,4 +1,4 @@
-build time -- 2021-06-17 05:42:08.303695
+build time -- 2021-06-18 05:42:14.526657
  contents before scatter/gather:
            0  array1:            1
            0  array1:            2
@@ -87,23 +87,243 @@ build time -- 2021-06-17 05:42:08.303695
            3  array1:            7
            3  array1:            8
   PASS  Example ESMF_VMScatterVMGatherEx, ESMF_VMScatterVMGatherEx.F90, line 120
-[r13i6n15:63005:0:63005] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r13i6n15:63004:0:63004] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[r13i6n15:63006:0:63006] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n19:72616:0:72616] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n19:72617:0:72617] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r13i6n15
-  System call: unlink(2) /dev/shm/vader_segment.r13i6n15.ab140001.3
+  Local host:  r4i3n19
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n19.b85a0001.0
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r13i6n15:63007:0:63007] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n19:72614:0:72614] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n19
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n19.b85a0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+==== backtrace (tid:  72614) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2af899f07574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2af899f0789c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2af899f07b0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2af889f20b00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x2d277) [0x2af88a7b5277]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/openmpi/mca_btl_vader.so(+0x3e81) [0x2af898613e81]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_component_close+0x1b) [0x2af88a7deecb]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_components_close+0x56) [0x2af88a7def56]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x78260) [0x2af88a800260]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_framework_close+0x7c) [0x2af88a7e8e8c]
+10  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(opal_info_close_components+0x25) [0x2af88a7c1935]
+11  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2af8895ef3f5]
+12  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x254) [0x2af886683500]
+13  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x4d1) [0x2af886692e8b]
+14  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x25) [0x2af886674512]
+15  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x25) [0x2af886ce78f7]
+16  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x193) [0x2af886b5e5e9]
+17  ./ESMF_VMScatterVMGatherEx() [0x40161f]
+18  ./ESMF_VMScatterVMGatherEx() [0x4017d9]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2af88a14d6e5]
+20  ./ESMF_VMScatterVMGatherEx() [0x400e49]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+[r4i3n19:72615:0:72615] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
+#0  0x2af889f20aff in ???
+#1  0x2af88a7b5277 in ???
+#2  0x2af898613e80 in ???
+#3  0x2af88a7deeca in ???
+#4  0x2af88a7def55 in ???
+#5  0x2af88a80025f in ???
+#6  0x2af88a7e8e8b in ???
+#7  0x2af88a7c1934 in ???
+#8  0x2af8895ef3f4 in ???
+#9  0x2af8866834ff in ???
+#10  0x2af886692e8a in ???
+#11  0x2af886674511 in ???
+#12  0x2af886ce78f6 in ???
+#13  0x2af886b5e5e8 in ???
+#14  0x40161e in ???
+#15  0x4017d8 in ???
+#16  0x2af88a14d6e4 in ???
+#17  0x400e48 in ???
+	at ../sysdeps/x86_64/start.S:118
+#18  0xffffffffffffffff in ???
 --------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 0 on node r13i6n15 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 1 with PID 0 on node r4i3n19 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+ contents before scatter/gather:
+           0  array1:            1
+           0  array1:            2
+           0  array1:            3
+           0  array1:            4
+           0  array1:            5
+           0  array1:            6
+           0  array1:            7
+           0  array1:            8
+ contents before scatter/gather:
+           1  array1:          101
+           1  array1:          102
+           1  array1:          103
+           1  array1:          104
+           1  array1:          105
+           1  array1:          106
+           1  array1:          107
+           1  array1:          108
+ contents before scatter/gather:
+           2  array1:          201
+           2  array1:          202
+           2  array1:          203
+           2  array1:          204
+           2  array1:          205
+           2  array1:          206
+           2  array1:          207
+           2  array1:          208
+ contents before scatter/gather:
+           3  array1:          301
+           3  array1:          302
+           3  array1:          303
+           3  array1:          304
+           3  array1:          305
+           3  array1:          306
+           3  array1:          307
+           3  array1:          308
+ scatter result:
+           0  array2:            1
+           0  array2:            2
+ gather result:
+           0  array1:            1
+           0  array1:            2
+           0  array1:            3
+           0  array1:            4
+           0  array1:            5
+           0  array1:            6
+           0  array1:            7
+           0  array1:            8
+  PASS  Example ESMF_VMScatterVMGatherEx, ESMF_VMScatterVMGatherEx.F90, line 120
+ scatter result:
+           1  array2:            3
+           1  array2:            4
+ gather result:
+           1  array1:          101
+           1  array1:          102
+           1  array1:          103
+           1  array1:          104
+           1  array1:          105
+           1  array1:          106
+           1  array1:          107
+           1  array1:          108
+  PASS  Example ESMF_VMScatterVMGatherEx, ESMF_VMScatterVMGatherEx.F90, line 120
+ scatter result:
+           2  array2:            5
+           2  array2:            6
+ gather result:
+           2  array1:          201
+           2  array1:          202
+           2  array1:          203
+           2  array1:          204
+           2  array1:          205
+           2  array1:          206
+           2  array1:          207
+           2  array1:          208
+  PASS  Example ESMF_VMScatterVMGatherEx, ESMF_VMScatterVMGatherEx.F90, line 120
+ scatter result:
+           3  array2:            7
+           3  array2:            8
+ gather result:
+           3  array1:            1
+           3  array1:            2
+           3  array1:            3
+           3  array1:            4
+           3  array1:            5
+           3  array1:            6
+           3  array1:            7
+           3  array1:            8
+  PASS  Example ESMF_VMScatterVMGatherEx, ESMF_VMScatterVMGatherEx.F90, line 120
+[r4i3n19:72616:0:72616] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r4i3n19:72617:0:72617] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n19
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n19.b85a0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r4i3n19:72614:0:72614] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r4i3n19
+  System call: unlink(2) /dev/shm/vader_segment.r4i3n19.b85a0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+==== backtrace (tid:  72614) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2af899f07574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2af899f0789c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2af899f07b0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2af889f20b00]
+ 4  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x2d277) [0x2af88a7b5277]
+ 5  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/openmpi/mca_btl_vader.so(+0x3e81) [0x2af898613e81]
+ 6  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_component_close+0x1b) [0x2af88a7deecb]
+ 7  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_components_close+0x56) [0x2af88a7def56]
+ 8  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(+0x78260) [0x2af88a800260]
+ 9  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(mca_base_framework_close+0x7c) [0x2af88a7e8e8c]
+10  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libopen-pal.so.40(opal_info_close_components+0x25) [0x2af88a7c1935]
+11  /glade/u/apps/ch/opt/openmpi/4.0.5/gnu/9.1.0/lib/libmpi.so.40(PMPI_T_finalize+0x35) [0x2af8895ef3f5]
+12  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI3VMK8finalizeEi+0x254) [0x2af886683500]
+13  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(_ZN5ESMCI2VM8finalizeEP12ESMC_LogicalPi+0x4d1) [0x2af886692e8b]
+14  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(c_esmc_vmfinalize_+0x25) [0x2af886674512]
+15  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_vmmod_MOD_esmf_vmfinalize+0x25) [0x2af886ce78f7]
+16  /glade/scratch/mpotts/gfortran_9.1.0_openmpi_O_develop/lib/libO/Linux.gfortran.64.openmpi.default/libesmf.so(__esmf_initmod_MOD_esmf_finalize+0x193) [0x2af886b5e5e9]
+17  ./ESMF_VMScatterVMGatherEx() [0x40161f]
+18  ./ESMF_VMScatterVMGatherEx() [0x4017d9]
+19  /glade/u/apps/ch/os/lib64/libc.so.6(__libc_start_main+0xf5) [0x2af88a14d6e5]
+20  ./ESMF_VMScatterVMGatherEx() [0x400e49]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+[r4i3n19:72615:0:72615] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+#0  0x2af889f20aff in ???
+#1  0x2af88a7b5277 in ???
+#2  0x2af898613e80 in ???
+#3  0x2af88a7deeca in ???
+#4  0x2af88a7def55 in ???
+#5  0x2af88a80025f in ???
+#6  0x2af88a7e8e8b in ???
+#7  0x2af88a7c1934 in ???
+#8  0x2af8895ef3f4 in ???
+#9  0x2af8866834ff in ???
+#10  0x2af886692e8a in ???
+#11  0x2af886674511 in ???
+#12  0x2af886ce78f6 in ???
+#13  0x2af886b5e5e8 in ???
+#14  0x40161e in ???
+#15  0x4017d8 in ???
+#16  0x2af88a14d6e4 in ???
+#17  0x400e48 in ???
+	at ../sysdeps/x86_64/start.S:118
+#18  0xffffffffffffffff in ???
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node r4i3n19 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
