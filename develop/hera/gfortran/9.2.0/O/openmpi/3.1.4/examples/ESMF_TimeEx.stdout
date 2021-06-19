@@ -1,0 +1,47 @@
+build time -- 2021-06-19 07:03:54
+[1624088071.581256] [h17c25:306284:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+[1624088071.585672] [h17c25:306284:0]         mxm.c:196  MXM  WARN  The 'ulimit -s' on the system is set to 'unlimited'. This may have negative performance implications. Please set the stack size to the default value (10240) 
+ Time1 = 
+Time -----------------------------------
+2000-02-28T02:24:45
+end Time -------------------------------
+
+ Timeinterval1 = 
+TimeInterval ---------------------------
+P0Y0M2DT8H36M15S
+end TimeInterval -----------------------
+
+ time2 = time1 + timeinterval1 =         2000 /           3 /           1            11 :           1 :           0
+ time2 is larger than time1
+  PASS  Example ESMF_TimeEx, ESMF_TimeEx.F90, line 141
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x2af07df383ff in ???
+#1  0x2af07eeaede0 in event_queue_insert
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2620
+#2  0x2af07eeaf137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2346
+#3  0x2af07eeaf137 in opal_libevent2022_event_active_nolock
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2312
+#4  0x2af07eeaf31a in opal_libevent2022_event_active
+	at /tmp/Role.Apps/spack-stage/spack-stage-openmpi-3.1.4-iacsi5v5fw547qcbmmkof4dj5z366pxc/spack-src/opal/mca/event/libevent2022/libevent/event.c:2305
+#5  0x2af07ed35a5b in ???
+#6  0x2af07ed2a205 in ???
+#7  0x2af07ee8288b in ???
+#8  0x2af07ed03694 in ???
+#9  0x2af07ccd56f5 in ???
+#10  0x2af07cd16b44 in ???
+#11  0x2af07a15302b in ???
+#12  0x2af07a1478e2 in ???
+#13  0x2af07a15c038 in ???
+#14  0x2af07a7d10ec in ???
+#15  0x2af07a6c4378 in ???
+#16  0x401685 in ???
+#17  0x40189f in ???
+#18  0x2af07df24554 in ???
+#19  0x400f68 in ???
+#20  0xffffffffffffffff in ???
+srun: error: h17c25: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=19927992.272
