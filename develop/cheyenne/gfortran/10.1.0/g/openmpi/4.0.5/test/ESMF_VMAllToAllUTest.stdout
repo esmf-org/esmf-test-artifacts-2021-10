@@ -1,4 +1,4 @@
-build time -- 2021-06-18 05:48:41.407543
+build time -- 2021-06-19 05:52:48.589547
   Beginning Test, file ESMF_VMAllToAllUTest.F90, line 72
   Beginning Test, file ESMF_VMAllToAllUTest.F90, line 72
   NUMBER_OF_PROCESSORS           4
@@ -11,12 +11,12 @@ build time -- 2021-06-18 05:48:41.407543
   PASS  AllToAll Test iarray1 -> iarray2, ESMF_VMAllToAllUTest.F90, line 127
   PASS  AllToAll Test iarray1 -> iarray2, ESMF_VMAllToAllUTest.F90, line 127
   PASS  AllToAll Test iarray1 -> iarray2, ESMF_VMAllToAllUTest.F90, line 127
+  PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
+  PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
-  PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
-  PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
   PASS  Verify iarray3 data against iarray1 after alltoallv, ESMF_VMAllToAllUTest.F90, line 165
@@ -59,24 +59,14 @@ build time -- 2021-06-18 05:48:41.407543
   Ending Test, file ESMF_VMAllToAllUTest.F90, line 267
   Ending Test, file ESMF_VMAllToAllUTest.F90, line 267
   Ending Test, file ESMF_VMAllToAllUTest.F90, line 267
-[r4i3n28:46373:0:46373] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r5i2n24:54383:0:54383] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n28
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.aed10001.3
-  Error:       No such file or directory (errno 2)
---------------------------------------------------------------------------
-[r4i3n28:46375:0:46375] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
---------------------------------------------------------------------------
-A system call failed during shared memory initialization that should
-not have.  It is likely that your MPI job will now either abort or
-experience performance degradation.
-
-  Local host:  r4i3n28
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.aed10001.0
+  Local host:  r5i2n24
+  System call: unlink(2) /dev/shm/vader_segment.r5i2n24.4f680001.3
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -84,31 +74,28 @@ A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n28
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.aed10001.2
+  Local host:  r5i2n24
+  System call: unlink(2) /dev/shm/vader_segment.r5i2n24.4f680001.1
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r4i3n28:46372:0:46372] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x12729a0)
-[r4i3n28:46374:0:46374] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-==== backtrace (tid:  46372) ====
- 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2ae3018f7574]
- 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2ae3018f789c]
- 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2ae3018f7b0b]
- 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2ae2f193bb00]
- 4  [0x12729a0]
-=================================
+[r5i2n24:54384:0:54384] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
+[r5i2n24:54386:0:54386] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
 
-Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
-
-Backtrace for this error:
+  Local host:  r5i2n24
+  System call: unlink(2) /dev/shm/vader_segment.r5i2n24.4f680001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r5i2n24:54385:0:54385] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
-#0  0x2ae2f193baff in ???
-#1  0x12729a0 in ???
 --------------------------------------------------------------------------
-mpirun noticed that process rank 1 with PID 0 on node r4i3n28 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 0 with PID 0 on node r5i2n24 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
   Beginning Test, file ESMF_VMAllToAllUTest.F90, line 72
   Beginning Test, file ESMF_VMAllToAllUTest.F90, line 72
@@ -124,12 +111,12 @@ mpirun noticed that process rank 1 with PID 0 on node r4i3n28 exited on signal 1
   PASS  AllToAll Test iarray1 -> iarray2, ESMF_VMAllToAllUTest.F90, line 127
   PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
-  PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
+  PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
-  PASS  Verify iarray2 data after alltoall, ESMF_VMAllToAllUTest.F90, line 141
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
   PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
+  PASS  AllToAll Test iarray2 -> iarray3, ESMF_VMAllToAllUTest.F90, line 151
   PASS  Verify iarray3 data against iarray1 after alltoallv, ESMF_VMAllToAllUTest.F90, line 165
   PASS  Verify iarray3 data against iarray1 after alltoallv, ESMF_VMAllToAllUTest.F90, line 165
   PASS  Verify iarray3 data against iarray1 after alltoallv, ESMF_VMAllToAllUTest.F90, line 165
@@ -170,24 +157,14 @@ mpirun noticed that process rank 1 with PID 0 on node r4i3n28 exited on signal 1
   Ending Test, file ESMF_VMAllToAllUTest.F90, line 267
   Ending Test, file ESMF_VMAllToAllUTest.F90, line 267
   Ending Test, file ESMF_VMAllToAllUTest.F90, line 267
-[r4i3n28:46373:0:46373] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r5i2n24:54383:0:54383] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n28
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.aed10001.3
-  Error:       No such file or directory (errno 2)
---------------------------------------------------------------------------
-[r4i3n28:46375:0:46375] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
---------------------------------------------------------------------------
-A system call failed during shared memory initialization that should
-not have.  It is likely that your MPI job will now either abort or
-experience performance degradation.
-
-  Local host:  r4i3n28
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.aed10001.0
+  Local host:  r5i2n24
+  System call: unlink(2) /dev/shm/vader_segment.r5i2n24.4f680001.3
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -195,29 +172,26 @@ A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n28
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n28.aed10001.2
+  Local host:  r5i2n24
+  System call: unlink(2) /dev/shm/vader_segment.r5i2n24.4f680001.1
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r4i3n28:46372:0:46372] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x12729a0)
-[r4i3n28:46374:0:46374] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-==== backtrace (tid:  46372) ====
- 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2ae3018f7574]
- 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2ae3018f789c]
- 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2ae3018f7b0b]
- 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2ae2f193bb00]
- 4  [0x12729a0]
-=================================
+[r5i2n24:54384:0:54384] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40)
+[r5i2n24:54386:0:54386] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
 
-Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
-
-Backtrace for this error:
+  Local host:  r5i2n24
+  System call: unlink(2) /dev/shm/vader_segment.r5i2n24.4f680001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r5i2n24:54385:0:54385] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
-#0  0x2ae2f193baff in ???
-#1  0x12729a0 in ???
 --------------------------------------------------------------------------
-mpirun noticed that process rank 1 with PID 0 on node r4i3n28 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 0 with PID 0 on node r5i2n24 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
