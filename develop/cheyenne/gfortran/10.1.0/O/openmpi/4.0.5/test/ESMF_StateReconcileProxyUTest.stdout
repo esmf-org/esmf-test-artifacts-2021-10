@@ -1,4 +1,4 @@
-build time -- 2021-06-19 05:45:52.834282
+build time -- 2021-06-20 05:43:53.370124
   Beginning Test, file ESMF_StateReconcileProxyUTest.F90, line 244
   Beginning Test, file ESMF_StateReconcileProxyUTest.F90, line 244
   NUMBER_OF_PROCESSORS           4
@@ -30,23 +30,22 @@ build time -- 2021-06-19 05:45:52.834282
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
+  PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
   PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
-  PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
-[r4i3n30:57661:0:57661] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n30
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n30.e7eb0001.3
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.1
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -54,28 +53,51 @@ A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n30
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n30.e7eb0001.0
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.3
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r4i3n30:57659:0:57659] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r1i5n5:4930 :0:4930] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x120)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n30
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n30.e7eb0001.1
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.0
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r4i3n30:57660:0:57660] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xe50)
-[r4i3n30:57662:0:57662] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x130)
+[r1i5n5:4929 :0:4929] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r1i5n5:4931 :0:4931] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r1i5n5:4932 :0:4932] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x11764b0)
+==== backtrace (tid:   4932) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2ac71210a574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2ac71210a89c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2ac71210ab0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2ac7020c8b00]
+ 4  [0x11764b0]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
+#0  0x2ac7020c8aff in ???
+#1  0x11764b0 in ???
 --------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 0 on node r4i3n30 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 1 with PID 0 on node r1i5n5 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
   Beginning Test, file ESMF_StateReconcileProxyUTest.F90, line 244
   Beginning Test, file ESMF_StateReconcileProxyUTest.F90, line 244
@@ -108,23 +130,22 @@ mpirun noticed that process rank 0 with PID 0 on node r4i3n30 exited on signal 1
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
+  PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   PASS  Ensure Re-Reconcile Field (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 372
   PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
-  PASS  Ensure Re-Reconcile FieldBundle (proxy) persistence Test, ESMF_StateReconcileProxyUTest.F90, line 381
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
   Ending Test, file ESMF_StateReconcileProxyUTest.F90, line 400
-[r4i3n30:57661:0:57661] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n30
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n30.e7eb0001.3
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.1
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -132,26 +153,49 @@ A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n30
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n30.e7eb0001.0
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.3
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r4i3n30:57659:0:57659] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r1i5n5:4930 :0:4930] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x120)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  r4i3n30
-  System call: unlink(2) /dev/shm/vader_segment.r4i3n30.e7eb0001.1
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.0
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[r4i3n30:57660:0:57660] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xe50)
-[r4i3n30:57662:0:57662] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x130)
+[r1i5n5:4929 :0:4929] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  r1i5n5
+  System call: unlink(2) /dev/shm/vader_segment.r1i5n5.b1a70001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[r1i5n5:4931 :0:4931] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[r1i5n5:4932 :0:4932] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x11764b0)
+==== backtrace (tid:   4932) ====
+ 0  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(ucs_handle_error+0xe4) [0x2ac71210a574]
+ 1  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x2589c) [0x2ac71210a89c]
+ 2  /glade/u/apps/ch/opt/ucx/1.9.0/lib/libucs.so.0(+0x25b0b) [0x2ac71210ab0b]
+ 3  /glade/u/apps/ch/os/lib64/libpthread.so.0(+0x10b00) [0x2ac7020c8b00]
+ 4  [0x11764b0]
+=================================
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
+#0  0x2ac7020c8aff in ???
+#1  0x11764b0 in ???
 --------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 0 on node r4i3n30 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 1 with PID 0 on node r1i5n5 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
