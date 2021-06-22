@@ -1,6 +1,11 @@
-build time -- 2021-06-21 02:41:55
+build time -- 2021-06-22 02:51:31
 Beginning Test, file ESMCI_ExceptionsUTest.C, line 63
 NUMBER_OF_PROCESSORS 4
+PASS Bare throw Test, ESMCI_ExceptionsUTest.C, line 76
+PASS Deep throw Test, ESMCI_ExceptionsUTest.C, line 89
+PASS ClassNoDestructor throw Test, ESMCI_ExceptionsUTest.C, line 102
+PASS ClassWithDestructor throw Test, ESMCI_ExceptionsUTest.C, line 115
+Ending Test, file ESMCI_ExceptionsUTest.C, line 119
 Beginning Test, file ESMCI_ExceptionsUTest.C, line 63
 NUMBER_OF_PROCESSORS 4
 PASS Bare throw Test, ESMCI_ExceptionsUTest.C, line 76
@@ -10,21 +15,16 @@ PASS ClassWithDestructor throw Test, ESMCI_ExceptionsUTest.C, line 115
 Ending Test, file ESMCI_ExceptionsUTest.C, line 119
 Beginning Test, file ESMCI_ExceptionsUTest.C, line 63
 NUMBER_OF_PROCESSORS 4
-PASS Bare throw Test, ESMCI_ExceptionsUTest.C, line 76
-PASS Deep throw Test, ESMCI_ExceptionsUTest.C, line 89
-PASS ClassNoDestructor throw Test, ESMCI_ExceptionsUTest.C, line 102
-PASS ClassWithDestructor throw Test, ESMCI_ExceptionsUTest.C, line 115
-Ending Test, file ESMCI_ExceptionsUTest.C, line 119
-PASS Bare throw Test, ESMCI_ExceptionsUTest.C, line 76
-PASS Deep throw Test, ESMCI_ExceptionsUTest.C, line 89
-PASS ClassNoDestructor throw Test, ESMCI_ExceptionsUTest.C, line 102
-PASS ClassWithDestructor throw Test, ESMCI_ExceptionsUTest.C, line 115
-Ending Test, file ESMCI_ExceptionsUTest.C, line 119
 Beginning Test, file ESMCI_ExceptionsUTest.C, line 63
 NUMBER_OF_PROCESSORS 4
 PASS Bare throw Test, ESMCI_ExceptionsUTest.C, line 76
+PASS Bare throw Test, ESMCI_ExceptionsUTest.C, line 76
 PASS Deep throw Test, ESMCI_ExceptionsUTest.C, line 89
 PASS ClassNoDestructor throw Test, ESMCI_ExceptionsUTest.C, line 102
+PASS Deep throw Test, ESMCI_ExceptionsUTest.C, line 89
+PASS ClassWithDestructor throw Test, ESMCI_ExceptionsUTest.C, line 115
+PASS ClassNoDestructor throw Test, ESMCI_ExceptionsUTest.C, line 102
+Ending Test, file ESMCI_ExceptionsUTest.C, line 119
 PASS ClassWithDestructor throw Test, ESMCI_ExceptionsUTest.C, line 115
 Ending Test, file ESMCI_ExceptionsUTest.C, line 119
 --------------------------------------------------------------------------
@@ -32,8 +32,8 @@ A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  Orion-02-40.HPC.MsState.Edu
-  System call: unlink(2) /dev/shm/vader_segment.Orion-02-40.2eea0001.2
+  Local host:  Orion-01-38.HPC.MsState.Edu
+  System call: unlink(2) /dev/shm/vader_segment.Orion-01-38.26d70001.3
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -41,28 +41,37 @@ A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  Orion-02-40.HPC.MsState.Edu
-  System call: unlink(2) /dev/shm/vader_segment.Orion-02-40.2eea0001.0
+  Local host:  Orion-01-38.HPC.MsState.Edu
+  System call: unlink(2) /dev/shm/vader_segment.Orion-01-38.26d70001.1
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[Orion-02-40:10262:0:10262] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[Orion-02-40:10260:0:10260] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
-[Orion-02-40:10263:0:10263] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[Orion-01-38:279462:0:279462] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[Orion-01-38:279464:0:279464] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 A system call failed during shared memory initialization that should
 not have.  It is likely that your MPI job will now either abort or
 experience performance degradation.
 
-  Local host:  Orion-02-40.HPC.MsState.Edu
-  System call: unlink(2) /dev/shm/vader_segment.Orion-02-40.2eea0001.1
+  Local host:  Orion-01-38.HPC.MsState.Edu
+  System call: unlink(2) /dev/shm/vader_segment.Orion-01-38.26d70001.2
   Error:       No such file or directory (errno 2)
 --------------------------------------------------------------------------
-[Orion-02-40:10261:0:10261] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  Orion-01-38.HPC.MsState.Edu
+  System call: unlink(2) /dev/shm/vader_segment.Orion-01-38.26d70001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[Orion-01-38:279463:0:279463] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
+[Orion-01-38:279461:0:279461] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 10260 on node Orion-02-40 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 1 with PID 279462 on node Orion-01-38 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
 2 total processes killed (some possibly by mpirun during cleanup)
