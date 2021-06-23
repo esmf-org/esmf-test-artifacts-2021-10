@@ -1,4 +1,4 @@
-build time -- 2021-06-22 05:47:26.866221
+build time -- 2021-06-23 05:48:08.413981
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
@@ -25,7 +25,6 @@ build time -- 2021-06-22 05:47:26.866221
  ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
- i am comp1_init
  ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
@@ -37,9 +36,10 @@ build time -- 2021-06-22 05:47:26.866221
  i am comp1_init
  ready to call init for comp 2
  i am comp2_init
+ i am comp1_init
+ ready to call init for comp 2
  State Example 2 finished
  State before calling StateReconcile()
- ready to call init for comp 2
  State Example 2 finished
  State before calling StateReconcile()
  State Example 2 finished
@@ -48,18 +48,21 @@ build time -- 2021-06-22 05:47:26.866221
  State Example 2 finished
  State before calling StateReconcile()
  ESMF_StatePrint: (pet 2):
+ ESMF_StatePrint: (pet 1):
+ ESMF_StatePrint: (pet 3):
   State name: Ocn2Atm
  ESMF_StatePrint: (pet 0):
   State name: Ocn2Atm
- ESMF_StatePrint: (pet 3):
+  State name: Ocn2Atm
+  State name: Ocn2Atm
+     status: Unspecified intent direction, object count: 0
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
- ESMF_StatePrint: (pet 1):
-  State name: Ocn2Atm
-  State name: Ocn2Atm
      status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+     reconcile needed: F
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -68,9 +71,6 @@ build time -- 2021-06-22 05:47:26.866221
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
-     reconcile needed: F
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -80,11 +80,11 @@ build time -- 2021-06-22 05:47:26.866221
  Proxy        = no
  Root Info (Attributes):
 {}{}{}{} State after calling StateReconcile()
- ESMF_StatePrint: (pet 2):
-  State name: Ocn2Atm
  State after calling StateReconcile()
  ESMF_StatePrint: (pet 0):
   State name: Ocn2Atm
+ ESMF_StatePrint: (pet 2):
+  State name: Ocn2Atm
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
  Base name    = Ocn2Atm
@@ -94,19 +94,23 @@ build time -- 2021-06-22 05:47:26.866221
      reconcile needed: F
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
+ Proxy        = no
  State after calling StateReconcile()
+ Root Info (Attributes):
+ Root Info (Attributes):
+ State after calling StateReconcile()
+{} State Example 3 finished
  ESMF_StatePrint: (pet 3):
   State name: Ocn2Atm
- State after calling StateReconcile()
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ Base name    = Ocn2Atm
+ Status: Base = Ready,  object = Ready
+{} State Example 3 finished
+ Proxy        = no
+ Root Info (Attributes):
  ESMF_StatePrint: (pet 1):
   State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
- Base name    = Ocn2Atm
- Root Info (Attributes):
-{} State Example 3 finished
- Proxy        = no
- Root Info (Attributes):
 {} State Example 3 finished
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
@@ -114,43 +118,15 @@ build time -- 2021-06-22 05:47:26.866221
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{} State Example 3 finished
 {} State Example 3 finished
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
-[r1i4n5:3840 :0:3840] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
---------------------------------------------------------------------------
-A system call failed during shared memory initialization that should
-not have.  It is likely that your MPI job will now either abort or
-experience performance degradation.
-
-  Local host:  r1i4n5
-  System call: unlink(2) /dev/shm/vader_segment.r1i4n5.34140001.2
-  Error:       No such file or directory (errno 2)
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-A system call failed during shared memory initialization that should
-not have.  It is likely that your MPI job will now either abort or
-experience performance degradation.
-
-  Local host:  r1i4n5
-  System call: unlink(2) /dev/shm/vader_segment.r1i4n5.34140001.3
-  Error:       No such file or directory (errno 2)
---------------------------------------------------------------------------
-[r1i4n5:3843 :0:3843] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x18f0)
-[r1i4n5:3844 :0:3844] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x70)
---------------------------------------------------------------------------
-Primary job  terminated normally, but 1 process returned
-a non-zero exit code. Per user-direction, the job has been aborted.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11 (Segmentation fault).
---------------------------------------------------------------------------
+ PASS: ESMF_StateReconcileEx.F90
+ PASS: ESMF_StateReconcileEx.F90
+ PASS: ESMF_StateReconcileEx.F90
+ PASS: ESMF_StateReconcileEx.F90
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
  State Reconcile Example 1: Component Creation
@@ -177,7 +153,6 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
  ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
- i am comp1_init
  ready to set entry point 1
  ready to set entry point 2
  ready to call init for comp 1
@@ -189,9 +164,10 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
  i am comp1_init
  ready to call init for comp 2
  i am comp2_init
+ i am comp1_init
+ ready to call init for comp 2
  State Example 2 finished
  State before calling StateReconcile()
- ready to call init for comp 2
  State Example 2 finished
  State before calling StateReconcile()
  State Example 2 finished
@@ -200,18 +176,21 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
  State Example 2 finished
  State before calling StateReconcile()
  ESMF_StatePrint: (pet 2):
+ ESMF_StatePrint: (pet 1):
+ ESMF_StatePrint: (pet 3):
   State name: Ocn2Atm
  ESMF_StatePrint: (pet 0):
   State name: Ocn2Atm
- ESMF_StatePrint: (pet 3):
+  State name: Ocn2Atm
+  State name: Ocn2Atm
+     status: Unspecified intent direction, object count: 0
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
- ESMF_StatePrint: (pet 1):
-  State name: Ocn2Atm
-  State name: Ocn2Atm
      status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+     reconcile needed: F
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -220,9 +199,6 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
-     reconcile needed: F
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -232,11 +208,11 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
  Proxy        = no
  Root Info (Attributes):
 {}{}{}{} State after calling StateReconcile()
- ESMF_StatePrint: (pet 2):
-  State name: Ocn2Atm
  State after calling StateReconcile()
  ESMF_StatePrint: (pet 0):
   State name: Ocn2Atm
+ ESMF_StatePrint: (pet 2):
+  State name: Ocn2Atm
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
  Base name    = Ocn2Atm
@@ -246,19 +222,23 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
      reconcile needed: F
  Base name    = Ocn2Atm
  Status: Base = Ready,  object = Ready
+ Proxy        = no
  State after calling StateReconcile()
+ Root Info (Attributes):
+ Root Info (Attributes):
+ State after calling StateReconcile()
+{} State Example 3 finished
  ESMF_StatePrint: (pet 3):
   State name: Ocn2Atm
- State after calling StateReconcile()
+     status: Unspecified intent direction, object count: 0
+     reconcile needed: F
+ Base name    = Ocn2Atm
+ Status: Base = Ready,  object = Ready
+{} State Example 3 finished
+ Proxy        = no
+ Root Info (Attributes):
  ESMF_StatePrint: (pet 1):
   State name: Ocn2Atm
-     status: Unspecified intent direction, object count: 0
-     reconcile needed: F
- Base name    = Ocn2Atm
- Root Info (Attributes):
-{} State Example 3 finished
- Proxy        = no
- Root Info (Attributes):
 {} State Example 3 finished
      status: Unspecified intent direction, object count: 0
      reconcile needed: F
@@ -266,40 +246,12 @@ mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
-{} State Example 3 finished
 {} State Example 3 finished
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
   PASS  Example ESMF_StateReconcileEx, ESMF_StateReconcileEx.F90, line 297
-[r1i4n5:3840 :0:3840] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x30)
---------------------------------------------------------------------------
-A system call failed during shared memory initialization that should
-not have.  It is likely that your MPI job will now either abort or
-experience performance degradation.
-
-  Local host:  r1i4n5
-  System call: unlink(2) /dev/shm/vader_segment.r1i4n5.34140001.2
-  Error:       No such file or directory (errno 2)
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-A system call failed during shared memory initialization that should
-not have.  It is likely that your MPI job will now either abort or
-experience performance degradation.
-
-  Local host:  r1i4n5
-  System call: unlink(2) /dev/shm/vader_segment.r1i4n5.34140001.3
-  Error:       No such file or directory (errno 2)
---------------------------------------------------------------------------
-[r1i4n5:3843 :0:3843] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x18f0)
-[r1i4n5:3844 :0:3844] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x70)
---------------------------------------------------------------------------
-Primary job  terminated normally, but 1 process returned
-a non-zero exit code. Per user-direction, the job has been aborted.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 0 on node r1i4n5 exited on signal 11 (Segmentation fault).
---------------------------------------------------------------------------
+ PASS: ESMF_StateReconcileEx.F90
+ PASS: ESMF_StateReconcileEx.F90
+ PASS: ESMF_StateReconcileEx.F90
+ PASS: ESMF_StateReconcileEx.F90
