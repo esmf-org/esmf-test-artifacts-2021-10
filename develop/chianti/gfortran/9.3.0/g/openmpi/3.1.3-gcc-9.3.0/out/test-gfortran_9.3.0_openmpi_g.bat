@@ -1,8 +1,6 @@
 #!/bin/bash -l
 export JOBID=12346
 
-module use /home/mpotts/hpc-modules/modulefiles/stack
-
 module load python
 module load gcc/9.3.0-gcc-7.5.0 openmpi/3.1.3-gcc-9.3.0 netcdf-c/4.7.4-gcc-9.3.0-openmpi
 module load hdf5/1.10.7-gcc-9.3.0-openmpi 
