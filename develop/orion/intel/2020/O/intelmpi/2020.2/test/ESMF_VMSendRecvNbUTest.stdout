@@ -1,4 +1,4 @@
-build time -- 2021-06-25 02:32:35
+build time -- 2021-06-26 02:51:38
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
@@ -7,15 +7,15 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
   Beginning Test, file ESMF_VMSendRecvNbUTest.F90, line 85
   NUMBER_OF_PROCESSORS           4
   NUMBER_OF_PROCESSORS           4
-  PASS  SendRecvNb local I4 data Test, ESMF_VMSendRecvNbUTest.F90, line 170
   PASS  SendRecvNb local I4 data Test, ESMF_VMSendRecvNbUTest.F90, line 170
   PASS  SendRecvNb local R4 data Test, ESMF_VMSendRecvNbUTest.F90, line 181
+  PASS  SendRecvNb local I4 data Test, ESMF_VMSendRecvNbUTest.F90, line 170
+  PASS  SendRecvNb local R4 data Test, ESMF_VMSendRecvNbUTest.F90, line 181
+  PASS  SendRecvNb local R8 data Test, ESMF_VMSendRecvNbUTest.F90, line 192
+  PASS  SendRecvNb local LOGICAL data Test, ESMF_VMSendRecvNbUTest.F90, line 203
   PASS  SendRecvNb local R8 data Test, ESMF_VMSendRecvNbUTest.F90, line 192
   PASS  SendRecvNb local LOGICAL data Test, ESMF_VMSendRecvNbUTest.F90, line 203
   PASS  Waiting for I4 SendRecvNb, ESMF_VMSendRecvNbUTest.F90, line 214
-  PASS  SendRecvNb local R4 data Test, ESMF_VMSendRecvNbUTest.F90, line 181
-  PASS  SendRecvNb local R8 data Test, ESMF_VMSendRecvNbUTest.F90, line 192
-  PASS  SendRecvNb local LOGICAL data Test, ESMF_VMSendRecvNbUTest.F90, line 203
            0  After rcv i_recvData is          301         302 ( should be 
          301         302  )
   PASS  Verify local I4 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
@@ -72,8 +72,8 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
   PASS  Verify local LOGICAL data after receive Test, ESMF_VMSendRecvNbUTest.F90
  , line 300
   PASS  SendRecvNb local I4 data Test, ESMF_VMSendRecvNbUTest.F90, line 343
-  PASS  SendRecvNb local R4 data Test, ESMF_VMSendRecvNbUTest.F90, line 354
   Beginning Test, file ESMF_VMSendRecvNbUTest.F90, line 85
+  PASS  SendRecvNb local R4 data Test, ESMF_VMSendRecvNbUTest.F90, line 354
   PASS  SendRecvNb local R8 data Test, ESMF_VMSendRecvNbUTest.F90, line 365
   NUMBER_OF_PROCESSORS           4
   PASS  SendRecvNb local LOGICAL data Test, ESMF_VMSendRecvNbUTest.F90, line 376
@@ -163,22 +163,24 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
          101         102  )
   PASS  Verify local I4 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
  e 401
-           3 After recv r4_recvData is    101.0000       102.0000     
   PASS  Waiting for all queued non-blocking comms in VM, ESMF_VMSendRecvNbUTest.
+           3 After recv r4_recvData is    101.0000       102.0000     
+ ( should be    101.0000       102.0000      )
+  PASS  Verify local R4 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
+ e 415
  F90, line 387
+           3 After recv r8_recvData is    101.000000000000     
            0  After rcv i_recvData is          201         202 ( should be 
          201         202  )
- ( should be    101.0000       102.0000      )
   PASS  Verify local I4 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
  e 401
            0 After recv r4_recvData is    201.0000       202.0000     
  ( should be    201.0000       202.0000      )
   PASS  Verify local R4 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
  e 415
-  PASS  Verify local R4 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
+   102.000000000000      ( Should be    101.000000000000     
            0 After recv r8_recvData is    201.000000000000     
    202.000000000000      ( Should be    201.000000000000     
- e 415
    202.000000000000       )
   PASS  Verify local R8 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
  e 429
@@ -189,8 +191,6 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
   PASS  Verify local LOGICAL data after receive Test, ESMF_VMSendRecvNbUTest.F90
  , line 452
   Ending Test, file ESMF_VMSendRecvNbUTest.F90, line 469
-           3 After recv r8_recvData is    101.000000000000     
-   102.000000000000      ( Should be    101.000000000000     
    102.000000000000       )
   PASS  Verify local R8 data after receive Test, ESMF_VMSendRecvNbUTest.F90, lin
  e 429
@@ -223,7 +223,7 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
   PASS  Verify local LOGICAL data after receive Test, ESMF_VMSendRecvNbUTest.F90
  , line 452
   Ending Test, file ESMF_VMSendRecvNbUTest.F90, line 469
-  PET           1  Test Elapsed Time    33.9800000000000       msec.
-  PET           2  Test Elapsed Time    36.9250000000000       msec.
-  PET           0  Test Elapsed Time    46.0230000000000       msec.
-  PET           3  Test Elapsed Time    48.2780000000000       msec.
+  PET           1  Test Elapsed Time    36.6190000000000       msec.
+  PET           2  Test Elapsed Time    33.7190000000000       msec.
+  PET           3  Test Elapsed Time    42.9850000000000       msec.
+  PET           0  Test Elapsed Time    46.1200000000000       msec.
