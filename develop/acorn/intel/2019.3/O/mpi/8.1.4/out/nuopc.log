@@ -639,7 +639,7 @@ ftn -c -O -fPIC -assume realloc_lhs -m64 -mcmodel=small -pthread -threads  -qope
 ftn -c -O -fPIC -assume realloc_lhs -m64 -mcmodel=small -pthread -threads  -qopenmp -I/lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/DEFAULTINSTALLDIR/mod/modO/Linux.intel.64.mpi.default -I/lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/DEFAULTINSTALLDIR/include   -DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_11-8-gb3000f9ecd' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpi -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop -DESMF_VERSION_MAJOR=8 mainApp.F90
 ftn -m64 -mcmodel=small -pthread -threads -Wl,--no-as-needed  -qopenmp -L/lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/DEFAULTINSTALLDIR/lib/libO/Linux.intel.64.mpi.default   -Wl,-rpath,/lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/DEFAULTINSTALLDIR/lib/libO/Linux.intel.64.mpi.default  -o mainApp mainApp.o driverParentComp.o driverChildComp.o atm.o ocn.o -lesmf  -lmpi -lfmpich -cxxlib -lrt -ldl -lnetcdff
 + mpirun -np 4 ./mainApp
-+ local result=1
++ local result=0
 + set +x
 FINISHED: DriverInDriverDataDepProto
 ---------------------------------------------------------------------------
@@ -884,7 +884,7 @@ FAIL: AtmOcnTransferLocStreamProto
 FAIL: AtmOcnTransferMeshProto
 PASS: ComponentExplorer
 PASS: CustomFieldDictionaryProto
-FAIL: DriverInDriverDataDepProto
+PASS: DriverInDriverDataDepProto
 PASS: DriverInDriverProto
 PASS: DynPhyProto
 FAIL: ExternalDriverAPIProto
@@ -901,250 +901,267 @@ PASS: SingleModelOpenMPUnawareProto
 == TEST SUMMARY STOP ==
 
 ---------------------------------------------------------------------------
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 asyncIODriver.F90:133     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.989 ERROR            PET0 asyncIOApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 asyncIODriver.F90:133     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.990 ERROR            PET0 asyncIOApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 asyncIODriver.F90:133     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AsyncIOBlockingProto/PET0.ESMF_LogFile:20210626 165929.992 ERROR            PET0 asyncIOApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.476 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.476 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.476 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.476 ERROR            PET0 asyncIODriver.F90:161     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.476 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.476 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing e20210626 165932.473 INFO             PET0 asyncIOApp STARTING
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.477 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.477 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.477 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.477 ERROR            PET0 asyncIODriver.F90:161     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.477 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.477 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing e20210626 165932.475 INFO             PET0 asyncIOApp STARTING
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 asyncIODriver.F90:161     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AsyncIONonblockingProto/PET0.ESMF_LogFile:20210626 165932.479 ERROR            PET0 asyncIOApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.263 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.263 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.263 ERROR            PET0 esm:src/20210626 165937.257 INFO             PET0 esmApp STARTING
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.263 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.263 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.263 ERROR            PET0 esm:src/20210626 165937.258 INFO             PET0 esmApp STARTING
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.265 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.265 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.265 ERROR            PET0 esm:src/20210626 165937.260 INFO             PET0 esmApp STARTING
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.267 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.267 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.267 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.267 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnConProto/PET0.ESMF_LogFile:20210626 165937.267 ERROR            PET0 esmApp.F90:63     Invalid argument  - Passing error in return code
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.413 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.413 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.413 ERROR            PET0 esm:src/20210626 165939.408 INFO             PET0 esmApp STARTING
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.414 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.414 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.414 ERROR            PET0 esm:src/20210626 165939.409 INFO             PET0 esmApp STARTING
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.416 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.416 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.416 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.416 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnCplListProto/PET0.ESMF_LogFile:20210626 165939.416 ERROR            PET0 esmApp.F90:63     Invalid argument  - Passing error in return code
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.900 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.900 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.900 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error20210626 165945.897 INFO             PET0 esmApp STARTING
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.903 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.903 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.903 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.903 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210626 165945.903 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
-AtmOcnImplicitProto/PET0.ESMF_LogFile:20210626 165947.984 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnImplicitProto/PET0.ESMF_LogFile:20210626 165947.984 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnImplicitProto/PET0.ESMF_LogFile:20210626 165947.984 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnImplicitProto/PET0.ESMF_LogFile:20210626 165947.984 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnImplicitProto/PET0.ESMF_LogFile:20210626 165947.984 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.707 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.707 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.708 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.708 ERROR            PET0 esm.F90:151     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.708 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.708 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.709 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.709 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.709 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.709 ERROR            PET0 esm.F90:151     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.709 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.709 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 esm.F90:151     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210626 165959.711 ERROR            PET0 esmApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.179 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.179 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.179 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.179 ERROR            PET0 esm:esm.F90:135     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.179 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.179 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 esm:esm.F90:135     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210626 170002.183 ERROR            PET0 esmApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.528 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.528 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.528 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.528 ERROR            PET0 esm.F90:142     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.528 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.528 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.529 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.529 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.529 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.529 ERROR            PET0 esm.F90:142     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.529 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.529 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 esm.F90:142     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210626 170004.532 ERROR            PET0 esmApp.F90:64     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 esm.F90:102     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.157 ERROR            PET0 esmApp.F90:81     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 esm.F90:102     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
-AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210626 170016.162 ERROR            PET0 esmApp.F90:81     Value unrecognized or out of range  - Passing error in return code
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.344 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.344 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.344 ERROR            PET0 esm:src/20210626 170018.339 INFO             PET0 esmApp STARTING
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.347 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.347 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.347 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.347 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnScalarProto/PET0.ESMF_LogFile:20210626 170018.347 ERROR            PET0 esmApp.F90:76     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.900 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.900 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.900 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.900 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.901 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.901 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.901 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.901 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.903 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.903 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.904 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.904 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210626 170042.904 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
-AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210626 170045.810 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210626 170045.810 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210626 170045.810 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210626 170045.810 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210626 170045.810 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.945 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.945 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.945 ERROR            PET0 esm:src/20210626 170047.940 INFO             PET0 esmApp STARTING
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.947 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.947 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.947 ERROR            PET0 esm:src/20210626 170047.942 INFO             PET0 esmApp STARTING
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.948 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.948 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.948 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.948 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210626 170047.948 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.159 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.159 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.159 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.159 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.159 ERROR            PET0 esmApp.F90:88     Invalid argument  - Passing error in return code
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.163 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.163 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.163 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.163 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210626 170050.163 ERROR            PET0 esmApp.F90:88     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.228 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.228 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  20210626 170113.228 INFO             PET0     nuopcTop - Setting Verbosity on created component to: high
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.230 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.230 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.230 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.230 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:574     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.230 ERROR            PET0 nuopc_da.F90:161     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.230 ERROR            PET0 ocnDA.F90:50     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.232 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.232 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.232 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.232 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:574     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.232 ERROR            PET0 nuopc_da.F90:161     Invalid argument  - Passing error in return code
-ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210626 170113.232 ERROR            PET0 ocnDA.F90:50     Invalid argument  - Passing error in return code
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.706 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.706 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.706 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.706 ERROR  20210626 170115.703 INFO             PET0 esmApp STARTING
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.708 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.708 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.708 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.708 ERROR  20210626 170115.705 INFO             PET0 esmApp STARTING
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.710 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.710 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.710 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.710 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-GenericMediatorProto/PET0.ESMF_LogFile:20210626 170115.710 ERROR            PET0 app.F90:76     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.221 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.221 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.221 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.221 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.221 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.228 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.228 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.228 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.228 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.228 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.242 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.242 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.242 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.242 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.242 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.238 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.238 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.238 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.238 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-HierarchyProto/PET0.ESMF_LogFile:20210626 170118.238 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error in return code
-NestingMultipleProto/PET0.ESMF_LogFile:20210626 170122.584 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-NestingMultipleProto/PET0.ESMF_LogFile:20210626 170122.584 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-NestingMultipleProto/PET0.ESMF_LogFile:20210626 170122.584 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-NestingMultipleProto/PET0.ESMF_LogFile:20210626 170122.584 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-NestingMultipleProto/PET0.ESMF_LogFile:20210626 170122.584 ERROR            PET0 mainApp.F90:77     Invalid argument  - Passing error in return code
-NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210626 170129.107 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
-NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210626 170129.108 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
-NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210626 170129.108 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
-NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210626 170129.108 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
-NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210626 170129.108 ERROR            PET0 mainApp.F90:77     Invalid argument  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.176 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.176 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.176 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.176 ERROR            PET0 asyncIODriver.F90:133     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.176 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.176 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUO20210627 165918.176 INFO             PET0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.178 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.178 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.178 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.178 ERROR            PET0 asyncIODriver.F90:133     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.178 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.178 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUO20210627 165918.177 INFO             PET0 asyncIOApp STARTING
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 asyncIODriver.F90:133     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AsyncIOBlockingProto/PET0.ESMF_LogFile:20210627 165918.179 ERROR            PET0 asyncIOApp.F90:64     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.676 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.676 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.676 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.676 ERROR            PET0 asyncIODriver.F90:161     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.676 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.676 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing e20210627 165920.674 INFO             PET0 asyncIOApp STARTING
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.678 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.678 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.678 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.678 ERROR            PET0 asyncIODriver.F90:161     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.678 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.678 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing e20210627 165920.676 INFO             PET0 asyncIOApp STARTING
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 asyncIODriver.F90:161     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 asyncIODriver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AsyncIONonblockingProto/PET0.ESMF_LogFile:20210627 165920.680 ERROR            PET0 asyncIOApp.F90:64     Value unrecognized or out of range  - Passing error in return code
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.473 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.473 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.473 ERROR            PET0 esm:src/20210627 165925.468 INFO             PET0 esmApp STARTING
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.474 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.474 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.474 ERROR            PET0 esm:src/20210627 165925.469 INFO             PET0 esmApp STARTING
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.476 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.476 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.476 ERROR            PET0 esm:src/20210627 165925.471 INFO             PET0 esmApp STARTING
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.477 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.477 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.477 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.477 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnConProto/PET0.ESMF_LogFile:20210627 165925.477 ERROR            PET0 esmApp.F90:63     Invalid argument  - Passing error in return code
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.641 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.641 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.641 ERROR            PET0 esm:src/20210627 165927.636 INFO             PET0 esmApp STARTING
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.642 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.642 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.642 ERROR            PET0 esm:src/20210627 165927.637 INFO             PET0 esmApp STARTING
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.644 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.644 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.644 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.644 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnCplListProto/PET0.ESMF_LogFile:20210627 165927.644 ERROR            PET0 esmApp.F90:63     Invalid argument  - Passing error in return code
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.191 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.191 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.191 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error20210627 165934.188 INFO             PET0 esmApp STARTING
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.192 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.192 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.192 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error20210627 165934.189 INFO             PET0 esmApp STARTING
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.194 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.194 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.194 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.194 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnIceSimpleImplicitProto/PET0.ESMF_LogFile:20210627 165934.194 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.263 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.263 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.263 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.263 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.265 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.265 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.265 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.265 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.266 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.266 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.266 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.266 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnImplicitProto/PET0.ESMF_LogFile:20210627 165936.266 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.939 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.939 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.939 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.939 ERROR            PET0 esm.F90:151     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.939 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.939 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.941 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.941 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.941 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.941 ERROR            PET0 esm.F90:151     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.941 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.941 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 esm.F90:151     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListProto/PET0.ESMF_LogFile:20210627 165947.943 ERROR            PET0 esmApp.F90:64     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.354 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.354 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.354 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.354 ERROR            PET0 esm:esm.F90:135     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.354 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.354 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.355 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.355 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.355 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.355 ERROR            PET0 esm:esm.F90:135     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.355 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.355 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 esm:esm.F90:135     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesProto/PET0.ESMF_LogFile:20210627 165950.357 ERROR            PET0 esmApp.F90:64     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.694 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.694 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.694 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.694 ERROR            PET0 esm.F90:142     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.694 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.694 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.696 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.696 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.696 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.696 ERROR            PET0 esm.F90:142     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.697 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.697 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 esm.F90:142     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnMedPetListTimescalesSplitFastProto/PET0.ESMF_LogFile:20210627 165952.700 ERROR            PET0 esmApp.F90:64     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 esm.F90:102     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.317 ERROR            PET0 esmApp.F90:81     Value unrecognized or out of ran20210627 170004.318 INFO             PET0 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 esm.F90:102     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.319 ERROR            PET0 esmApp.F90:81     Value unrecognized or out of ran20210627 170004.319 INFO             PET0 esmApp STARTING
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 ESMF_Comp.F90:759 ESMF_CompConstruct     Value unrecognized or out of range  - Conflict between petlist and global pet count
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 ESMF_GridComp.F90:568 ESMF_GridCompCreate     Value unrecognized or out of range  - Internal subroutine call returned Error
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:4260     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 esm.F90:102     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:765     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Value unrecognized or out of range  - Passing error in return code
+AtmOcnRtmTwoTimescalesProto/PET0.ESMF_LogFile:20210627 170004.320 ERROR            PET0 esmApp.F90:81     Value unrecognized or out of range  - Passing error in return code
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.376 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.376 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.376 ERROR            PET0 esm:src/20210627 170006.372 INFO             PET0 esmApp STARTING
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.380 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.380 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.380 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.380 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnScalarProto/PET0.ESMF_LogFile:20210627 170006.380 ERROR            PET0 esmApp.F90:76     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.905 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.905 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.905 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.905 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.907 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.907 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.907 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.907 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.909 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.909 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.909 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.909 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnSimpleImplicitProto/PET0.ESMF_LogFile:20210627 170030.909 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.854 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.854 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.854 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.854 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.854 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.851 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.851 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.851 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.851 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnTransferGridProto/PET0.ESMF_LogFile:20210627 170033.851 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.951 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.951 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.951 ERROR            PET0 esm:src/20210627 170035.946 INFO             PET0 esmApp STARTING
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.953 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.953 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.953 ERROR            PET0 esm:src/20210627 170035.948 INFO             PET0 esmApp STARTING
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.954 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.954 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.954 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.954 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnTransferLocStreamProto/PET0.ESMF_LogFile:20210627 170035.954 ERROR            PET0 esmApp.F90:64     Invalid argument  - Passing error in return code
+AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210627 170038.183 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210627 170038.183 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210627 170038.183 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210627 170038.183 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+AtmOcnTransferMeshProto/PET0.ESMF_LogFile:20210627 170038.183 ERROR            PET0 esmApp.F90:88     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.103 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.103 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.103 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.104 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:574     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.105 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.105 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.105 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.105 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:574     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.108 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.108 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.108 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.108 ERROR            PET0 nuopcTop:src/addon/NUOPC/src/NUOPC_Driver.F90:574     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.108 ERROR            PET0 nuopc_da.F90:161     Invalid argument  - Passing error in return code
+ExternalDriverAPIWeakCplDAProto/PET0.ESMF_LogFile:20210627 170101.108 ERROR            PET0 ocnDA.F90:50     Invalid argument  - Passing error in return code
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.588 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.588 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.588 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.588 ERROR  20210627 170103.586 INFO             PET0 esmApp STARTING
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.591 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.591 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.591 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.591 ERROR  20210627 170103.587 INFO             PET0 esmApp STARTING
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.592 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.592 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.592 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.592 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+GenericMediatorProto/PET0.ESMF_LogFile:20210627 170103.592 ERROR            PET0 app.F90:76     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.101 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.101 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.101 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.101 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.101 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error i20210627 170106.105 INFO             PET0     esm - Creating connector component ATM-TO-OCN with petList of size 1 :
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.114 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.114 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.114 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.114 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.114 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.111 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.111 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.111 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.111 ERROR            PET0 esm:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+HierarchyProto/PET0.ESMF_LogFile:20210627 170106.111 ERROR            PET0 esmApp.F90:82     Invalid argument  - Passing error in return code
+NestingMultipleProto/PET0.ESMF_LogFile:20210627 170110.389 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+NestingMultipleProto/PET0.ESMF_LogFile:20210627 170110.389 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+NestingMultipleProto/PET0.ESMF_LogFile:20210627 170110.389 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+NestingMultipleProto/PET0.ESMF_LogFile:20210627 170110.389 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+NestingMultipleProto/PET0.ESMF_LogFile:20210627 170110.389 ERROR            PET0 mainApp.F90:77     Invalid argument  - Passing error in return code
+NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210627 170117.155 ERROR            PET0 ESMCI_VM_F.C:664 c_esmc_vmgetpetlocalinfo()     Invalid argument  - - provided pet id is out of range
+NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210627 170117.155 ERROR            PET0 ESMF_VM.F90:5440 ESMF_VMGetPetSpecific()     Invalid argument  - Internal subroutine call returned Error
+NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210627 170117.155 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:898     Invalid argument  - Passing error in return code
+NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210627 170117.155 ERROR            PET0 advection diffusion driver:src/addon/NUOPC/src/NUOPC_Driver.F90:466     Invalid argument  - Passing error in return code
+NestingTelescopeMultipleProto/PET0.ESMF_LogFile:20210627 170117.155 ERROR            PET0 mainApp.F90:77     Invalid argument  - Passing error in return code
