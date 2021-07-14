@@ -1,15 +1,15 @@
-build time -- 2021-07-13 04:06:49
+build time -- 2021-07-14 04:09:13
 Warning: Process to core binding is enabled and OMP_NUM_THREADS is set to non-zero (1) value
 If your program has OpenMP sections, this can cause over-subscription of cores and consequently poor performance
 To avoid this, please re-run your application after setting MV2_ENABLE_AFFINITY=0
 Use MV2_USE_THREAD_WARNING=0 to suppress this message
   Beginning Test, file ESMF_NUOPC_UTest.F90, line 225
   Beginning Test, file ESMF_NUOPC_UTest.F90, line 225
-  Beginning Test, file ESMF_NUOPC_UTest.F90, line 225
   NUMBER_OF_PROCESSORS           4
   Beginning Test, file ESMF_NUOPC_UTest.F90, line 225
   NUMBER_OF_PROCESSORS           4
   NUMBER_OF_PROCESSORS           4
+  Beginning Test, file ESMF_NUOPC_UTest.F90, line 225
   NUMBER_OF_PROCESSORS           4
   PASS  NUOPC_NoOp() Test, ESMF_NUOPC_UTest.F90, line 280
   PASS  NUOPC_NoOp() Test, ESMF_NUOPC_UTest.F90, line 280
@@ -63,8 +63,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  NUOPC_CompGet() Test, ESMF_NUOPC_UTest.F90, line 300
   PASS  NUOPC_CompGet() Test, ESMF_NUOPC_UTest.F90, line 300
   PASS  NUOPC_CompGet() Test, ESMF_NUOPC_UTest.F90, line 300
-  PASS  NUOPC_CompAttributeGet() for GridComp Test, ESMF_NUOPC_UTest.F90, line 3
- 09
   PASS  NUOPC_CompAttributeGet() for GridComp Test, ESMF_NUOPC_UTest.F90, line 3
  09
   PASS  NUOPC_CompAttributeGet() for GridComp Test, ESMF_NUOPC_UTest.F90, line 3
@@ -73,6 +71,8 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  09
   PASS  ESMF_UtilString2Int() for Verbosity Test, ESMF_NUOPC_UTest.F90, line 319
   PASS  ESMF_UtilString2Int() for Verbosity Test, ESMF_NUOPC_UTest.F90, line 319
+  PASS  NUOPC_CompAttributeGet() for GridComp Test, ESMF_NUOPC_UTest.F90, line 3
+ 09
   PASS  ESMF_UtilString2Int() for Verbosity Test, ESMF_NUOPC_UTest.F90, line 319
   PASS  ESMF_UtilString2Int() for Verbosity Test, ESMF_NUOPC_UTest.F90, line 319
   PASS  NUOPC_DriverGetComp() Test, ESMF_NUOPC_UTest.F90, line 327
@@ -82,6 +82,32 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  NUOPC_DriverPrint for PET:           0
    Model, Mediator, and Driver components, in the order
    that they were added to the Driver:
+           1 :  testComp1
+           2 :  testComp2
+   Connector components, in the order
+ NUOPC_DriverPrint for PET:           1
+   Model, Mediator, and Driver components, in the order
+   that they were added to the Driver:
+           1 :  testComp1
+           2 :  testComp2
+   Connector components, in the order
+ NUOPC_DriverPrint for PET:           2
+   Model, Mediator, and Driver components, in the order
+   that they were added to the Driver:
+           1 :  testComp1
+           2 :  testComp2
+   Connector components, in the order
+   that they were added to the Driver:
+           1 :  testComp1-TO-testComp2
+   that they were added to the Driver:
+           1 :  testComp1-TO-testComp2
+NUOPC_RunSequenceArrayPrint: element     1 out of      1
+   that they were added to the Driver:
+           1 :  testComp1-TO-testComp2
+NUOPC_RunSequenceArrayPrint: element     1 out of      1
+runSeq::
+NUOPC_RunSequenceArrayPrint: element     1 out of      1
+runSeq::
  NUOPC_DriverPrint for PET:           3
    Model, Mediator, and Driver components, in the order
    that they were added to the Driver:
@@ -89,38 +115,23 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
            2 :  testComp2
    Connector components, in the order
    that they were added to the Driver:
- NUOPC_DriverPrint for PET:           1
-   Model, Mediator, and Driver components, in the order
-   that they were added to the Driver:
-           1 :  testComp1
- NUOPC_DriverPrint for PET:           2
-   Model, Mediator, and Driver components, in the order
-   that they were added to the Driver:
-           1 :  testComp1
-           1 :  testComp1-TO-testComp2
-NUOPC_RunSequenceArrayPrint: element     1 out of      1
-runSeq::
-           2 :  testComp2
-   Connector components, in the order
-   that they were added to the Driver:
-           1 :  testComp1-TO-testComp2
-NUOPC_RunSequenceArrayPrint: element     1 out of      1
-runSeq::
-           2 :  testComp2
-   Connector components, in the order
-   that they were added to the Driver:
-           1 :  testComp1-TO-testComp2
-NUOPC_RunSequenceArrayPrint: element     1 out of      1
-           1 :  testComp1
-           2 :  testComp2
-   Connector components, in the order
-   that they were added to the Driver:
            1 :  testComp1-TO-testComp2
 NUOPC_RunSequenceArrayPrint: element     1 out of      1
 runSeq::
  runElementPrint:      1     2     1 F T
  runElementPrint:      2     1     1 F T
  runElementPrint:      1    -1     1 F T
+ runElementPrint:      2    -1     1 F T
+ runElementPrint:     -1    -1     0 F F
+::
+  PASS  NUOPC_DriverPrint() Test, ESMF_NUOPC_UTest.F90, line 335
+ runElementPrint:      1     2     1 F T
+ runElementPrint:      2     1     1 F T
+ runElementPrint:      1    -1     1 F T
+ runElementPrint:      2    -1     1 F T
+ runElementPrint:     -1    -1     0 F F
+::
+runSeq::
  runElementPrint:      1     2     1 F T
  runElementPrint:      2     1     1 F T
  runElementPrint:      1    -1     1 F T
@@ -135,23 +146,12 @@ runSeq::
  runElementPrint:     -1    -1     0 F F
 ::
   PASS  NUOPC_DriverPrint() Test, ESMF_NUOPC_UTest.F90, line 335
-runSeq::
- runElementPrint:      1     2     1 F T
- runElementPrint:      2     1     1 F T
- runElementPrint:      1    -1     1 F T
- runElementPrint:      2    -1     1 F T
- runElementPrint:     -1    -1     0 F F
-::
   PASS  NUOPC_DriverPrint() Test, ESMF_NUOPC_UTest.F90, line 335
- runElementPrint:      2    -1     1 F T
- runElementPrint:     -1    -1     0 F F
-::
-  PASS  NUOPC_DriverPrint() Test, ESMF_NUOPC_UTest.F90, line 335
-  PASS  NUOPC_DriverGet() slotCount Test, ESMF_NUOPC_UTest.F90, line 343
-  PASS  NUOPC_DriverGet() slotCount Test, ESMF_NUOPC_UTest.F90, line 343
   PASS  NUOPC_DriverGet() slotCount Test, ESMF_NUOPC_UTest.F90, line 343
   PASS  NUOPC_DriverGet() slotCount validate Test, ESMF_NUOPC_UTest.F90, line 35
  0
+  PASS  NUOPC_DriverGet() slotCount Test, ESMF_NUOPC_UTest.F90, line 343
+  PASS  NUOPC_DriverGet() slotCount Test, ESMF_NUOPC_UTest.F90, line 343
   PASS  NUOPC_DriverGet() slotCount Test, ESMF_NUOPC_UTest.F90, line 343
   PASS  NUOPC_DriverGet() slotCount validate Test, ESMF_NUOPC_UTest.F90, line 35
  0
@@ -217,13 +217,13 @@ runSeq::
  9
   PASS  NUOPC_DriverGet() slotCount validate Test, ESMF_NUOPC_UTest.F90, line 43
  9
+  PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
+  PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
+  PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
   PASS  NUOPC_DriverGet() slotCount validate Test, ESMF_NUOPC_UTest.F90, line 43
  9
   PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
-  PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
-  PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
   PASS  NUOPC_FreeFormatAdd() Test, ESMF_NUOPC_UTest.F90, line 455
-  PASS  NUOPC_FreeFormatGetLine() Test, ESMF_NUOPC_UTest.F90, line 447
   PASS  NUOPC_FreeFormatAdd() Test, ESMF_NUOPC_UTest.F90, line 455
   PASS  NUOPC_FreeFormatAdd() Test, ESMF_NUOPC_UTest.F90, line 455
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 463
@@ -239,13 +239,13 @@ runSeq::
   PASS  NUOPC_FreeFormatPrint() Test, ESMF_NUOPC_UTest.F90, line 479
   PASS  NUOPC_FreeFormatGet() Test, ESMF_NUOPC_UTest.F90, line 487
   PASS  NUOPC_FreeFormatPrint() Test, ESMF_NUOPC_UTest.F90, line 479
+  PASS  NUOPC_FreeFormatGet() Test, ESMF_NUOPC_UTest.F90, line 487
+  PASS  NUOPC_FreeFormatGet() Test, ESMF_NUOPC_UTest.F90, line 487
+  PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 495
   PASS  NUOPC_FreeFormatPrint() Test, ESMF_NUOPC_UTest.F90, line 479
   PASS  NUOPC_FreeFormatGet() Test, ESMF_NUOPC_UTest.F90, line 487
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 495
-  PASS  NUOPC_FreeFormatGet() Test, ESMF_NUOPC_UTest.F90, line 487
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 495
-  PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 495
-  PASS  NUOPC_FreeFormatGet() Test, ESMF_NUOPC_UTest.F90, line 487
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 495
   PASS  NUOPC_CheckSetClock() Test, ESMF_NUOPC_UTest.F90, line 507
   PASS  NUOPC_CheckSetClock() Test, ESMF_NUOPC_UTest.F90, line 507
@@ -268,47 +268,47 @@ runSeq::
   PASS  NUOPC_AdjustClock() - adjust clockB - Test, ESMF_NUOPC_UTest.F90, line 5
  26
 Printing currTime to stdout:    0  1  1  0  0  0   0
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 535
 Printing currTime to stdout:    0  1  1  0  0  0   0
 Printing currTime to stdout:    0  1  1  0  0  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 535
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 535
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 535
 Printing currTime to stdout:    0  1  1  0  0  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 535
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 544
-Printing startTime to stdout:    0  1  1  0  0  0   0
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 553
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 544
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 544
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 544
 Printing startTime to stdout:    0  1  1  0  0  0   0
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 553
 Printing startTime to stdout:    0  1  1  0  0  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 553
 Printing startTime to stdout:    0  1  1  0  0  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 553
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 544
+Printing startTime to stdout:    0  1  1  0  0  0   0
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 553
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 553
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 562
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 562
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 562
 Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 571
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 562
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 562
 Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 571
 Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 571
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 562
 Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 571
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 580
-  PASS  NUOPC_CompAreServicesSet() for CplComp Test, ESMF_NUOPC_UTest.F90, line 
- 588
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 580
   PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 580
   PASS  NUOPC_CompAreServicesSet() for CplComp Test, ESMF_NUOPC_UTest.F90, line 
  588
-  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 580
   PASS  NUOPC_CompAreServicesSet() for CplComp Test, ESMF_NUOPC_UTest.F90, line 
  588
+  PASS  NUOPC_CompAreServicesSet() for CplComp Test, ESMF_NUOPC_UTest.F90, line 
+ 588
+  PASS  ESMF_ClockPrint() Test, ESMF_NUOPC_UTest.F90, line 580
   PASS  NUOPC_CompAreServicesSet() for CplComp Test, ESMF_NUOPC_UTest.F90, line 
  588
   PASS  NUOPC_CompAttributeInit() for CplComp Test, ESMF_NUOPC_UTest.F90, line 5
@@ -381,6 +381,8 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  F90, line 684
   PASS  NUOPC_FieldDictionaryHasEntry() (existing entry) Test, ESMF_NUOPC_UTest.
  F90, line 684
+  PASS  NUOPC_FieldDictionaryHasEntry() return value (existing entry) Test, ESMF
+ _NUOPC_UTest.F90, line 691
   PASS  NUOPC_FieldDictionaryHasEntry() (existing entry) Test, ESMF_NUOPC_UTest.
  F90, line 684
   PASS  NUOPC_FieldDictionaryHasEntry() return value (existing entry) Test, ESMF
@@ -389,13 +391,11 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  _NUOPC_UTest.F90, line 691
   PASS  NUOPC_FieldDictionaryHasEntry() return value (existing entry) Test, ESMF
  _NUOPC_UTest.F90, line 691
-  PASS  NUOPC_FieldDictionaryHasEntry() return value (existing entry) Test, ESMF
- _NUOPC_UTest.F90, line 691
-  PASS  NUOPC_FieldDictionaryHasEntry() (not existing entry) Test, ESMF_NUOPC_UT
   PASS  NUOPC_FieldDictionaryHasEntry() (not existing entry) Test, ESMF_NUOPC_UT
  est.F90, line 699
   PASS  NUOPC_FieldDictionaryHasEntry() (not existing entry) Test, ESMF_NUOPC_UT
  est.F90, line 699
+  PASS  NUOPC_FieldDictionaryHasEntry() (not existing entry) Test, ESMF_NUOPC_UT
  est.F90, line 699
   PASS  NUOPC_FieldDictionaryHasEntry() return value (not existing entry) Test, 
  ESMF_NUOPC_UTest.F90, line 706
@@ -447,22 +447,20 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  UTest.F90, line 749
   PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry1) Test
  , ESMF_NUOPC_UTest.F90, line 756
+  PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry1) Test
+ , ESMF_NUOPC_UTest.F90, line 756
+  PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry1) Test
+ , ESMF_NUOPC_UTest.F90, line 756
   PASS  NUOPC_FieldDictionaryMatchSyno() (non existing entry1) Test, ESMF_NUOPC_
  UTest.F90, line 749
   PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry1) Test
  , ESMF_NUOPC_UTest.F90, line 756
-  PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry1) Test
- , ESMF_NUOPC_UTest.F90, line 756
-  PASS  NUOPC_FieldDictionaryMatchSyno() (non existing entry2) Test, ESMF_NUOPC_
- UTest.F90, line 765
-  PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry1) Test
- , ESMF_NUOPC_UTest.F90, line 756
   PASS  NUOPC_FieldDictionaryMatchSyno() (non existing entry2) Test, ESMF_NUOPC_
  UTest.F90, line 765
   PASS  NUOPC_FieldDictionaryMatchSyno() (non existing entry2) Test, ESMF_NUOPC_
  UTest.F90, line 765
-  PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry2) Test
- , ESMF_NUOPC_UTest.F90, line 772
+  PASS  NUOPC_FieldDictionaryMatchSyno() (non existing entry2) Test, ESMF_NUOPC_
+ UTest.F90, line 765
   PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry2) Test
  , ESMF_NUOPC_UTest.F90, line 772
   PASS  NUOPC_FieldDictionaryMatchSyno() (non existing entry2) Test, ESMF_NUOPC_
@@ -472,6 +470,8 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry2) Test
  , ESMF_NUOPC_UTest.F90, line 772
   PASS  NUOPC_FieldDictionarySetup() Test, ESMF_NUOPC_UTest.F90, line 780
+  PASS  NUOPC_FieldDictionaryMatchSyno() return value (not existing entry2) Test
+ , ESMF_NUOPC_UTest.F90, line 772
   PASS  NUOPC_FieldDictionarySetup() Test, ESMF_NUOPC_UTest.F90, line 780
   PASS  NUOPC_FieldDictionarySetup() Test, ESMF_NUOPC_UTest.F90, line 780
   PASS  NUOPC_FieldDictionarySetup() Test, ESMF_NUOPC_UTest.F90, line 780
@@ -479,10 +479,10 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  NUOPC_FieldDictionaryEgest() Test, ESMF_NUOPC_UTest.F90, line 788
   PASS  NUOPC_FieldDictionaryEgest() Test, ESMF_NUOPC_UTest.F90, line 788
   PASS  NUOPC_FieldDictionaryEgest() Test, ESMF_NUOPC_UTest.F90, line 788
+  PASS  NUOPC_FreeFormatLog() for fdFF Test, ESMF_NUOPC_UTest.F90, line 796
+  PASS  NUOPC_FreeFormatLog() for fdFF Test, ESMF_NUOPC_UTest.F90, line 796
   PASS  NUOPC_FreeFormatLog() for fdFF Test, ESMF_NUOPC_UTest.F90, line 796
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 804
-  PASS  NUOPC_FreeFormatLog() for fdFF Test, ESMF_NUOPC_UTest.F90, line 796
-  PASS  NUOPC_FreeFormatLog() for fdFF Test, ESMF_NUOPC_UTest.F90, line 796
   PASS  NUOPC_FreeFormatLog() for fdFF Test, ESMF_NUOPC_UTest.F90, line 796
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 804
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 804
@@ -541,31 +541,50 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  97
   PASS  NUOPC_CompAttributeEgest() for GridComp Test, ESMF_NUOPC_UTest.F90, line
   905
- CompLabel = _uninitialized
- Diagnostic = 0
- FinalizePhaseMap
- HierarchyProtocol
- IPDvX
- InitializeDataComplete = false
- InitializeDataProgress = false
- InitializePhaseMap
- InternalFinalizePhaseMap
- InternalInitializePhaseMap
- InternalRunPhaseMap
   PASS  NUOPC_CompAttributeEgest() for GridComp Test, ESMF_NUOPC_UTest.F90, line
   905
- Kind = Model
- NestingGeneration =            0
- Nestling =            0
- Profiling = 0
- RunPhaseMap
- Verbosity = 0
- myAttribute = test
-  PASS  NUOPC_FreeFormatPrint() for attrFF Test, ESMF_NUOPC_UTest.F90, line 913
   PASS  NUOPC_CompAttributeEgest() for GridComp Test, ESMF_NUOPC_UTest.F90, line
   905
  CompLabel = _uninitialized
  Diagnostic = 0
+ CompLabel = _uninitialized
+ Diagnostic = 0
+ FinalizePhaseMap
+ HierarchyProtocol
+ IPDvX
+ FinalizePhaseMap
+ HierarchyProtocol
+ IPDvX
+ InitializeDataComplete = false
+ InitializeDataProgress = false
+ InitializePhaseMap
+ InternalFinalizePhaseMap
+ InternalInitializePhaseMap
+ InternalRunPhaseMap
+ Kind = Model
+ NestingGeneration =            0
+ Nestling =            0
+ InitializeDataComplete = false
+ InitializeDataProgress = false
+ InitializePhaseMap
+ InternalFinalizePhaseMap
+ InternalInitializePhaseMap
+ InternalRunPhaseMap
+ Kind = Model
+ NestingGeneration =            0
+ Nestling =            0
+ Profiling = 0
+ RunPhaseMap
+ Verbosity = 0
+ myAttribute = test
+  PASS  NUOPC_FreeFormatPrint() for attrFF Test, ESMF_NUOPC_UTest.F90, line 913
+ Profiling = 0
+ RunPhaseMap
+ Verbosity = 0
+ myAttribute = test
+  PASS  NUOPC_FreeFormatPrint() for attrFF Test, ESMF_NUOPC_UTest.F90, line 913
+ CompLabel = _uninitialized
+ Diagnostic = 0
  FinalizePhaseMap
  HierarchyProtocol
  IPDvX
@@ -583,27 +602,8 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  Verbosity = 0
  myAttribute = test
   PASS  NUOPC_FreeFormatPrint() for attrFF Test, ESMF_NUOPC_UTest.F90, line 913
- CompLabel = _uninitialized
- Diagnostic = 0
- FinalizePhaseMap
- HierarchyProtocol
- IPDvX
- InitializeDataComplete = false
- InitializeDataProgress = false
- InitializePhaseMap
- InternalFinalizePhaseMap
   PASS  NUOPC_CompAttributeEgest() for GridComp Test, ESMF_NUOPC_UTest.F90, line
   905
- InternalInitializePhaseMap
- InternalRunPhaseMap
- Kind = Model
- NestingGeneration =            0
- Nestling =            0
- Profiling = 0
- RunPhaseMap
- Verbosity = 0
- myAttribute = test
-  PASS  NUOPC_FreeFormatPrint() for attrFF Test, ESMF_NUOPC_UTest.F90, line 913
  CompLabel = _uninitialized
  Diagnostic = 0
  FinalizePhaseMap
@@ -635,25 +635,25 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  st.F90, line 929
   PASS  NUOPC_CompAttributeIngest() for GridComp w/ addFlag Test, ESMF_NUOPC_UTe
  st.F90, line 929
+  PASS  NUOPC_CompAttributeIngest() for GridComp w/ addFlag Test, ESMF_NUOPC_UTe
+ st.F90, line 929
+  PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 937
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 937
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 937
   PASS  NUOPC_CompAttributeIngest() for GridComp w/ addFlag Test, ESMF_NUOPC_UTe
  st.F90, line 929
+  PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
+ 945
+  PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
+ 945
   PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 937
-  PASS  NUOPC_CompAttributeIngest() for GridComp w/ addFlag Test, ESMF_NUOPC_UTe
- st.F90, line 929
-  PASS  NUOPC_FreeFormatDestroy() Test, ESMF_NUOPC_UTest.F90, line 937
-  PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
- 945
-  PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
- 945
-  PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
- 945
-  PASS  NUOPC_CompSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 953
   PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
  945
   PASS  NUOPC_CompSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 953
   PASS  NUOPC_CompSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 953
+  PASS  NUOPC_CompSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 953
+  PASS  NUOPC_CompCheckSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 
+ 945
   PASS  NUOPC_CompSetClock() for GridComp Test, ESMF_NUOPC_UTest.F90, line 953
   PASS  NUOPC_Advertise() Test, ESMF_NUOPC_UTest.F90, line 961
   PASS  NUOPC_Advertise() Test, ESMF_NUOPC_UTest.F90, line 961
@@ -668,12 +668,12 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
   PASS  NUOPC_InitAttributes() Test, ESMF_NUOPC_UTest.F90, line 978
   PASS  NUOPC_SetAttribute() Test, ESMF_NUOPC_UTest.F90, line 986
   PASS  NUOPC_SetAttribute() Test, ESMF_NUOPC_UTest.F90, line 986
+  PASS  NUOPC_SetAttribute() Test, ESMF_NUOPC_UTest.F90, line 986
   PASS  NUOPC_InitAttributes() Test, ESMF_NUOPC_UTest.F90, line 978
+  PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
+  PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
+  PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
   PASS  NUOPC_SetAttribute() Test, ESMF_NUOPC_UTest.F90, line 986
-  PASS  NUOPC_SetAttribute() Test, ESMF_NUOPC_UTest.F90, line 986
-  PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
-  PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
-  PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
   PASS  NUOPC_GetStateMemberCount() Test, ESMF_NUOPC_UTest.F90, line 994
   PASS  NUOPC_GetStateMemberLists() Test, ESMF_NUOPC_UTest.F90, line 1003
   PASS  NUOPC_GetStateMemberLists() Test, ESMF_NUOPC_UTest.F90, line 1003
@@ -685,10 +685,6 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  line 1012
   PASS  NUOPC_IsConnected() - all fields in state - Test, ESMF_NUOPC_UTest.F90, 
  line 1012
-  PASS  NUOPC_IsConnected() - all fields in state - Test, ESMF_NUOPC_UTest.F90, 
- line 1012
-  PASS  NUOPC_IsAtTime() - all fields in state - Test, ESMF_NUOPC_UTest.F90, lin
- e 1020
   PASS  NUOPC_IsAtTime() - all fields in state - Test, ESMF_NUOPC_UTest.F90, lin
  e 1020
   PASS  NUOPC_IsAtTime() - all fields in state - Test, ESMF_NUOPC_UTest.F90, lin
@@ -701,6 +697,10 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  90, line 1028
   PASS  NUOPC_IsConnected() - specific field in state - Test, ESMF_NUOPC_UTest.F
  90, line 1028
+  PASS  NUOPC_IsConnected() - all fields in state - Test, ESMF_NUOPC_UTest.F90, 
+ line 1012
+  PASS  NUOPC_IsAtTime() - all fields in state - Test, ESMF_NUOPC_UTest.F90, lin
+ e 1020
   PASS  NUOPC_IsConnected() - specific field in state - Test, ESMF_NUOPC_UTest.F
  90, line 1028
   PASS  NUOPC_IsUpdated() Test, ESMF_NUOPC_UTest.F90, line 1036
@@ -749,6 +749,8 @@ Printing stopTime to stdout:    0  1  1  0 30  0   0
  UTest.F90, line 1121
   PASS  NUOPC_GetStateMemberLists() for nested State namespace Test, ESMF_NUOPC_
  UTest.F90, line 1121
+Printing time to stdout:    0  1  1  0  0  0   0
+  PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1131
   PASS  NUOPC_GetStateMemberLists() for nested State namespace Test, ESMF_NUOPC_
  UTest.F90, line 1121
 Printing time to stdout:    0  1  1  0  0  0   0
@@ -757,8 +759,6 @@ Printing time to stdout:    0  1  1  0  0  0   0
   PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1131
 Printing time to stdout:    0  1  1  0  0  0   0
   PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1131
-Printing time to stdout:    0  1  1  0  0  0   0
-  PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1131
   PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1140
   PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1140
   PASS  ESMF_TimePrint() Test, ESMF_NUOPC_UTest.F90, line 1140
@@ -766,20 +766,20 @@ Printing time to stdout:    0  1  1  0  0  0   0
   PASS  NUOPC_ConnectorSet() Test, ESMF_NUOPC_UTest.F90, line 1148
   PASS  NUOPC_ConnectorSet() Test, ESMF_NUOPC_UTest.F90, line 1148
   PASS  NUOPC_ConnectorSet() Test, ESMF_NUOPC_UTest.F90, line 1148
+  PASS  NUOPC_ConnectorGet() Test, ESMF_NUOPC_UTest.F90, line 1156
   PASS  NUOPC_ConnectorSet() Test, ESMF_NUOPC_UTest.F90, line 1148
   PASS  NUOPC_ConnectorGet() Test, ESMF_NUOPC_UTest.F90, line 1156
   PASS  NUOPC_ConnectorGet() Test, ESMF_NUOPC_UTest.F90, line 1156
   PASS  NUOPC_ConnectorGet() Test, ESMF_NUOPC_UTest.F90, line 1156
-  PASS  NUOPC_ConnectorGet() Test, ESMF_NUOPC_UTest.F90, line 1156
   PASS  NUOPC_ModelBaseGet() Test, ESMF_NUOPC_UTest.F90, line 1164
   PASS  NUOPC_ModelBaseGet() Test, ESMF_NUOPC_UTest.F90, line 1164
   PASS  NUOPC_ModelBaseGet() Test, ESMF_NUOPC_UTest.F90, line 1164
   PASS  NUOPC_ModelBaseGet() Test, ESMF_NUOPC_UTest.F90, line 1164
-  PASS  NUOPC_ModelGet() Test, ESMF_NUOPC_UTest.F90, line 1172
   PASS  NUOPC_ModelGet() Test, ESMF_NUOPC_UTest.F90, line 1172
   PASS  NUOPC_ModelGet() Test, ESMF_NUOPC_UTest.F90, line 1172
   PASS  NUOPC_ModelGet() Test, ESMF_NUOPC_UTest.F90, line 1172
   PASS  NUOPC_MediatorGet() Test, ESMF_NUOPC_UTest.F90, line 1180
+  PASS  NUOPC_ModelGet() Test, ESMF_NUOPC_UTest.F90, line 1172
   PASS  NUOPC_MediatorGet() Test, ESMF_NUOPC_UTest.F90, line 1180
   PASS  NUOPC_MediatorGet() Test, ESMF_NUOPC_UTest.F90, line 1180
   PASS  NUOPC_MediatorGet() Test, ESMF_NUOPC_UTest.F90, line 1180
@@ -837,9 +837,9 @@ Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
-  PET           0  Test Elapsed Time    254.705000000000       msec.
-  PET           2  Test Elapsed Time    258.784000000000       msec.
-  PET           1  Test Elapsed Time    258.817000000000       msec.
+  PET           0  Test Elapsed Time    254.702000000000       msec.
+  PET           2  Test Elapsed Time    258.366000000000       msec.
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
-  PET           3  Test Elapsed Time    259.219000000000       msec.
+  PET           1  Test Elapsed Time    258.431000000000       msec.
+  PET           3  Test Elapsed Time    258.711000000000       msec.
