@@ -1,4 +1,4 @@
-build time -- 2021-07-18 04:07:42
+build time -- 2021-07-19 04:08:35
 Warning: Process to core binding is enabled and OMP_NUM_THREADS is set to non-zero (1) value
 If your program has OpenMP sections, this can cause over-subscription of cores and consequently poor performance
 To avoid this, please re-run your application after setting MV2_ENABLE_AFFINITY=0
@@ -10,16 +10,19 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  Base name    = Array008
  Base name    = Array008
  Status: Base = Ready,  object = Ready
+ Proxy        = no
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
- Proxy        = no
  Root Info (Attributes):
 {}Array typekind/rank: Real*8 / 2 
 ~ lower class' values ~
+DistGrid dimCount = 2
+deCount = 4
+localDeCount = 1
 {}Array typekind/rank: Real*8 / 2 
 ~ lower class' values ~
 DistGrid dimCount = 2
@@ -32,26 +35,28 @@ DistGrid dimCount = 2
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11c70a0:
-DistGrid dimCount = 2
-deCount = 4
-localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x261ea10:
-            rank = 2, typekind = 6, base_addr = 0x2b1e62dbbf00
+LocalArrayPrint: Array at address 0x1047a10:
+            rank = 2, typekind = 6, base_addr = 0x2b96a6e73f00
             dim[0] = 3  dim[1] = 10  
-LocalArrayPrint: Array at address 0xe941d0:
-            rank = 2, typekind = 6, base_addr = 0x2b8ed9a47f00
-            dim[0] = 3  dim[1] = 10  
-            rank = 2, typekind = 6, base_addr = 0x2b5ff1583f00
-            dim[0] = 3  dim[1] = 10  
-  Real, *8, Dim 2, Data values:
-( 1, 1) =  513.58
   Real, *8, Dim 2, Data values:
 ( 1, 1) =  513.58
 ( 2, 1) =  613.58
 ( 3, 1) =  713.58
 ( 1, 2) =  514.814
+LocalArrayPrint: Array at address 0x10411f0:
+            rank = 2, typekind = 6, base_addr = 0x2aed8c24bf00
+            dim[0] = 3  dim[1] = 10  
+  Real, *8, Dim 2, Data values:
+( 1, 1) =  1.2345
+( 2, 1) =  1.2345
+LocalArrayPrint: Array at address 0x1d1b0c0:
+            rank = 2, typekind = 6, base_addr = 0x2b16c68abf00
+            dim[0] = 3  dim[1] = 10  
+  Real, *8, Dim 2, Data values:
+( 1, 1) =  513.58
+( 2, 1) =  613.58
+( 3, 1) =  713.58
 ( 2, 2) =  614.814
 ( 3, 2) =  714.814
 ( 1, 3) =  516.048
@@ -59,9 +64,13 @@ LocalArrayPrint: Array at address 0xe941d0:
 ( 3, 3) =  716.048
 ( 1, 4) =  517.283
   skipping to end ...
-  Real, *8, Dim 2, Data values:
-( 1, 1) =  1.2345
-( 2, 1) =  1.2345
+( 3, 7) =  720.986
+( 1, 8) =  522.221
+( 2, 8) =  622.221
+( 3, 8) =  722.221
+( 1, 9) =  523.456
+( 2, 9) =  623.456
+( 3, 9) =  723.456
 ( 3, 1) =  1.2345
 ( 1, 2) =  1.2345
 ( 2, 2) =  1.2345
@@ -73,8 +82,13 @@ LocalArrayPrint: Array at address 0xe941d0:
   skipping to end ...
 ( 3, 7) =  1.2345
 ( 1, 8) =  1.2345
-( 2, 1) =  613.58
-( 3, 1) =  713.58
+( 2, 8) =  1.2345
+( 3, 8) =  1.2345
+( 1, 9) =  1.2345
+( 2, 9) =  1.2345
+( 3, 9) =  1.2345
+( 1,10) =  1.2345
+( 2,10) =  1.2345
 ( 1, 2) =  514.814
 ( 2, 2) =  614.814
 ( 3, 2) =  714.814
@@ -90,23 +104,12 @@ LocalArrayPrint: Array at address 0xe941d0:
 ( 1, 9) =  523.456
 ( 2, 9) =  623.456
 ( 3, 9) =  723.456
-( 3, 7) =  720.986
-( 1, 8) =  522.221
-( 2, 8) =  622.221
-( 3, 8) =  722.221
-( 1, 9) =  523.456
-( 2, 9) =  623.456
-( 3, 9) =  723.456
 ( 1,10) =  524.69
 ( 2,10) =  624.69
 ( 3,10) =  724.69
-( 2, 8) =  1.2345
-( 3, 8) =  1.2345
-( 1, 9) =  1.2345
-( 2, 9) =  1.2345
-( 3, 9) =  1.2345
-( 1,10) =  1.2345
-( 2,10) =  1.2345
+dim 1: undistLBound[0]=1            undistUBound[0]=3
+dim 2: [0]: [1 [1 [1, 10] 10] 10]
+--- ESMCI::Array::print end ---
 ( 3,10) =  1.2345
 dim 1: undistLBound[0]=1            undistUBound[0]=3
 dim 2: [0]: [1 [1 [1, 10] 10] 10]
@@ -117,12 +120,6 @@ dim 2: [0]: [1 [1 [1, 10] 10] 10]
 dim 1: undistLBound[0]=1            undistUBound[0]=3
 dim 2: [0]: [1 [1 [1, 10] 10] 10]
 --- ESMCI::Array::print end ---
-dim 1: undistLBound[0]=1            undistUBound[0]=3
-dim 2: [0]: [1 [1 [1, 10] 10] 10]
---- ESMCI::Array::print end ---
- localPet =            2 myFarray2D2:   0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
  localPet =            1 myFarray2D2:   0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
@@ -132,50 +129,61 @@ dim 2: [0]: [1 [1 [1, 10] 10] 10]
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+ localPet =            2 myFarray2D2:   0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000
---- ESMCI::Array::print start ---
- Base name    = Array008
 --- ESMCI::Array::print start ---
  Base name    = Array008
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
+--- ESMCI::Array::print start ---
+ Base name    = Array008
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
 {}Array typekind/rank: Real*8 / 2 
 ~ lower class' values ~
 DistGrid dimCount = 2
+deCount = 4
+localDeCount = 1
+~ local data in LocalArray for DE 1 ~
+LocalArrayPrint: Array at address 0x10411f0:
 {}Array typekind/rank: Real*8 / 2 
 ~ lower class' values ~
 DistGrid dimCount = 2
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 2 ~
-LocalArrayPrint: Array at address 0x11c70a0:
-            rank = 2, typekind = 6, base_addr = 0x2b5ff1583f00
+LocalArrayPrint: Array at address 0x1d1b0c0:
+            rank = 2, typekind = 6, base_addr = 0x2b16c68abf00
             dim[0] = 3  dim[1] = 10  
-  Real, *8, Dim 2, Data values:
-( 1, 1) =  513.58
-deCount = 4
-localDeCount = 1
-~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0xe941d0:
-            rank = 2, typekind = 6, base_addr = 0x2b8ed9a47f00
+            rank = 2, typekind = 6, base_addr = 0x2aed8c24bf00
             dim[0] = 3  dim[1] = 10  
   Real, *8, Dim 2, Data values:
 ( 1, 1) =  1.2345
 ( 2, 1) =  1.2345
 ( 3, 1) =  1.2345
+( 1, 2) =  1.2345
+( 2, 2) =  1.2345
+( 3, 2) =  1.2345
+( 1, 3) =  1.2345
+( 2, 3) =  1.2345
+( 3, 3) =  1.2345
+( 1, 4) =  1.2345
+  skipping to end ...
+  Real, *8, Dim 2, Data values:
+( 1, 1) =  513.58
 ( 2, 1) =  613.58
 ( 3, 1) =  713.58
 ( 1, 2) =  514.814
@@ -185,16 +193,6 @@ LocalArrayPrint: Array at address 0xe941d0:
 ( 2, 3) =  616.048
 ( 3, 3) =  716.048
 ( 1, 4) =  517.283
-  skipping to end ...
-( 3, 7) =  720.986
-( 1, 2) =  1.2345
-( 2, 2) =  1.2345
-( 3, 2) =  1.2345
-( 1, 3) =  1.2345
-( 2, 3) =  1.2345
-( 3, 3) =  1.2345
-( 1, 4) =  1.2345
-  skipping to end ...
 ( 3, 7) =  1.2345
 ( 1, 8) =  1.2345
 ( 2, 8) =  1.2345
@@ -202,6 +200,14 @@ LocalArrayPrint: Array at address 0xe941d0:
 ( 1, 9) =  1.2345
 ( 2, 9) =  1.2345
 ( 3, 9) =  1.2345
+( 1,10) =  1.2345
+( 2,10) =  1.2345
+( 3,10) =  1.2345
+dim 1: undistLBound[0]=1            undistUBound[0]=3
+dim 2: [0]: [1 [1 [1, 10] 10] 10]
+--- ESMCI::Array::print end ---
+  skipping to end ...
+( 3, 7) =  720.986
 ( 1, 8) =  522.221
 ( 2, 8) =  622.221
 ( 3, 8) =  722.221
@@ -211,12 +217,6 @@ LocalArrayPrint: Array at address 0xe941d0:
 ( 1,10) =  524.69
 ( 2,10) =  624.69
 ( 3,10) =  724.69
-dim 1: undistLBound[0]=1            undistUBound[0]=3
-dim 2: [0]: [1 [1 [1, 10] 10] 10]
---- ESMCI::Array::print end ---
-( 1,10) =  1.2345
-( 2,10) =  1.2345
-( 3,10) =  1.2345
 dim 1: undistLBound[0]=1            undistUBound[0]=3
 dim 2: [0]: [1 [1 [1, 10] 10] 10]
 --- ESMCI::Array::print end ---
@@ -231,8 +231,8 @@ DistGrid dimCount = 2
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0x172f0a0:
-            rank = 2, typekind = 6, base_addr = 0x2acfe0527f00
+LocalArrayPrint: Array at address 0x100f0c0:
+            rank = 2, typekind = 6, base_addr = 0x2ab88cf77f00
             dim[0] = 3  dim[1] = 10  
   Real, *8, Dim 2, Data values:
 ( 1, 1) =  513.58
@@ -280,19 +280,15 @@ dim 2: [0]: [1 [1 [1, 10] 10] 10]
 DistGrid dimCount = 2
 deCount = 4
 localDeCount = 1
-~ local data in LocalArray for DE 3 ~
-LocalArrayPrint: Array at address 0x172f0a0:
-            rank = 2, typekind = 6, base_addr = 0x2acfe0527f00
  localPet =            0 myFarray2D2:    513.579500000000     
    613.579500000000        713.579500000000        514.814000000000     
+~ local data in LocalArray for DE 3 ~
+LocalArrayPrint: Array at address 0x100f0c0:
+            rank = 2, typekind = 6, base_addr = 0x2ab88cf77f00
             dim[0] = 3  dim[1] = 10  
   Real, *8, Dim 2, Data values:
 ( 1, 1) =  5.4321
 ( 2, 1) =  5.4321
-( 3, 1) =  5.4321
-( 1, 2) =  5.4321
-( 2, 2) =  5.4321
-( 3, 2) =  5.4321
    614.814000000000        714.814000000000        516.048500000000     
    616.048500000000        716.048500000000        517.283000000000     
    617.283000000000        717.283000000000        518.517500000000     
@@ -300,7 +296,10 @@ LocalArrayPrint: Array at address 0x172f0a0:
    619.752000000000        719.752000000000        520.986500000000     
    620.986500000000        720.986500000000        522.221000000000     
    622.221000000000        722.221000000000        523.455500000000     
-   623.455500000000        723.455500000000        524.690000000000     
+( 3, 1) =  5.4321
+( 1, 2) =  5.4321
+( 2, 2) =  5.4321
+( 3, 2) =  5.4321
 ( 1, 3) =  5.4321
 ( 2, 3) =  5.4321
 ( 3, 3) =  5.4321
@@ -315,24 +314,25 @@ LocalArrayPrint: Array at address 0x172f0a0:
 ( 3, 9) =  5.4321
 ( 1,10) =  5.4321
 ( 2,10) =  5.4321
-( 3,10) =  5.4321
-dim 1: undistLBound[0]=1            undistUBound[0]=3
+   623.455500000000        723.455500000000        524.690000000000     
    624.690000000000        724.690000000000     
 --- ESMCI::Array::print start ---
  Base name    = Array008
  Status: Base = Ready,  object = Ready
  Proxy        = no
- Root Info (Attributes):
+( 3,10) =  5.4321
+dim 1: undistLBound[0]=1            undistUBound[0]=3
 dim 2: [0]: [1 [1 [1, 10] 10] 10]
 --- ESMCI::Array::print end ---
+ Root Info (Attributes):
 {}Array typekind/rank: Real*8 / 2 
 ~ lower class' values ~
 DistGrid dimCount = 2
 deCount = 4
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x261ea10:
-            rank = 2, typekind = 6, base_addr = 0x2b1e62dbbf00
+LocalArrayPrint: Array at address 0x1047a10:
+            rank = 2, typekind = 6, base_addr = 0x2b96a6e73f00
             dim[0] = 3  dim[1] = 10  
   Real, *8, Dim 2, Data values:
 ( 1, 1) =  513.58
@@ -359,7 +359,11 @@ LocalArrayPrint: Array at address 0x261ea10:
 dim 1: undistLBound[0]=1            undistUBound[0]=3
 dim 2: [0]: [1 [1 [1, 10] 10] 10]
 --- ESMCI::Array::print end ---
- localPet =            2 myFarray2D2:   0.000000000000000E+000
+ localPet =            1 myFarray2D2:   0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
  localPet =            3 myFarray2D2:   0.000000000000000E+000
@@ -369,17 +373,6 @@ dim 2: [0]: [1 [1 [1, 10] 10] 10]
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
- localPet =            1 myFarray2D2:   0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
-  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
@@ -388,14 +381,19 @@ dim 2: [0]: [1 [1 [1, 10] 10] 10]
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000
+ localPet =            2 myFarray2D2:   0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000  0.000000000000000E+000
  localPet =            0 myFarray2D2:    5.43209981918335     
    5.43209981918335        5.43209981918335        5.43209981918335     
-   5.43209981918335        5.43209981918335        5.43209981918335     
-   5.43209981918335        5.43209981918335        5.43209981918335     
   PASS  Example ESMF_ArrayScatterGatherEx, ESMF_ArrayScatterGatherEx.F90, line 3
  28
    5.43209981918335        5.43209981918335        5.43209981918335     
@@ -404,22 +402,24 @@ dim 2: [0]: [1 [1 [1, 10] 10] 10]
    5.43209981918335        5.43209981918335        5.43209981918335     
    5.43209981918335        5.43209981918335        5.43209981918335     
    5.43209981918335        5.43209981918335        5.43209981918335     
+   5.43209981918335        5.43209981918335        5.43209981918335     
+   5.43209981918335        5.43209981918335        5.43209981918335     
+  PASS  Example ESMF_ArrayScatterGatherEx, ESMF_ArrayScatterGatherEx.F90, line 3
+ 28
+  PASS  Example ESMF_ArrayScatterGatherEx, ESMF_ArrayScatterGatherEx.F90, line 3
+ 28
    5.43209981918335        5.43209981918335     
   PASS  Example ESMF_ArrayScatterGatherEx, ESMF_ArrayScatterGatherEx.F90, line 3
  28
-  PASS  Example ESMF_ArrayScatterGatherEx, ESMF_ArrayScatterGatherEx.F90, line 3
- 28
-  PASS  Example ESMF_ArrayScatterGatherEx, ESMF_ArrayScatterGatherEx.F90, line 3
- 28
-Error in system call pthread_mutex_destroy: Device or resource busy
-    src/mpi/init/initthread.c:241
-Error in system call pthread_mutex_destroy: Device or resource busy
-    src/mpi/init/initthread.c:241
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
  PASS: ESMF_ArrayScatterGatherEx.F90
+Error in system call pthread_mutex_destroy: Device or resource busy
+    src/mpi/init/initthread.c:241
  PASS: ESMF_ArrayScatterGatherEx.F90
+Error in system call pthread_mutex_destroy: Device or resource busy
+    src/mpi/init/initthread.c:241
  PASS: ESMF_ArrayScatterGatherEx.F90
  PASS: ESMF_ArrayScatterGatherEx.F90
