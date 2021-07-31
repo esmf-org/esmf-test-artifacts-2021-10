@@ -1,4 +1,4 @@
-build time -- 2021-07-30 04:30:57
+build time -- 2021-07-31 04:17:12
 # ESMF application makefile fragment
 #
 # Use the following ESMF_ variables to compile and link
@@ -33,7 +33,7 @@ ESMF_F90COMPILER=mpifort
 ESMF_F90LINKER=mpifort
 
 ESMF_F90COMPILEOPTS=-g -Wall -Wextra -Wconversion -Wno-unused -Wno-unused-dummy-argument -fbacktrace -fimplicit-none -fcheck=all,no-pointer -fPIC  -m64 -mcmodel=small -pthread -ffree-line-length-none  -fopenmp
-ESMF_F90COMPILEPATHS=-I/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/mod/modg/Linux.gfortran.64.openmpi.default -I/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/include -I/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/include
+ESMF_F90COMPILEPATHS=-I/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/mod/modg/Linux.gfortran.64.openmpi.default -I/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/src/include -I/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/include -I/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/include
 ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_14-1-g6ac79f6' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_g -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=openmpi -DESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop
 ESMF_F90COMPILEFREECPP=
 ESMF_F90COMPILEFREENOCPP=-ffree-form
@@ -41,12 +41,12 @@ ESMF_F90COMPILEFIXCPP=-cpp -ffixed-form
 ESMF_F90COMPILEFIXNOCPP=
 
 ESMF_F90LINKOPTS=   -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp
-ESMF_F90LINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/gnu/gcc-9.2.0/lib64/../lib64/
+ESMF_F90LINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/lib -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_F90ESMFLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
-ESMF_F90LINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
+ESMF_F90LINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/lib -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_F90ESMFLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
-ESMF_F90LINKLIBS= -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
-ESMF_F90ESMFLINKLIBS=-lesmf  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
+ESMF_F90LINKLIBS= -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lnetcdff -lnetcdf -lnetcdf
+ESMF_F90ESMFLINKLIBS=-lesmf  -lmpi_cxx -lrt -lstdc++ -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lnetcdff -lnetcdf -lnetcdf
 
 ESMF_CXXCOMPILER=mpicxx
 ESMF_CXXLINKER=mpicxx
@@ -56,12 +56,12 @@ ESMF_CXXCOMPILEPATHS= -I/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi
 ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_14-1-g6ac79f6' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_g -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=openmpi -DESMF_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop -D__SDIR__='' -DESMF_CXXSTD=11 -DESMF_NO_SIGUSR2
 
 ESMF_CXXLINKOPTS=  -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp
-ESMF_CXXLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/gnu/gcc-9.2.0/lib64/../lib64/
+ESMF_CXXLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/lib -L/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -L/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_CXXESMFLINKPATHS=-L/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
-ESMF_CXXLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
+ESMF_CXXLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/lib -Wl,-rpath,/apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib -Wl,-rpath,/apps/gnu/gcc-9.2.0/lib64/../lib64/
 ESMF_CXXESMFLINKRPATHS=-Wl,-rpath,/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default
-ESMF_CXXLINKLIBS= -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
-ESMF_CXXESMFLINKLIBS=-lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
+ESMF_CXXLINKLIBS= -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lnetcdff -lnetcdf -lnetcdf
+ESMF_CXXESMFLINKLIBS=-lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lnetcdff -lnetcdf -lnetcdf
 
 ESMF_SO_F90COMPILEOPTS=-fPIC
 ESMF_SO_F90LINKOPTS=-shared
@@ -120,5 +120,9 @@ ESMF_INTERNAL_DIR=/mnt/lfs4/HFIP/hfv3gfs/Mark.Potts/gfortran_9.2.0_openmpi_g_dev
 # ESMF_NETCDF_INCLUDE:    /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/include
 # ESMF_NETCDF_LIBS:       -lnetcdff -lnetcdf -lhdf5_hl -lhdf5
 # ESMF_NETCDF_LIBPATH:    /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib
+# ESMF_NFCONFIG:          nf-config
+# ESMF_NETCDFF_INCLUDE:   /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/include
+# ESMF_NETCDFF_LIBS:      -lnetcdff -lnetcdf -lnetcdf
+# ESMF_NETCDFF_LIBPATH:   /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-fortran-4.5.2-nbyhestkjlc2k7g5fmpepvrs5vrrxifc/lib /apps/spack/linux-centos7-x86_64/gcc-9.2.0/netcdf-c-4.7.2-btfhbjvmwttboik5vd7ty6afd6h6w56u/lib
 # ESMF_PIO:               internal
 # ESMF_YAMLCPP:           internal
