@@ -1,0 +1,84 @@
+ 
+Installing ESMF:
+ 
+mkdir -p /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/include
+cp -f /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/include/ESMC.h /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/include
+cp -f /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/include/ESMC_*.h /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/include
+cp -f /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/build_config/Linux.gfortran.default/ESMC_Conf.h /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/include
+mkdir -p /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/mod/modg/Linux.gfortran.64.openmpi.default
+cp -f /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/mod/modg/Linux.gfortran.64.openmpi.default/*.mod /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/mod/modg/Linux.gfortran.64.openmpi.default
+mkdir -p /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default
+cp -f /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/lib/libg/Linux.gfortran.64.openmpi.default/libesmf*.* /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default
+make ESMF_PRELOADDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default build_preload_script
+make[1]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+chmod 755 /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default/preload.sh
+make[1]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+ranlib /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default/libesmf*.a
+make install_apps
+make[1]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+mkdir -p /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default
+make build_apps ESMF_APPSDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default ESMF_LDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default ESMF_LIBDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default ESMF_MODDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/mod/modg/Linux.gfortran.64.openmpi.default
+make[2]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+cd /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps; make ACTION=tree_build_apps tree
+make[3]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps'
+tree_build_apps in: /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfo
+make[4]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfo'
+ls: cannot access '/glade/u/apps/ch/opt/ncarcompilers/0.5.0/gnu/10.1.0/mpi/../lib*': No such file or directory
+make chkdir_apps
+make[5]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfo'
+make[5]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfo'
+mpifort     -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp -L/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -Wl,-rpath,/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -o /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default/ESMF_PrintInfo /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/obj/objg/Linux.gfortran.64.openmpi.default/src/apps/ESMF_PrintInfo/ESMF_PrintInfo.o -lesmf   -lrt -lstdc++ -ldl -lnetcdf -lnetcdff
+make[4]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfo'
+tree_build_apps in: /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfoC
+make[4]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfoC'
+make chkdir_apps
+make[5]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfoC'
+make[5]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfoC'
+mpicxx    -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp -L/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -Wl,-rpath,/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -o /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default/ESMF_PrintInfoC /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/obj/objg/Linux.gfortran.64.openmpi.default/src/apps/ESMF_PrintInfoC/ESMF_PrintInfoC.o -lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf -lnetcdff
+make[4]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_PrintInfoC'
+tree_build_apps in: /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_RegridWeightGen
+make[4]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_RegridWeightGen'
+ls: cannot access '/glade/u/apps/ch/opt/ncarcompilers/0.5.0/gnu/10.1.0/mpi/../lib*': No such file or directory
+make chkdir_apps
+make[5]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_RegridWeightGen'
+make[5]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_RegridWeightGen'
+mpifort     -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp -L/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -Wl,-rpath,/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -o /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default/ESMF_RegridWeightGen /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/obj/objg/Linux.gfortran.64.openmpi.default/src/apps/ESMF_RegridWeightGen/ESMF_RegridWeightGen.o -lesmf   -lrt -lstdc++ -ldl -lnetcdf -lnetcdff
+make[4]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_RegridWeightGen'
+tree_build_apps in: /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_WebServController
+make[4]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_WebServController'
+make chkdir_apps
+make[5]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_WebServController'
+make[5]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_WebServController'
+mpicxx    -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp -L/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -Wl,-rpath,/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -o /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default/ESMF_WebServController /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/obj/objg/Linux.gfortran.64.openmpi.default/src/apps/ESMF_WebServController/ESMF_WebServController.o -lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf -lnetcdff
+make[4]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_WebServController'
+tree_build_apps in: /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Scrip2Unstruct
+make[4]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Scrip2Unstruct'
+make chkdir_apps
+make[5]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Scrip2Unstruct'
+make[5]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Scrip2Unstruct'
+mpicxx    -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp -L/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -Wl,-rpath,/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -o /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default/ESMF_Scrip2Unstruct /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/obj/objg/Linux.gfortran.64.openmpi.default/src/apps/ESMF_Scrip2Unstruct/ESMF_Scrip2Unstruct.o -lesmf  -lmpi_mpifh -lrt -lgfortran -ldl -lnetcdf -lnetcdff
+make[4]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Scrip2Unstruct'
+tree_build_apps in: /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Regrid
+make[4]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Regrid'
+ls: cannot access '/glade/u/apps/ch/opt/ncarcompilers/0.5.0/gnu/10.1.0/mpi/../lib*': No such file or directory
+make chkdir_apps
+make[5]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Regrid'
+make[5]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Regrid'
+mpifort     -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp -L/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -L/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -Wl,-rpath,/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/netcdf/4.7.4/gnu/10.1.0/lib -Wl,-rpath,/glade/u/apps/ch/opt/gnu/10.1.0/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64/ -o /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default/ESMF_Regrid /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/obj/objg/Linux.gfortran.64.openmpi.default/src/apps/ESMF_Regrid/ESMF_Regrid.o -lesmf   -lrt -lstdc++ -ldl -lnetcdf -lnetcdff
+make[4]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps/ESMF_Regrid'
+make[3]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/src/apps'
+ESMF apps built successfully.
+make[2]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+make[1]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+mkdir -p /glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/doc
+make install_info_mk
+make[1]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+make info_mk ESMF_APPSDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/bin/bing/Linux.gfortran.64.openmpi.default ESMF_LDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default ESMF_LIBDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/lib/libg/Linux.gfortran.64.openmpi.default ESMF_MODDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/mod/modg/Linux.gfortran.64.openmpi.default ESMF_INCDIR=/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop/DEFAULTINSTALLDIR/include
+make[2]: Entering directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+ls: cannot access '/glade/u/apps/ch/opt/ncarcompilers/0.5.0/gnu/10.1.0/mpi/../lib*': No such file or directory
+ls: cannot access '/glade/u/apps/ch/opt/ncarcompilers/0.5.0/gnu/10.1.0/mpi/../lib*': No such file or directory
+make[2]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+make[1]: Leaving directory '/glade/scratch/mpotts/gfortran_10.1.0_openmpi_g_develop'
+ 
+ESMF installation complete.
+ 
