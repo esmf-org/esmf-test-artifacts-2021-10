@@ -11,8 +11,8 @@ cd /lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_g_develop
 module unload PrgEnv-cray PrgEnv-intel
 
 module load PrgEnv-gnu cray-pals craype
-module load gcc/10.3.0 cray-mpich/8.1.7 netcdf/4.7.4
-module load hdf5/1.10.6 
+module load gcc/10.3.0 cray-mpich/8.1.7 netcdf-hdf5parallel
+module load hdf5-parallel 
 module list >& module-test.log
 
 set -x
