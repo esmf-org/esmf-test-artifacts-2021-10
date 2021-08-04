@@ -26,7 +26,7 @@ export ESMF_F90LINKER=ftn
 export ESMF_MPIRUN=mpirun.unicos
 export ESMF_CXXCOMPILECPPFLAGS=-fPIC
 export ESMF_CXXLINKOPTS="-fPIC -lnetcdff -lnetcdff"
-export ESMF_NETCDF=$PWD/nc-config
+export ESMF_NETCDF=nc-config
 sed -i 's/^aprun/mpiexec/' scripts/mpirun.unicos
 sed -i 's/lmpi++/lfmpich/' build_config/Linux.intel.default/build_rules.mk
 export ESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_g_develop
