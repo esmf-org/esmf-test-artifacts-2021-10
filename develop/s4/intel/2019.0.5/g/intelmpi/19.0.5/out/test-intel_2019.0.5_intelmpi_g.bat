@@ -11,6 +11,7 @@
 export JOBID=$SLURM_JOBID
 
 module load license_intel/S4
+export ESMF_MPIRUN=mpirun.srun
 module load intel/19.0.5 hdf hdf5 impi/19.0.5 netcdf4/4.7.3
 module load hdf5/1.10.5 
 module list >& module-test.log
@@ -24,7 +25,6 @@ export ESMF_COMM=intelmpi
 export ESMF_BOPT='g'
 export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
-export ESMF_MPIRUN=mpirun.srun
 make info 2>&1| tee info.log 
 make install 2>&1| tee install_$JOBID.log 
 make all_tests 2>&1| tee test_$JOBID.log 

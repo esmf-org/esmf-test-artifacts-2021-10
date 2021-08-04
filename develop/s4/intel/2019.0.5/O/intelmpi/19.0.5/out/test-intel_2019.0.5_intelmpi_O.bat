@@ -11,6 +11,7 @@
 export JOBID=$SLURM_JOBID
 
 module load license_intel/S4
+export ESMF_MPIRUN=mpirun.srun
 module load intel/19.0.5 hdf hdf5 impi/19.0.5 netcdf4/4.7.3
 module load hdf5/1.10.5 
 module list >& module-test.log
