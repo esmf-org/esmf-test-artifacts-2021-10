@@ -1,11 +1,9 @@
-build time -- 2021-08-13 04:12:12
+build time -- 2021-08-14 04:21:30
 Warning: Process to core binding is enabled and OMP_NUM_THREADS is set to non-zero (1) value
 If your program has OpenMP sections, this can cause over-subscription of cores and consequently poor performance
 To avoid this, please re-run your application after setting MV2_ENABLE_AFFINITY=0
 Use MV2_USE_THREAD_WARNING=0 to suppress this message
   Beginning Test, file ESMF_ArrayIOUTest.F90, line 92
-  Beginning Test, file ESMF_ArrayIOUTest.F90, line 92
-  NUMBER_OF_PROCESSORS           6
   NUMBER_OF_PROCESSORS           6
   Beginning Test, file ESMF_ArrayIOUTest.F90, line 92
   NUMBER_OF_PROCESSORS           6
@@ -15,6 +13,8 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   NUMBER_OF_PROCESSORS           6
   Beginning Test, file ESMF_ArrayIOUTest.F90, line 92
   NUMBER_OF_PROCESSORS           6
+  Beginning Test, file ESMF_ArrayIOUTest.F90, line 92
+  NUMBER_OF_PROCESSORS           6
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 126
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 126
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 126
@@ -27,6 +27,7 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 134
   PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 134
   PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 134
+  PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 149
   PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 149
   PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 149
   PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 149
@@ -34,7 +35,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 149
   PASS  Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 159
   PASS  Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 159
-  PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 149
   PASS  Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 159
   PASS  Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 159
   PASS  Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 159
@@ -131,6 +131,12 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Read ESMF_Array without Halo from NetCDF file Test, ESMF_ArrayIOUTest.F9
  0, line 324
  Maximum Error (3D without Halo case) =            0
+ Maximum Error (3D without Halo case) =            0
+  PASS  Compare read in data to the existing data - 3D without halo, ESMF_ArrayI
+ OUTest.F90, line 347
+ Maximum Error (3D without Halo case) =            0
+  PASS  Compare read in data to the existing data - 3D without halo, ESMF_ArrayI
+ OUTest.F90, line 347
   PASS  Compare read in data to the existing data - 3D without halo, ESMF_ArrayI
  OUTest.F90, line 347
  Maximum Error (3D without Halo case) =            0
@@ -142,12 +148,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  Maximum Error (3D without Halo case) =            0
   PASS  Compare read in data to the existing data - 3D without halo, ESMF_ArrayI
  OUTest.F90, line 347
- Maximum Error (3D without Halo case) =            0
-  PASS  Compare read in data to the existing data - 3D without halo, ESMF_ArrayI
- OUTest.F90, line 347
- Maximum Error (3D without Halo case) =            0
-  PASS  Compare read in data to the existing data - 3D without halo, ESMF_ArrayI
- OUTest.F90, line 347
   PASS  Read ESMF_Array with Halo from NetCDF Test, ESMF_ArrayIOUTest.F90, line 
  374
   PASS  Read ESMF_Array with Halo from NetCDF Test, ESMF_ArrayIOUTest.F90, line 
@@ -177,23 +177,29 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
  rayIOUTest.F90, line 410
  Maximum Error (3D with Halo binary data case) =            0
- Maximum Error (3D with Halo NetCDF case) =            0
-  PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 410
- Maximum Error (3D with Halo binary data case) =            0
-  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 432
- Maximum Error (3D with Halo NetCDF case) =            0
-  PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 410
- Maximum Error (3D with Halo binary data case) =            0
- Maximum Error (3D with Halo binary data case) =            0
-  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 432
-  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 432
   PASS  Read ESMF_Array with Halo from binary Test, ESMF_ArrayIOUTest.F90, line 
  388
+ Maximum Error (3D with Halo binary data case) =            0
+  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 432
+  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 432
+ Maximum Error (3D with Halo NetCDF case) =            0
+  PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 410
+ Maximum Error (3D with Halo binary data case) =            0
+  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 432
+ Maximum Error (3D with Halo NetCDF case) =            0
+  PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 410
+ Maximum Error (3D with Halo binary data case) =            0
+  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 432
+ Maximum Error (3D with Halo NetCDF case) =            0
+  PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
+ rayIOUTest.F90, line 410
+ Maximum Error (3D with Halo binary data case) =            0
   PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
  rayIOUTest.F90, line 432
  Maximum Error (3D with Halo NetCDF case) =            0
@@ -208,12 +214,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  90, line 450
   PASS  Read ESMF_Array variable with Halo from binary Test, ESMF_ArrayIOUTest.F
  90, line 450
- Maximum Error (3D with Halo NetCDF case) =            0
-  PASS  Compare read in data to the existing NetCDF data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 410
- Maximum Error (3D with Halo binary data case) =            0
-  PASS  Compare read in data to the existing binary data - 3D with halo, ESMF_Ar
- rayIOUTest.F90, line 432
   PASS  Read ESMF_Array variable with Halo from binary Test, ESMF_ArrayIOUTest.F
  90, line 450
   PASS  Read ESMF_Array variable with Halo from binary Test, ESMF_ArrayIOUTest.F
@@ -232,7 +232,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  st.F90, line 462
   PASS  Write ESMF_Array with Halo to NetCDF variable copy Test, ESMF_ArrayIOUTe
  st.F90, line 462
-  PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 473
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 473
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 473
   PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 480
@@ -244,11 +243,14 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 473
   PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 480
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
+  PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 473
   PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 480
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
+  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 505
+  PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 513
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 487
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 505
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 505
@@ -259,8 +261,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 513
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 505
   PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 513
-  PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 513
-  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 505
   PASS  Array Spec Set Test, ESMF_ArrayIOUTest.F90, line 513
   PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 527
   PASS  Array with Halo Create Test, ESMF_ArrayIOUTest.F90, line 527
@@ -313,15 +313,15 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  Maximum Error (With/Without Halo case) =   0.000000000000000E+000
   PASS  Compare read in data to the existing data - 2D with/without halo, ESMF_A
  rrayIOUTest.F90, line 609
+  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
+  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
  Maximum Error (With/Without Halo case) =   0.000000000000000E+000
   PASS  Compare read in data to the existing data - 2D with/without halo, ESMF_A
  rrayIOUTest.F90, line 609
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
-  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
-  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
-  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
   PASS  Array Create Test, ESMF_ArrayIOUTest.F90, line 636
+  PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
   PASS  dstDistgrid Create Test, ESMF_ArrayIOUTest.F90, line 626
   PASS  Array Create Test, ESMF_ArrayIOUTest.F90, line 636
   PASS  Array Create Test, ESMF_ArrayIOUTest.F90, line 636
@@ -352,53 +352,53 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Compare read in data from a different distgrid, ESMF_ArrayIOUTest.F90, l
  ine 672
  ine 672
-  PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
- Maximum Error (different distgrid) =   0.000000000000000E+000
-  PASS  Compare read in data from a different distgrid, ESMF_ArrayIOUTest.F90, l
- ine 672
  Maximum Error (different distgrid) =   0.000000000000000E+000
   PASS  Compare read in data from a different distgrid, ESMF_ArrayIOUTest.F90, l
  ine 672
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
+ Maximum Error (different distgrid) =   0.000000000000000E+000
+  PASS  Compare read in data from a different distgrid, ESMF_ArrayIOUTest.F90, l
+ ine 672
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
-  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
-  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
-  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
-  PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
-  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
   PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
   PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
   PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
+  PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
+  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
+  PASS  Destroy Array with Halo, ESMF_ArrayIOUTest.F90, line 689
+  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
+  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
+  PASS  Destroy Array without Halo, ESMF_ArrayIOUTest.F90, line 698
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 706
   PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
+  PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
+  PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
+  PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
+  PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
+  PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
   PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
   PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
   PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
   PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
   PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
   PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
-  PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
-  PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
-  PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
-  PASS  Distgrid Create 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 718
-  PASS  Array Spec Set 2 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 726
-  PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 744
   PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 744
   PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
-  PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 744
   PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 744
+  PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 744
+  PASS  2 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 736
   PASS  2 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 744
   PASS  2 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 752
   PASS  2 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 752
@@ -420,13 +420,20 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  6
   PASS  2 DE read Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 77
  6
-  PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
   PASS  2 DE read Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 77
  6
   PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
  ne 784
   PASS  2 DE read Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 77
  6
+  PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
+ ne 784
+  PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
+ ne 784
+  PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
+ ne 792
+  PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
+ ne 784
   PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
  ne 784
   PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
@@ -435,15 +442,8 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  ne 784
   PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
  ne 792
-  PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
- ne 784
   PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
  ne 792
-  PASS  2 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, li
- ne 784
-  PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
- ne 792
- ne 784
   PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
  ne 792
   PASS  2 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, li
@@ -487,39 +487,41 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy 2 DE DistGrid, ESMF_ArrayIOUTest.F90, line 850
   PASS  Distgrid Create 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 862
   PASS  Distgrid Create 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 862
-  PASS  Distgrid Create 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 862
   PASS  Array Spec Set 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 870
   PASS  Distgrid Create 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 862
   PASS  Array Spec Set 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 870
   PASS  Distgrid Create 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 862
   PASS  Array Spec Set 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 870
+  PASS  Distgrid Create 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 862
   PASS  Array Spec Set 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 870
   PASS  Array Spec Set 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 870
   PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
+  PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
+  PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
+  PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
+  PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
+  PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
+  PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
   PASS  Array Spec Set 2/0 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 870
   PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
   PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
-  PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
-  PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
   PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
   PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
-  PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
-  PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
-  PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
-  PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
+  PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
+  PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
   PASS  2/0 DE Array without Halo Create Test, ESMF_ArrayIOUTest.F90, line 880
   PASS  2/0 DE Array access and fill DE0 Test, ESMF_ArrayIOUTest.F90, line 888
   PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
   PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
   PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
-  PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
-  PASS  2/0 DE Array access and fill DE1 Test, ESMF_ArrayIOUTest.F90, line 905
   PASS  Write 2/0DE ESMF_Array to NetCDF Test, ESMF_ArrayIOUTest.F90, line 918
   PASS  Write 2/0DE ESMF_Array to NetCDF Test, ESMF_ArrayIOUTest.F90, line 918
   PASS  Write 2/0DE ESMF_Array to NetCDF Test, ESMF_ArrayIOUTest.F90, line 918
   PASS  Write 2/0DE ESMF_Array to NetCDF Test, ESMF_ArrayIOUTest.F90, line 918
   PASS  Write 2/0DE ESMF_Array to NetCDF Test, ESMF_ArrayIOUTest.F90, line 918
   PASS  Write 2/0DE ESMF_Array to NetCDF Test, ESMF_ArrayIOUTest.F90, line 918
+  PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
+ , line 932
   PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
  , line 932
   PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
@@ -527,13 +529,10 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
  , line 932
   PASS  2/0 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, 
-  PASS  2/0 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, 
  line 940
- line 940
-  PASS  2/0 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, 
- line 955
   PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
  , line 932
+  PASS  2/0 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, 
   PASS  2/0 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, 
  line 940
   PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
@@ -544,12 +543,13 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  line 940
   PASS  2/0 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, 
  line 955
-  PASS  2/0 DE create read Array without Halo Create Test, ESMF_ArrayIOUTest.F90
- , line 932
   PASS  2/0 DE read Array access and zero fill DE0 Test, ESMF_ArrayIOUTest.F90, 
  line 940
   PASS  2/0 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, 
  line 955
+  PASS  2/0 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, 
+ line 955
+ line 940
   PASS  2/0 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, 
  line 955
   PASS  2/0 DE read Array access and zero fill DE1 Test, ESMF_ArrayIOUTest.F90, 
@@ -568,8 +568,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  3
   PASS  2/0 DE read Array - DE 0 comparison Test, ESMF_ArrayIOUTest.F90, line 98
  3
-  PASS  2/0 DE read Array - DE 0 comparison Test, ESMF_ArrayIOUTest.F90, line 98
- 3
   PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
  8
   PASS  2/0 DE read Array - DE 0 comparison Test, ESMF_ArrayIOUTest.F90, line 98
@@ -579,6 +577,17 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
  8
   PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
+  PASS  2/0 DE read Array - DE 0 comparison Test, ESMF_ArrayIOUTest.F90, line 98
+ 3
+  PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
+ 8
+  PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
+ 8
+  PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
+  PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
+  PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
+ 8
+  PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
   PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
   PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
   PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
@@ -586,36 +595,21 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
  8
   PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
-  PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
- 8
-  PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
-  PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
- 8
-  PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
   PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
   PASS  Destroy 2/0 DE DistGrid, ESMF_ArrayIOUTest.F90, line 1020
-  PASS  2/0 DE read Array - DE 1 comparison Test, ESMF_ArrayIOUTest.F90, line 99
- 8
+  PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
+  PASS  Destroy 2/0 DE DistGrid, ESMF_ArrayIOUTest.F90, line 1020
   PASS  Destroy 2/0 DE Array, ESMF_ArrayIOUTest.F90, line 1005
   PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
   PASS  Destroy 2/0 DE DistGrid, ESMF_ArrayIOUTest.F90, line 1020
   PASS  Destroy 2/0 DE DistGrid, ESMF_ArrayIOUTest.F90, line 1020
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
-  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
-  PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
-  PASS  Destroy 2/0 DE DistGrid, ESMF_ArrayIOUTest.F90, line 1020
-  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
-  PASS  Destroy 2/0 DE read Array, ESMF_ArrayIOUTest.F90, line 1013
   PASS  Destroy 2/0 DE DistGrid, ESMF_ArrayIOUTest.F90, line 1020
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
-  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
- line 1042
-  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
- line 1042
-  PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
- .F90, line 1050
+  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
+  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1032
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1042
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
@@ -627,10 +621,16 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1042
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
+  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
+ line 1042
+  PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1050
+  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
+ line 1042
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1050
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
+ .F90, line 1050
  .F90, line 1050
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1050
@@ -658,13 +658,13 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  est.F90, line 1076
   PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
  est.F90, line 1076
+  PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
+ est.F90, line 1076
   PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
   PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
  est.F90, line 1076
   PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
  IOUTest.F90, line 1085
-  PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
- est.F90, line 1076
   PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
  IOUTest.F90, line 1085
   PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
@@ -717,6 +717,10 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1132
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1144
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1144
+  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
+ line 1154
+  PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
+ .F90, line 1162
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1144
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1154
@@ -728,14 +732,10 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  .F90, line 1162
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1154
-  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
- line 1154
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1162
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1154
-  PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
- .F90, line 1162
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1154
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
@@ -760,12 +760,16 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  est.F90, line 1189
   PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
  est.F90, line 1189
-  PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
- IOUTest.F90, line 1198
   PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
  est.F90, line 1189
   PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
  est.F90, line 1189
+  PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
+ IOUTest.F90, line 1198
+  PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
+ IOUTest.F90, line 1198
+  PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
+ IOUTest.F90, line 1198
   PASS  Array with undistributed dimensions Create for read Test, ESMF_ArrayIOUT
  est.F90, line 1189
   PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
@@ -774,10 +778,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  IOUTest.F90, line 1198
   PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
  IOUTest.F90, line 1198
-  PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
- IOUTest.F90, line 1198
-  PASS  Array with undistributed dimensions access read-in data Test, ESMF_Array
- IOUTest.F90, line 1198
   PASS  Array with undistributed dimension (last) read from NetCDF Test, ESMF_Ar
  rayIOUTest.F90, line 1208
   PASS  Array with undistributed dimension (last) read from NetCDF Test, ESMF_Ar
@@ -815,19 +815,25 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1238
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
-  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1231
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1238
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1245
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
  line 1267
+  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
+ line 1267
+  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1257
+  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
+ line 1267
+  PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
+ .F90, line 1275
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1275
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
@@ -838,12 +844,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  line 1267
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1275
-  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
- line 1267
-  PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
- .F90, line 1275
-  PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
- line 1267
   PASS  Array with undistributed dimensions get and fill Test, ESMF_ArrayIOUTest
  .F90, line 1275
   PASS  Array with undistributed dimensions Create Test, ESMF_ArrayIOUTest.F90, 
@@ -895,7 +895,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with undistributed dimension (first) read from NetCDF Test, ESMF_A
  rrayIOUTest.F90, line 1321
   PASS  Array with undistributed dimensions comparison Test, ESMF_ArrayIOUTest.F
- 90, line 1337
   PASS  Array with undistributed dimension (first) read from NetCDF Test, ESMF_A
  rrayIOUTest.F90, line 1321
   PASS  Array with undistributed dimensions comparison Test, ESMF_ArrayIOUTest.F
@@ -907,7 +906,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with undistributed dimensions comparison Test, ESMF_ArrayIOUTest.F
  90, line 1337
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1344
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1351
   PASS  Array with undistributed dimensions comparison Test, ESMF_ArrayIOUTest.F
  90, line 1337
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1344
@@ -916,6 +914,7 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  90, line 1337
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1344
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1351
+ 90, line 1337
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1344
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1351
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1358
@@ -925,6 +924,7 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1344
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1351
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1358
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1351
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1358
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1370
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1358
@@ -933,14 +933,20 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1370
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1370
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1370
-  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
- ne 1379
-  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
- ne 1379
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1370
   PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1379
+  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
+ ne 1379
+  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
+ ne 1379
   PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
+  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
+ ne 1379
+  PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
+ 90, line 1387
+  PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
+ 90, line 1387
  90, line 1387
   PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1379
@@ -952,12 +958,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  90, line 1387
   PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1387
-  PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
- 90, line 1387
-  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
- ne 1379
-  PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
- 90, line 1387
   PASS  Array with replicated dimension 1 (first) write to NetCDF Test, ESMF_Arr
  ayIOUTest.F90, line 1400
   PASS  Array with replicated dimension 1 (first) write to NetCDF Test, ESMF_Arr
@@ -976,11 +976,8 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  t.F90, line 1413
   PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1413
-  PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
   PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1413
-  PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
- UTest.F90, line 1422
   PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1413
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
@@ -991,6 +988,9 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  UTest.F90, line 1422
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1422
+  PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
+ UTest.F90, line 1422
+  PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1422
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1422
@@ -1003,7 +1003,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with replicated dimension 1 (first) read from NetCDF Test, ESMF_Ar
  rayIOUTest.F90, line 1432
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
- , line 1448
   PASS  Array with replicated dimension 1 (first) read from NetCDF Test, ESMF_Ar
  rayIOUTest.F90, line 1432
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
@@ -1016,36 +1015,37 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1448
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1455
+ , line 1448
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1455
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1448
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1448
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1455
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1455
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1455
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1455
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1471
   PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1479
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
+  PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
+  PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
+ ne 1471
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1471
   PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1479
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1462
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
+ ne 1471
  ne 1471
   PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1479
-  PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
- ne 1471
-  PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
- ne 1471
   PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1479
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
@@ -1072,24 +1072,24 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  t.F90, line 1505
   PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1505
-  PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
   PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1505
   PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
- UTest.F90, line 1514
-  PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
- t.F90, line 1505
-  PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
- UTest.F90, line 1514
   PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1505
   PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1514
   PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1514
+  PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
+ t.F90, line 1505
+  PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1514
   PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1514
+  PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
+ UTest.F90, line 1514
+ UTest.F90, line 1514
   PASS  Array with replicated dimension 2 (first) read from NetCDF Test, ESMF_Ar
  rayIOUTest.F90, line 1524
   PASS  Array with replicated dimension 2 (first) read from NetCDF Test, ESMF_Ar
@@ -1115,29 +1115,31 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with replicated dimension 2 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1540
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1547
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
   PASS  Array with replicated dimension 2 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1540
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1547
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1547
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1547
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1554
+  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
+  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1561
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
   PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
-  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
-  PASS  Distgrid Create 1 DE/Pet Test, ESMF_ArrayIOUTest.F90, line 1573
+  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
+ ne 1582
   PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1582
   PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
@@ -1150,8 +1152,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  ne 1582
   PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1590
-  PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
- ne 1582
   PASS  Array with replicated dimension 1 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1582
   PASS  Array with replicated dimension 1 get and fill Test, ESMF_ArrayIOUTest.F
@@ -1174,10 +1174,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  ayIOUTest.F90, line 1603
   PASS  Array with replicated dimension 1 (first) write to NetCDF Test, ESMF_Arr
  ayIOUTest.F90, line 1603
-  PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
- t.F90, line 1616
-  PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
- t.F90, line 1616
   PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1616
   PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
@@ -1190,8 +1186,12 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  t.F90, line 1616
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1625
+  PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
+ t.F90, line 1616
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1625
+  PASS  Array with replicated dimension 1 Create for read Test, ESMF_ArrayIOUTes
+ t.F90, line 1616
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1625
   PASS  Array with replicated dimension 1 access read-in data Test, ESMF_ArrayIO
@@ -1213,14 +1213,7 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Array with replicated dimension 1 (first) read from NetCDF Test, ESMF_Ar
  rayIOUTest.F90, line 1635
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
-  PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1651
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
- , line 1651
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
-  PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
- , line 1651
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
   PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
  , line 1651
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
@@ -1230,20 +1223,27 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
+  PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
+ , line 1651
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
+  PASS  Array with replicated dimension 1 comparison Test, ESMF_ArrayIOUTest.F90
+ , line 1651
+  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1658
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1674
-  PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
- 90, line 1682
-  PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1665
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1674
   PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1682
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
  ne 1674
+  PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
+ 90, line 1682
   PASS  Array with replicated dimension 2 get and fill Test, ESMF_ArrayIOUTest.F
  90, line 1682
   PASS  Array with replicated dimension 2 Create Test, ESMF_ArrayIOUTest.F90, li
@@ -1276,7 +1276,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  t.F90, line 1708
   PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1708
-  PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
   PASS  Array with replicated dimension 2 Create for read Test, ESMF_ArrayIOUTes
  t.F90, line 1708
   PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
@@ -1293,6 +1292,7 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  UTest.F90, line 1717
   PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1717
+  PASS  Array with replicated dimension 2 access read-in data Test, ESMF_ArrayIO
  UTest.F90, line 1717
   PASS  Array with replicated dimension 2 (first) read from NetCDF Test, ESMF_Ar
  rayIOUTest.F90, line 1727
@@ -1317,6 +1317,7 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1769
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1755
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1762
+  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1769
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1755
   PASS  Destroy Array, ESMF_ArrayIOUTest.F90, line 1762
   PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1769
@@ -1331,7 +1332,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  90, line 1781
   PASS  Distgrid Create 1 DE/Pet for Attribute package Test, ESMF_ArrayIOUTest.F
  90, line 1781
-  PASS  Destroy DistGrid, ESMF_ArrayIOUTest.F90, line 1769
   PASS  Distgrid Create 1 DE/Pet for Attribute package Test, ESMF_ArrayIOUTest.F
  90, line 1781
   PASS  Distgrid Create 1 DE/Pet for Attribute package Test, ESMF_ArrayIOUTest.F
@@ -1366,18 +1366,18 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  9
   PASS  Array Create for Attribute package Test, ESMF_ArrayIOUTest.F90, line 180
  9
-  PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
   PASS  Array Create for Attribute package Test, ESMF_ArrayIOUTest.F90, line 180
  9
   PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
   PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
   PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
-  PASS  Array Create for Attribute package Test, ESMF_ArrayIOUTest.F90, line 180
- 9
   PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
   PASS  Array Create for Attribute package Test, ESMF_ArrayIOUTest.F90, line 180
  9
   PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
+  PASS  Array Create for Attribute package Test, ESMF_ArrayIOUTest.F90, line 180
+ 9
+  PASS  Array Fill for Attribute package Test, ESMF_ArrayIOUTest.F90, line 1816
   PASS  Create custom attribute package Test, ESMF_ArrayIOUTest.F90, line 1830
   PASS  Create custom attribute package Test, ESMF_ArrayIOUTest.F90, line 1830
   PASS  Create custom attribute package Test, ESMF_ArrayIOUTest.F90, line 1830
@@ -1388,43 +1388,43 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   PASS  Set attribute values Test, ESMF_ArrayIOUTest.F90, line 1842
   PASS  Set attribute values Test, ESMF_ArrayIOUTest.F90, line 1842
   PASS  Set attribute values Test, ESMF_ArrayIOUTest.F90, line 1842
+  PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
+  PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
   PASS  Set attribute values Test, ESMF_ArrayIOUTest.F90, line 1842
+  PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
   PASS  Set attribute values Test, ESMF_ArrayIOUTest.F90, line 1842
   PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
   PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
   PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
-  PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
-  PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
-  PASS  Set numeric/integer range name Test, ESMF_ArrayIOUTest.F90, line 1851
-  PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
   PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
   PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
   PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
   PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
   PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
   PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
+  PASS  Set numeric/integer range values Test, ESMF_ArrayIOUTest.F90, line 1860
+  PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
+  PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
+  PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
+  PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
   PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
   PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
   PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
   PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
   PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
-  PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
-  PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
-  PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
-  PASS  Set numeric/float range name Test, ESMF_ArrayIOUTest.F90, line 1869
   PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
   PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
   PASS  Set numeric/float range values Test, ESMF_ArrayIOUTest.F90, line 1878
   PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
+  PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
+  PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
+  PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
+  PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
   PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
   PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
   PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
   PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
   PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
-  PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
-  PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
-  PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
-  PASS  Set numeric/double range name Test, ESMF_ArrayIOUTest.F90, line 1887
   PASS  Set numeric/double range values Test, ESMF_ArrayIOUTest.F90, line 1896
   PASS  Array with Attributes write to NetCDF Test, ESMF_ArrayIOUTest.F90, line 
  1907
@@ -1436,7 +1436,6 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
  1907
   PASS  Array with Attributes write to NetCDF Test, ESMF_ArrayIOUTest.F90, line 
  1907
-  Ending Test, file ESMF_ArrayIOUTest.F90, line 1921
   PASS  Array with Attributes write to NetCDF Test, ESMF_ArrayIOUTest.F90, line 
  1907
   Ending Test, file ESMF_ArrayIOUTest.F90, line 1921
@@ -1444,21 +1443,22 @@ Use MV2_USE_THREAD_WARNING=0 to suppress this message
   Ending Test, file ESMF_ArrayIOUTest.F90, line 1921
   Ending Test, file ESMF_ArrayIOUTest.F90, line 1921
   Ending Test, file ESMF_ArrayIOUTest.F90, line 1921
+  Ending Test, file ESMF_ArrayIOUTest.F90, line 1921
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
+  PET           0  Test Elapsed Time    90.5760000000000       msec.
+  PET           3  Test Elapsed Time    123.519000000000       msec.
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
+  PET           2  Test Elapsed Time    124.558000000000       msec.
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
-  PET           0  Test Elapsed Time    94.8730000000000       msec.
-  PET           2  Test Elapsed Time    129.543000000000       msec.
-  PET           3  Test Elapsed Time    129.215000000000       msec.
-  PET           4  Test Elapsed Time    129.694000000000       msec.
-  PET           1  Test Elapsed Time    129.322000000000       msec.
+  PET           1  Test Elapsed Time    124.708000000000       msec.
+  PET           4  Test Elapsed Time    124.832000000000       msec.
 Error in system call pthread_mutex_destroy: Device or resource busy
     src/mpi/init/initthread.c:241
-  PET           5  Test Elapsed Time    129.004000000000       msec.
+  PET           5  Test Elapsed Time    124.853000000000       msec.
