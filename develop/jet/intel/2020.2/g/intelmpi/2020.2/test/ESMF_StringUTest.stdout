@@ -1,4 +1,4 @@
-build time -- 2021-08-28 04:24:38
+build time -- 2021-08-29 04:33:37
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
   Beginning Test, file ESMF_StringUTest.F90, line 46
@@ -14,9 +14,12 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
   fstr=0123456789abcdefghijklmnopqrstuvwxyz
  -- leaving f90string2 subroutine
   PASS  Calling f90string2() directly from F90, ESMF_StringUTest.F90, line 76
+  Beginning Test, file ESMF_StringUTest.F90, line 46
  -- entering f90string3 subroutine
+  NUMBER_OF_PROCESSORS           2
   ints=         102         204         409         819
   strlen =         120
+ -- entering f90ints subroutine
   fstr=abcdefghijklmnopqrstuvwxyz0123456789
   strlen2 =          60
   fstr2=0123456789abcdefghijklmnopqrstuvwxyz
@@ -24,16 +27,36 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
   PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
 
 
--- entering c_strings, slen = 120
-102 204 409 819
- strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
-
-
--- ready to call f90int by callback with passed ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
+-- entering c_strings, slen =   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
+  PASS  Calling f90ints() directly from F90, ESMF_StringUTest.F90, line 69
+ -- entering f90string2 subroutine
+120  ints=         102         204         409         819
+
+  strlen =          60
+  fstr=0123456789abcdefghijklmnopqrstuvwxyz
+102 -- leaving f90string2 subroutine
+  PASS  Calling f90string2() directly from F90, ESMF_StringUTest.F90, line 76
+ 204 -- entering f90string3 subroutine
+ 409 819
+ strlen = 120  ints=         102         204         409         819
+, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                      strlen =         120
+'  fstr=abcdefghijklmnopqrstuvwxyz0123456789
+
+  strlen2 =          60
+
+
+-- ready to call f90int by callback with passed ints  fstr2=0123456789abcdefghijklmnopqrstuvwxyz
+
+ -- entering f90ints subroutine
+ -- leaving f90string3 subroutine
+  PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
+  ints=         102         204         409         819
+  rc=           0
+
+
+-- entering c_strings, slen =  -- exiting f90ints subroutine
 
 
 -- returned from call of f90int by callback with passed ints
@@ -47,6 +70,69 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 
 
 -- returned from call of f90int by callback with local ints
+120
+
+-- ready to call f90string2 by callback, passing 15
+ -- entering f90string2 subroutine
+  ints=         102         204         409         819
+
+  strlen =          15
+  fstr=ABCDEFGHIJKLMNO
+102 -- leaving f90string2 subroutine
+
+
+-- returned from call f90string2 by callback 
+204
+
+-- ready to call f90string2 by callback, passing 25 
+409 -- entering f90string2 subroutine
+   ints=         102         204         409         819
+819  strlen =          25
+
+ strlen =   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+120 -- leaving f90string2 subroutine
+, str='
+
+-- returned from call f90string2 by callbackabcdefghijklmnopqrstuvwxyz0123456789                                                                                    
+'
+
+-- ready to call f90string3 by callback, passing 14, 24
+
+
+
+-- ready to call f90int by callback with passed ints -- entering f90string3 subroutine
+
+ -- entering f90ints subroutine
+  ints=         102         204         409         819
+  ints=         102         204         409         819
+  strlen =          14
+  rc=           0
+  fstr=ABCDEFGHIJKLMN
+ -- exiting f90ints subroutine
+  strlen2 =          24
+
+
+-- returned from call of f90int by callback with passed ints  fstr2=0123456789abcdefghijklmn
+
+ -- leaving f90string3 subroutine
+
+
+-- ready to call f90int by callback with local ints
+
+-- returned from call f90string3 by callback
+
+ -- entering f90ints subroutine
+
+
+-- leaving c_strings  ints=         102         204         409         819
+
+  PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
+  rc=           0
+ -- exiting f90ints subroutine
+
+
+-- returned from call of f90int by callback with local ints  PASS  Calling c_5strings, ESMF_StringUTest.F90, line 97
+
 
 
 -- ready to call f90string2 by callback, passing 15
@@ -57,6 +143,8 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
  -- leaving f90string2 subroutine
 
 
+-- entering c_strings, slen = 
+
 -- returned from call f90string2 by callback
 
 
@@ -64,41 +152,39 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
  -- entering f90string2 subroutine
   ints=         102         204         409         819
   strlen =          25
-  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+60  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+
  -- leaving f90string2 subroutine
+102
 
+-- returned from call f90string2 by callback 
+204
 
--- returned from call f90string2 by callback
-
-
--- ready to call f90string3 by callback, passing 14, 24
- -- entering f90string3 subroutine
-  ints=         102         204         409         819
+-- ready to call f90string3 by callback, passing 14, 24 
+409 -- entering f90string3 subroutine
+   ints=         102         204         409         819
+819
   strlen =          14
-  fstr=ABCDEFGHIJKLMN
-  strlen2 =          24
-  fstr2=0123456789abcdefghijklmn
- -- leaving f90string3 subroutine
+ strlen =   fstr=ABCDEFGHIJKLMN
+60  strlen2 =          24
+, str='  fstr2=0123456789abcdefghijklmn
+0123456789abcdefghijklmnopqrstuvwxyz                         -- leaving f90string3 subroutine
+'
 
 
 -- returned from call f90string3 by callback
 
-
--- leaving c_strings
-  PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
-  PASS  Calling c_5strings, ESMF_StringUTest.F90, line 97
-
-
--- entering c_strings, slen = 60
-102 204 409 819
- strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
-
-
 -- ready to call f90int by callback with passed ints
- -- entering f90ints subroutine
+
+
+
+-- leaving c_strings -- entering f90ints subroutine
+
   ints=         102         204         409         819
+  PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
   rc=           0
  -- exiting f90ints subroutine
+  PASS  Calling c_5strings, ESMF_StringUTest.F90, line 97
 
 
 -- returned from call of f90int by callback with passed ints
@@ -107,7 +193,9 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 -- ready to call f90int by callback with local ints
  -- entering f90ints subroutine
   ints=         102         204         409         819
-  rc=           0
+
+
+-- entering c_strings, slen =   rc=           0
  -- exiting f90ints subroutine
 
 
@@ -115,6 +203,69 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 
 
 -- ready to call f90string2 by callback, passing 15
+ -- entering f90string2 subroutine
+60  ints=         102         204         409         819
+
+  strlen =          15
+102  fstr=ABCDEFGHIJKLMNO
+ 204 -- leaving f90string2 subroutine
+ 
+
+-- returned from call f90string2 by callback409
+ 
+
+-- ready to call f90string2 by callback, passing 25819
+
+ -- entering f90string2 subroutine
+ strlen =   ints=         102         204         409         819
+60, str='  strlen =          25
+0123456789abcdefghijklmnopqrstuvwxyz                          fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+' -- leaving f90string2 subroutine
+
+
+
+-- returned from call f90string2 by callback
+
+-- ready to call f90int by callback with passed ints
+
+
+
+-- ready to call f90string3 by callback, passing 14, 24 -- entering f90ints subroutine
+
+  ints=         102         204         409         819
+ -- entering f90string3 subroutine
+  rc=           0
+  ints=         102         204         409         819
+ -- exiting f90ints subroutine
+  strlen =          14
+
+
+-- returned from call of f90int by callback with passed ints  fstr=ABCDEFGHIJKLMN
+
+  strlen2 =          24
+
+
+-- ready to call f90int by callback with local ints
+  fstr2=0123456789abcdefghijklmn
+ -- entering f90ints subroutine
+ -- leaving f90string3 subroutine
+  ints=         102         204         409         819
+
+
+-- returned from call f90string3 by callback  rc=           0
+
+ -- exiting f90ints subroutine
+
+
+-- leaving c_strings
+
+
+-- returned from call of f90int by callback with local ints  PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
+
+
+
+-- ready to call f90string2 by callback, passing 15
+  Ending Test, file ESMF_StringUTest.F90, line 120
  -- entering f90string2 subroutine
   ints=         102         204         409         819
   strlen =          15
@@ -152,156 +303,5 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 -- leaving c_strings
   PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
   Ending Test, file ESMF_StringUTest.F90, line 120
-  Beginning Test, file ESMF_StringUTest.F90, line 46
-  NUMBER_OF_PROCESSORS           2
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
-  PASS  Calling f90ints() directly from F90, ESMF_StringUTest.F90, line 69
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
-  strlen =          60
-  fstr=0123456789abcdefghijklmnopqrstuvwxyz
- -- leaving f90string2 subroutine
-  PASS  Calling f90string2() directly from F90, ESMF_StringUTest.F90, line 76
- -- entering f90string3 subroutine
-  ints=         102         204         409         819
-  strlen =         120
-  fstr=abcdefghijklmnopqrstuvwxyz0123456789
-  strlen2 =          60
-  fstr2=0123456789abcdefghijklmnopqrstuvwxyz
- -- leaving f90string3 subroutine
-  PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
-
-
--- entering c_strings, slen = 120
-102 204 409 819
- strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
-
-
--- ready to call f90int by callback with passed ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
-
-
--- returned from call of f90int by callback with passed ints
-
-
--- ready to call f90int by callback with local ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
-
-
--- returned from call of f90int by callback with local ints
-
-
--- ready to call f90string2 by callback, passing 15
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
-  strlen =          15
-  fstr=ABCDEFGHIJKLMNO
- -- leaving f90string2 subroutine
-
-
--- returned from call f90string2 by callback
-
-
--- ready to call f90string2 by callback, passing 25
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
-  strlen =          25
-  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
- -- leaving f90string2 subroutine
-
-
--- returned from call f90string2 by callback
-
-
--- ready to call f90string3 by callback, passing 14, 24
- -- entering f90string3 subroutine
-  ints=         102         204         409         819
-  strlen =          14
-  fstr=ABCDEFGHIJKLMN
-  strlen2 =          24
-  fstr2=0123456789abcdefghijklmn
- -- leaving f90string3 subroutine
-
-
--- returned from call f90string3 by callback
-
-
--- leaving c_strings
-  PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
-  PASS  Calling c_5strings, ESMF_StringUTest.F90, line 97
-
-
--- entering c_strings, slen = 60
-102 204 409 819
- strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
-
-
--- ready to call f90int by callback with passed ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
-
-
--- returned from call of f90int by callback with passed ints
-
-
--- ready to call f90int by callback with local ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
-
-
--- returned from call of f90int by callback with local ints
-
-
--- ready to call f90string2 by callback, passing 15
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
-  strlen =          15
-  fstr=ABCDEFGHIJKLMNO
- -- leaving f90string2 subroutine
-
-
--- returned from call f90string2 by callback
-
-
--- ready to call f90string2 by callback, passing 25
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
-  strlen =          25
-  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
- -- leaving f90string2 subroutine
-
-
--- returned from call f90string2 by callback
-
-
--- ready to call f90string3 by callback, passing 14, 24
- -- entering f90string3 subroutine
-  ints=         102         204         409         819
-  strlen =          14
-  fstr=ABCDEFGHIJKLMN
-  strlen2 =          24
-  fstr2=0123456789abcdefghijklmn
- -- leaving f90string3 subroutine
-
-
--- returned from call f90string3 by callback
-
-
--- leaving c_strings
-  PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
-  Ending Test, file ESMF_StringUTest.F90, line 120
-  PET           0  Test Elapsed Time    22.1360000000000       msec.
-  PET           1  Test Elapsed Time    14.5790000000000       msec.
+  PET           0  Test Elapsed Time    14.5690000000000       msec.
+  PET           1  Test Elapsed Time    14.6570000000000       msec.
