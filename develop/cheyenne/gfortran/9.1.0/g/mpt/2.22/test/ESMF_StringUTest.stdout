@@ -1,15 +1,15 @@
-build time -- 2021-08-29 05:52:34.813019
+build time -- 2021-08-30 05:52:18.654994
   Beginning Test, file ESMF_StringUTest.F90, line 46
   Beginning Test, file ESMF_StringUTest.F90, line 46
   NUMBER_OF_PROCESSORS           2
   NUMBER_OF_PROCESSORS           2
  -- entering f90ints subroutine
   ints=         102         204         409         819
+  rc=           0
  -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
-  rc=           0
  -- exiting f90ints subroutine
   PASS  Calling f90ints() directly from F90, ESMF_StringUTest.F90, line 69
   PASS  Calling f90ints() directly from F90, ESMF_StringUTest.F90, line 69
@@ -34,12 +34,12 @@ build time -- 2021-08-29 05:52:34.813019
   fstr=abcdefghijklmnopqrstuvwxyz0123456789
   strlen2 =          60
   fstr2=0123456789abcdefghijklmnopqrstuvwxyz
+ -- leaving f90string3 subroutine
   fstr=abcdefghijklmnopqrstuvwxyz0123456789
   strlen2 =          60
   fstr2=0123456789abcdefghijklmnopqrstuvwxyz
  -- leaving f90string3 subroutine
   PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
- -- leaving f90string3 subroutine
   PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
 
 
@@ -48,10 +48,6 @@ build time -- 2021-08-29 05:52:34.813019
 -- entering c_strings, slen = 120
 -- entering c_strings, slen = 120
 102 204 409 819
- strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
-
-
--- ready to call f90int by callback with passed ints
 102 204 409 819
  strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
 
@@ -60,20 +56,16 @@ build time -- 2021-08-29 05:52:34.813019
  -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
+ strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
+
+
+-- ready to call f90int by callback with passed ints
  -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
 
 
--- returned from call of f90int by callback with passed ints
-
-
--- ready to call f90int by callback with local ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
  -- exiting f90ints subroutine
 
 
@@ -92,6 +84,14 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- ready to call f90string2 by callback, passing 15
  -- entering f90string2 subroutine
+-- returned from call of f90int by callback with passed ints
+
+
+-- ready to call f90int by callback with local ints
+ -- entering f90ints subroutine
+  ints=         102         204         409         819
+  rc=           0
+ -- exiting f90ints subroutine
 
 
 -- returned from call of f90int by callback with local ints
@@ -111,6 +111,9 @@ build time -- 2021-08-29 05:52:34.813019
 -- ready to call f90string2 by callback, passing 25
  -- entering f90string2 subroutine
   ints=         102         204         409         819
+  strlen =          25
+  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+  ints=         102         204         409         819
   strlen =          15
   fstr=ABCDEFGHIJKLMNO
  -- leaving f90string2 subroutine
@@ -125,11 +128,6 @@ build time -- 2021-08-29 05:52:34.813019
   strlen =          25
   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
  -- leaving f90string2 subroutine
-
-
-  ints=         102         204         409         819
-  strlen =          25
-  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
  -- leaving f90string2 subroutine
 
 
@@ -141,6 +139,16 @@ build time -- 2021-08-29 05:52:34.813019
   ints=         102         204         409         819
   strlen =          14
   fstr=ABCDEFGHIJKLMN
+  strlen2 =          24
+  fstr2=0123456789abcdefghijklmn
+ -- leaving f90string3 subroutine
+
+
+-- returned from call f90string3 by callback
+
+
+
+
 -- returned from call f90string2 by callback
 
 
@@ -158,14 +166,6 @@ build time -- 2021-08-29 05:52:34.813019
 
 
 -- leaving c_strings
-  strlen2 =          24
-  fstr2=0123456789abcdefghijklmn
- -- leaving f90string3 subroutine
-
-
--- returned from call f90string3 by callback
-
-
 -- leaving c_strings
   PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
   PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
@@ -178,17 +178,17 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- entering c_strings, slen = 60
 102 204 409 819
+ strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
+
+
+-- ready to call f90int by callback with passed ints
+ -- entering f90ints subroutine
 102 204 409 819
  strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
 
 
 -- ready to call f90int by callback with passed ints
  -- entering f90ints subroutine
- strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
-
-
--- ready to call f90int by callback with passed ints
- -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
@@ -198,8 +198,6 @@ build time -- 2021-08-29 05:52:34.813019
 
 
 -- ready to call f90int by callback with local ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
@@ -220,6 +218,9 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- ready to call f90string2 by callback, passing 15
  -- entering f90string2 subroutine
+  ints=         102         204         409         819
+ -- entering f90ints subroutine
+  ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
 
@@ -238,9 +239,6 @@ build time -- 2021-08-29 05:52:34.813019
 -- returned from call f90string2 by callback
 
 
--- ready to call f90string2 by callback, passing 25
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
   strlen =          15
   fstr=ABCDEFGHIJKLMNO
  -- leaving f90string2 subroutine
@@ -254,6 +252,12 @@ build time -- 2021-08-29 05:52:34.813019
   ints=         102         204         409         819
   strlen =          25
   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+ -- leaving f90string2 subroutine
+
+
+-- returned from call f90string2 by callback
+-- ready to call f90string2 by callback, passing 25
+ -- entering f90string2 subroutine
   ints=         102         204         409         819
   strlen =          25
   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
@@ -267,12 +271,6 @@ build time -- 2021-08-29 05:52:34.813019
  -- entering f90string3 subroutine
   ints=         102         204         409         819
   strlen =          14
-  fstr=ABCDEFGHIJKLMN
-  strlen2 =          24
- -- leaving f90string2 subroutine
-
-
--- returned from call f90string2 by callback
 
 
 -- ready to call f90string3 by callback, passing 14, 24
@@ -288,6 +286,9 @@ build time -- 2021-08-29 05:52:34.813019
 -- returned from call f90string3 by callback
 
 
+-- leaving c_strings
+  fstr=ABCDEFGHIJKLMN
+  strlen2 =          24
   fstr2=0123456789abcdefghijklmn
  -- leaving f90string3 subroutine
 
@@ -297,23 +298,22 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- leaving c_strings
   PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
--- leaving c_strings
   PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
   Ending Test, file ESMF_StringUTest.F90, line 120
   Ending Test, file ESMF_StringUTest.F90, line 120
-  PET           0  Test Elapsed Time   0.63999999999999990       msec.
-  PET           1  Test Elapsed Time   0.65300000000000080       msec.
+  PET           0  Test Elapsed Time   0.59200000000000053       msec.
+  PET           1  Test Elapsed Time   0.65199999999999980       msec.
   Beginning Test, file ESMF_StringUTest.F90, line 46
   Beginning Test, file ESMF_StringUTest.F90, line 46
   NUMBER_OF_PROCESSORS           2
   NUMBER_OF_PROCESSORS           2
  -- entering f90ints subroutine
   ints=         102         204         409         819
+  rc=           0
  -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
-  rc=           0
  -- exiting f90ints subroutine
   PASS  Calling f90ints() directly from F90, ESMF_StringUTest.F90, line 69
   PASS  Calling f90ints() directly from F90, ESMF_StringUTest.F90, line 69
@@ -338,12 +338,12 @@ build time -- 2021-08-29 05:52:34.813019
   fstr=abcdefghijklmnopqrstuvwxyz0123456789
   strlen2 =          60
   fstr2=0123456789abcdefghijklmnopqrstuvwxyz
+ -- leaving f90string3 subroutine
   fstr=abcdefghijklmnopqrstuvwxyz0123456789
   strlen2 =          60
   fstr2=0123456789abcdefghijklmnopqrstuvwxyz
  -- leaving f90string3 subroutine
   PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
- -- leaving f90string3 subroutine
   PASS  Calling f90string3() directly from F90, ESMF_StringUTest.F90, line 83
 
 
@@ -352,10 +352,6 @@ build time -- 2021-08-29 05:52:34.813019
 -- entering c_strings, slen = 120
 -- entering c_strings, slen = 120
 102 204 409 819
- strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
-
-
--- ready to call f90int by callback with passed ints
 102 204 409 819
  strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
 
@@ -364,20 +360,16 @@ build time -- 2021-08-29 05:52:34.813019
  -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
+ strlen = 120, str='abcdefghijklmnopqrstuvwxyz0123456789                                                                                    '
+
+
+-- ready to call f90int by callback with passed ints
  -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
 
 
--- returned from call of f90int by callback with passed ints
-
-
--- ready to call f90int by callback with local ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
-  rc=           0
- -- exiting f90ints subroutine
  -- exiting f90ints subroutine
 
 
@@ -396,6 +388,14 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- ready to call f90string2 by callback, passing 15
  -- entering f90string2 subroutine
+-- returned from call of f90int by callback with passed ints
+
+
+-- ready to call f90int by callback with local ints
+ -- entering f90ints subroutine
+  ints=         102         204         409         819
+  rc=           0
+ -- exiting f90ints subroutine
 
 
 -- returned from call of f90int by callback with local ints
@@ -415,6 +415,9 @@ build time -- 2021-08-29 05:52:34.813019
 -- ready to call f90string2 by callback, passing 25
  -- entering f90string2 subroutine
   ints=         102         204         409         819
+  strlen =          25
+  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+  ints=         102         204         409         819
   strlen =          15
   fstr=ABCDEFGHIJKLMNO
  -- leaving f90string2 subroutine
@@ -429,11 +432,6 @@ build time -- 2021-08-29 05:52:34.813019
   strlen =          25
   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
  -- leaving f90string2 subroutine
-
-
-  ints=         102         204         409         819
-  strlen =          25
-  fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
  -- leaving f90string2 subroutine
 
 
@@ -445,6 +443,16 @@ build time -- 2021-08-29 05:52:34.813019
   ints=         102         204         409         819
   strlen =          14
   fstr=ABCDEFGHIJKLMN
+  strlen2 =          24
+  fstr2=0123456789abcdefghijklmn
+ -- leaving f90string3 subroutine
+
+
+-- returned from call f90string3 by callback
+
+
+
+
 -- returned from call f90string2 by callback
 
 
@@ -462,14 +470,6 @@ build time -- 2021-08-29 05:52:34.813019
 
 
 -- leaving c_strings
-  strlen2 =          24
-  fstr2=0123456789abcdefghijklmn
- -- leaving f90string3 subroutine
-
-
--- returned from call f90string3 by callback
-
-
 -- leaving c_strings
   PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
   PASS  Calling c_strings with fstr, ESMF_StringUTest.F90, line 90
@@ -482,17 +482,17 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- entering c_strings, slen = 60
 102 204 409 819
+ strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
+
+
+-- ready to call f90int by callback with passed ints
+ -- entering f90ints subroutine
 102 204 409 819
  strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
 
 
 -- ready to call f90int by callback with passed ints
  -- entering f90ints subroutine
- strlen = 60, str='0123456789abcdefghijklmnopqrstuvwxyz                        '
-
-
--- ready to call f90int by callback with passed ints
- -- entering f90ints subroutine
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
@@ -502,8 +502,6 @@ build time -- 2021-08-29 05:52:34.813019
 
 
 -- ready to call f90int by callback with local ints
- -- entering f90ints subroutine
-  ints=         102         204         409         819
   ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
@@ -524,6 +522,9 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- ready to call f90string2 by callback, passing 15
  -- entering f90string2 subroutine
+  ints=         102         204         409         819
+ -- entering f90ints subroutine
+  ints=         102         204         409         819
   rc=           0
  -- exiting f90ints subroutine
 
@@ -542,9 +543,6 @@ build time -- 2021-08-29 05:52:34.813019
 -- returned from call f90string2 by callback
 
 
--- ready to call f90string2 by callback, passing 25
- -- entering f90string2 subroutine
-  ints=         102         204         409         819
   strlen =          15
   fstr=ABCDEFGHIJKLMNO
  -- leaving f90string2 subroutine
@@ -558,6 +556,12 @@ build time -- 2021-08-29 05:52:34.813019
   ints=         102         204         409         819
   strlen =          25
   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
+ -- leaving f90string2 subroutine
+
+
+-- returned from call f90string2 by callback
+-- ready to call f90string2 by callback, passing 25
+ -- entering f90string2 subroutine
   ints=         102         204         409         819
   strlen =          25
   fstr=ABCDEFGHIJKLMNOPQRSTUVWXY
@@ -571,12 +575,6 @@ build time -- 2021-08-29 05:52:34.813019
  -- entering f90string3 subroutine
   ints=         102         204         409         819
   strlen =          14
-  fstr=ABCDEFGHIJKLMN
-  strlen2 =          24
- -- leaving f90string2 subroutine
-
-
--- returned from call f90string2 by callback
 
 
 -- ready to call f90string3 by callback, passing 14, 24
@@ -592,6 +590,9 @@ build time -- 2021-08-29 05:52:34.813019
 -- returned from call f90string3 by callback
 
 
+-- leaving c_strings
+  fstr=ABCDEFGHIJKLMN
+  strlen2 =          24
   fstr2=0123456789abcdefghijklmn
  -- leaving f90string3 subroutine
 
@@ -601,9 +602,8 @@ build time -- 2021-08-29 05:52:34.813019
 
 -- leaving c_strings
   PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
--- leaving c_strings
   PASS  Calling c_strings with fstr2, ESMF_StringUTest.F90, line 112
   Ending Test, file ESMF_StringUTest.F90, line 120
   Ending Test, file ESMF_StringUTest.F90, line 120
-  PET           0  Test Elapsed Time   0.63999999999999990       msec.
-  PET           1  Test Elapsed Time   0.65300000000000080       msec.
+  PET           0  Test Elapsed Time   0.59200000000000053       msec.
+  PET           1  Test Elapsed Time   0.65199999999999980       msec.
