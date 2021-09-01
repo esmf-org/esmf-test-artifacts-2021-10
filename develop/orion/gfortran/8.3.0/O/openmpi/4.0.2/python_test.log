@@ -1,4 +1,4 @@
-build time -- 2021-08-31 08:51:30
+build time -- 2021-09-01 02:33:48
 running test
 test_assertNumpyAll_bad_mask (ESMF.test.base_test.Test) ... ok
 test_assertNumpyAll_type_differs (ESMF.test.base_test.Test) ... ok
@@ -77,7 +77,7 @@ test_mesh_50_ngons (ESMF.test.test_api.test_mesh.TestMesh) ... ok
 test_mesh_copy (ESMF.test.test_api.test_mesh.TestMesh) ... ok
 test_mesh_create_from_file_esmfmesh (ESMF.test.test_api.test_mesh.TestMesh) ... ok
 test_mesh_create_from_file_scrip (ESMF.test.test_api.test_mesh.TestMesh) ... ok
-test_mesh_slicing (ESMF.test.test_api.test_mesh.TestMesh) ... ok
+test_mesh_slicing (ESMF.test.test_api.test_mesh.TestMesh) ... FAIL
 test_slice_mesh_created_from_file_elem_coords (ESMF.test.test_api.test_mesh.TestMesh) ... SKIP
 test_slice_mesh_created_from_file_esmfmesh (ESMF.test.test_api.test_mesh.TestMesh) ... ok
 test_slice_mesh_created_from_file_scrip (ESMF.test.test_api.test_mesh.TestMesh) ... ok
@@ -91,12 +91,20 @@ test_log (ESMF.test.test_cbindings.TestCbindings) ... ok
 test_version_compare (ESMF.test.test_cbindings.TestCbindings) ... ok
 test_vm (ESMF.test.test_cbindings.TestCbindings) ... ok
 
+======================================================================
+FAIL: test_mesh_slicing (ESMF.test.test_api.test_mesh.TestMesh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/noaa/da/mpotts/sandbox/gfortran_8.3.0_openmpi_O_develop/src/addon/ESMPy/src/ESMF/test/test_api/test_mesh.py", line 211, in test_mesh_slicing
+    assert mesh.size == [12, 5]
+AssertionError
+
 ----------------------------------------------------------------------
 XML: /work/noaa/da/mpotts/sandbox/gfortran_8.3.0_openmpi_O_develop/src/addon/ESMPy/nosetests.xml
 ----------------------------------------------------------------------
-Ran 88 tests in 0.896s
+Ran 88 tests in 0.836s
 
-OK (SKIP=12)
+FAILED (SKIP=12, failures=1)
 Field:
     name = None
     type = <TypeKind.R8: 6>
@@ -138,3 +146,17 @@ local_pet = 0
 
 pet_count = 1
 
+Traceback (most recent call last):
+  File "setup.py", line 273, in <module>
+    'test_regrid_from_file_parallel': TestRegridFromFileParallelCommand})
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/distutils/core.py", line 148, in setup
+    dist.run_commands()
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/distutils/dist.py", line 966, in run_commands
+    self.run_command(cmd)
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/distutils/dist.py", line 985, in run_command
+    cmd_obj.run()
+  File "setup.py", line 49, in run
+    subprocess.check_call(cmd)
+  File "/apps/intel-2020.2/intel-2020.2/intelpython3/lib/python3.7/subprocess.py", line 363, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['nosetests', '-vs', '--with-xunit', '-a', '!slow,!parallel', 'src/ESMF']' returned non-zero exit status 1.
