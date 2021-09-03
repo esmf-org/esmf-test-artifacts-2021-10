@@ -1,4 +1,4 @@
-build time -- 2021-09-01 16:33:23
+build time -- 2021-09-03 16:32:32
 # ESMF application makefile fragment
 #
 # Use the following ESMF_ variables to compile and link
@@ -14,7 +14,7 @@ build time -- 2021-09-01 16:33:23
 
 #----------------------------------------------
 ESMF_VERSION_STRING=8.2.0 beta snapshot
-ESMF_VERSION_STRING_GIT=ESMF_8_2_0_beta_snapshot_18-39-g335dcec2bc
+ESMF_VERSION_STRING_GIT=ESMF_8_2_0_beta_snapshot_18-42-gb11ffe55a6
 #----------------------------------------------
 
 ESMF_VERSION_MAJOR=8
@@ -34,7 +34,7 @@ ESMF_F90LINKER=ftn
 
 ESMF_F90COMPILEOPTS=-fallow-argument-mismatch -fallow-invalid-boz -O -fPIC  -m64 -mcmodel=small -pthread -ffree-line-length-none  -fopenmp
 ESMF_F90COMPILEPATHS=-I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/mod/modO/Linux.gfortran.64.mpich3.default -I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/src/include -I/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/include -I/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/include
-ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-39-g335dcec2bc' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop
+ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-42-gb11ffe55a6' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop
 ESMF_F90COMPILEFREECPP=
 ESMF_F90COMPILEFREENOCPP=-ffree-form
 ESMF_F90COMPILEFIXCPP=-cpp -ffixed-form
@@ -53,7 +53,7 @@ ESMF_CXXLINKER=CC
 
 ESMF_CXXCOMPILEOPTS=-std=c++11 -O -DNDEBUG -fPIC -DESMF_LOWERCASE_SINGLEUNDERSCORE -m64 -mcmodel=small -pthread  -fopenmp
 ESMF_CXXCOMPILEPATHS= -I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/src/include  -I/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/include -I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/src/prologue/yaml-cpp/include
-ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-39-g335dcec2bc' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop -D__SDIR__='' -DESMF_CXXSTD=11
+ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-42-gb11ffe55a6' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop -D__SDIR__='' -DESMF_CXXSTD=11
 
 ESMF_CXXLINKOPTS=-fPIC -lnetcdff -lnetcdff  -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp
 ESMF_CXXLINKPATHS=-L/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/lib/libO/Linux.gfortran.64.mpich3.default -L/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/lib -L/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/lib -L/opt/cray/pe/gcc/10.3.0/snos/lib/gcc/x86_64-suse-linux/10.3.0/../../../../lib64/
@@ -141,7 +141,7 @@ ESMF_INTERNAL_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop
 
 #----------------------------------------------
 ESMF_VERSION_STRING=8.2.0 beta snapshot
-ESMF_VERSION_STRING_GIT=ESMF_8_2_0_beta_snapshot_18-39-g335dcec2bc
+ESMF_VERSION_STRING_GIT=ESMF_8_2_0_beta_snapshot_18-42-gb11ffe55a6
 #----------------------------------------------
 
 ESMF_VERSION_MAJOR=8
@@ -161,7 +161,7 @@ ESMF_F90LINKER=ftn
 
 ESMF_F90COMPILEOPTS=-fallow-argument-mismatch -fallow-invalid-boz -O -fPIC  -m64 -mcmodel=small -pthread -ffree-line-length-none  -fopenmp
 ESMF_F90COMPILEPATHS=-I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/mod/modO/Linux.gfortran.64.mpich3.default -I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/src/include -I/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/include -I/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/include
-ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-39-g335dcec2bc' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop
+ESMF_F90COMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-42-gb11ffe55a6' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop
 ESMF_F90COMPILEFREECPP=
 ESMF_F90COMPILEFREENOCPP=-ffree-form
 ESMF_F90COMPILEFIXCPP=-cpp -ffixed-form
@@ -180,7 +180,7 @@ ESMF_CXXLINKER=CC
 
 ESMF_CXXCOMPILEOPTS=-std=c++11 -O -DNDEBUG -fPIC -DESMF_LOWERCASE_SINGLEUNDERSCORE -m64 -mcmodel=small -pthread  -fopenmp
 ESMF_CXXCOMPILEPATHS= -I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/src/include  -I/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/include -I/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/src/prologue/yaml-cpp/include
-ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-39-g335dcec2bc' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop -D__SDIR__='' -DESMF_CXXSTD=11
+ESMF_CXXCOMPILECPPFLAGS=-DESMF_NO_INTEGER_1_BYTE -DESMF_NO_INTEGER_2_BYTE -DESMF_VERSION_STRING_GIT='ESMF_8_2_0_beta_snapshot_18-42-gb11ffe55a6' -DESMF_MOAB=1 -DESMF_LAPACK=1 -DESMF_LAPACK_INTERNAL=1 -DESMF_NO_ACC_SOFTWARE_STACK=1 -DESMF_NETCDF=1 -DESMF_YAMLCPP=1 -DESMF_YAML=1 -DESMF_PIO=1 -DESMF_MPIIO -DESMF_NO_OPENACC -DESMF_TESTEXHAUSTIVE -DESMF_BOPT_O -DESMF_TESTCOMPTUNNEL -DESMF_TESTWITHTHREADS -DSx86_64_small=1 -DESMF_OS_Linux=1 -DESMF_COMM=mpich3 -DESMF_DIR=/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop -D__SDIR__='' -DESMF_CXXSTD=11
 
 ESMF_CXXLINKOPTS=-fPIC -lnetcdff -lnetcdff  -m64 -mcmodel=small -pthread -Wl,--no-as-needed  -fopenmp
 ESMF_CXXLINKPATHS=-L/lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_O_develop/lib/libO/Linux.gfortran.64.mpich3.default -L/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/lib -L/apps/prod/netcdf-hdf5parallel/4.7.4/gcc/10.2.0/cray-mpich/8.1.4/lib -L/opt/cray/pe/gcc/10.3.0/snos/lib/gcc/x86_64-suse-linux/10.3.0/../../../../lib64/
