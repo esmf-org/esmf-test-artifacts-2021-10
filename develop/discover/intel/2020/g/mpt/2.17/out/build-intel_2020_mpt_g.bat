@@ -1,8 +1,9 @@
+Fri Sep 3 01:20:42 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=s2326
 #SBATCH -o build-intel_2020_mpt_g.bat_%j.o
 #SBATCH -e build-intel_2020_mpt_g.bat_%j.e
-#SBATCH --time=1:20:00
+#SBATCH --time=1:00:00
 #SBATCH --partition=compute
 #SBATCH --qos=allnccs
 #SBATCH --nodes=1
