@@ -1,8 +1,9 @@
+Fri Sep 3 03:09:59 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=s2326
 #SBATCH -o build-gfortran_10.1.0_intelmpi_g.bat_%j.o
 #SBATCH -e build-gfortran_10.1.0_intelmpi_g.bat_%j.e
-#SBATCH --time=1:20:00
+#SBATCH --time=1:00:00
 #SBATCH --partition=compute
 #SBATCH --qos=allnccs
 #SBATCH --nodes=1
