@@ -1,7 +1,8 @@
+Fri Sep 3 03:50:40 MDT 2021
 #!/bin/sh -l
 #PBS -N build-gfortran_10.1.0_mpt_O.bat
 #PBS -l walltime=1:00:00
-#PBS -l walltime=1:00:00
+#PBS -l walltime=2:00:00
 #PBS -q regular
 #PBS -A p48503002
 #PBS -l select=1:ncpus=36:mpiprocs=36
