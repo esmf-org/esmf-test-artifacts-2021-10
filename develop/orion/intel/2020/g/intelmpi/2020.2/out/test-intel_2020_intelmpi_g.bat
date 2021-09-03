@@ -1,8 +1,9 @@
+Fri Sep 3 02:32:49 CDT 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o test-intel_2020_intelmpi_g.bat_%j.o
 #SBATCH -e test-intel_2020_intelmpi_g.bat_%j.e
-#SBATCH --time=1:00:00
+#SBATCH --time=2:00:00
 #SBATCH --partition=orion
 #SBATCH --qos=batch
 #SBATCH --nodes=1
