@@ -1,4 +1,4 @@
-Fri Sep 3 01:14:18 EDT 2021
+Fri Sep 3 01:49:55 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=s2326
 #SBATCH -o test-gfortran_10.1.0_intelmpi_O.bat_%j.o
