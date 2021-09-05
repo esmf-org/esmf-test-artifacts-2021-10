@@ -1,8 +1,9 @@
+Sun Sep 5 06:00:56 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o test-gfortran_9.2.0_openmpi_O.bat_%j.o
 #SBATCH -e test-gfortran_9.2.0_openmpi_O.bat_%j.e
-#SBATCH --time=1:30:00
+#SBATCH --time=2:00:00
 #SBATCH --partition=hera
 #SBATCH --qos=batch
 #SBATCH --nodes=1

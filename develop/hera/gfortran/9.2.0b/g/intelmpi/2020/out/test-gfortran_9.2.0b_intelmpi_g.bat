@@ -1,8 +1,9 @@
+Sun Sep 5 06:33:28 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o test-gfortran_9.2.0b_intelmpi_g.bat_%j.o
 #SBATCH -e test-gfortran_9.2.0b_intelmpi_g.bat_%j.e
-#SBATCH --time=1:30:00
+#SBATCH --time=2:00:00
 #SBATCH --partition=hera
 #SBATCH --qos=batch
 #SBATCH --nodes=1
