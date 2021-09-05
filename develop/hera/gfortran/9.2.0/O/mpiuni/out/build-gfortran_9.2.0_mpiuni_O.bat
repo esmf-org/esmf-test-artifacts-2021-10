@@ -1,8 +1,9 @@
+Sun Sep 5 06:37:06 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o build-gfortran_9.2.0_mpiuni_O.bat_%j.o
 #SBATCH -e build-gfortran_9.2.0_mpiuni_O.bat_%j.e
-#SBATCH --time=1:20:00
+#SBATCH --time=1:00:00
 #SBATCH --partition=hera
 #SBATCH --qos=batch
 #SBATCH --nodes=1

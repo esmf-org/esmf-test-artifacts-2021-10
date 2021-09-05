@@ -1,8 +1,9 @@
+Sun Sep 5 06:05:05 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o test-intel_18.0.4_intelmpi_O.bat_%j.o
 #SBATCH -e test-intel_18.0.4_intelmpi_O.bat_%j.e
-#SBATCH --time=1:30:00
+#SBATCH --time=1:00:00
 #SBATCH --partition=hera
 #SBATCH --qos=batch
 #SBATCH --nodes=1

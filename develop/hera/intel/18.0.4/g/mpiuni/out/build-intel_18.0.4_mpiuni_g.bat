@@ -1,8 +1,9 @@
+Sun Sep 5 06:34:30 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o build-intel_18.0.4_mpiuni_g.bat_%j.o
 #SBATCH -e build-intel_18.0.4_mpiuni_g.bat_%j.e
-#SBATCH --time=1:20:00
+#SBATCH --time=1:00:00
 #SBATCH --partition=hera
 #SBATCH --qos=batch
 #SBATCH --nodes=1
