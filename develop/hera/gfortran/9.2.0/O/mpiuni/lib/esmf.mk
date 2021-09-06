@@ -1,4 +1,4 @@
-build time -- 2021-09-05 06:09:21
+build time -- 2021-09-06 06:24:00
 # ESMF application makefile fragment
 #
 # Use the following ESMF_ variables to compile and link
