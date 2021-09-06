@@ -1,4 +1,4 @@
-Mon Sep 6 06:27:33 UTC 2021
+Mon Sep 6 07:02:09 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o build-intel_18.0.4_mpiuni_O.bat_%j.o
