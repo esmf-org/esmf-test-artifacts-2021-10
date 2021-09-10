@@ -1,9 +1,9 @@
-Mon Sep 6 16:57:43 UTC 2021
+Fri Sep 10 15:32:20 UTC 2021
 #!/bin/sh -l
 #PBS -N test-gfortran_10.3.0_mpich3_g.bat
 #PBS -l walltime=1:00:00
 #PBS -q workq
-#PBS -A emc
+#PBS -A DEV-GFS
 #PBS -l select=1:ncpus=128:mpiprocs=128
 JOBID="`echo $PBS_JOBID | cut -d. -f1`"
 
