@@ -1,4 +1,4 @@
-Sat Sep 11 04:11:12 MDT 2021
+Sun Sep 12 04:09:27 MDT 2021
 #!/bin/sh -l
 #PBS -N test-intel_18.0.5_intelmpi_g.bat
 #PBS -l walltime=2:00:00
