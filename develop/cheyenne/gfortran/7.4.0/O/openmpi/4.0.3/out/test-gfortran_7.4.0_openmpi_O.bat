@@ -1,4 +1,4 @@
-Mon Sep 13 11:17:30 MDT 2021
+Mon Sep 13 13:01:27 MDT 2021
 #!/bin/sh -l
 #PBS -N test-gfortran_7.4.0_openmpi_O.bat
 #PBS -l walltime=2:00:00
@@ -29,14 +29,5 @@ chmod +x runpython.sh
 cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
-
-cd ../src/addon/ESMPy
-
-export PATH=$PATH:$HOME/.local/bin
-python3 setup.py build 2>&1 | tee python_build.log
-ssh cheyenne6 /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/runpython.sh 2>&1 | tee python_build.log
-python3 setup.py test 2>&1 | tee python_test.log
-python3 setup.py test_examples 2>&1 | tee python_examples.log
-python3 setup.py test_regrid_from_file 2>&1 | tee python_regrid.log
 ssh cheyenne6 /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/getres-test.sh
 ssh cheyenne6 /glade/scratch/mpotts/gfortran_7.4.0_openmpi_O_develop/getres-test.sh
