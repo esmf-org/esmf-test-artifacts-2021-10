@@ -1,4 +1,4 @@
-Wed Sep 15 04:10:25 MDT 2021
+Wed Sep 15 08:15:41 MDT 2021
 #!/bin/sh -l
 #PBS -N build-intel_18.0.5_openmpi_g.bat
 #PBS -l walltime=1:00:00
@@ -23,4 +23,3 @@ export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
 make -j 36 2>&1| tee build_$JOBID.log
 
-ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_openmpi_g_develop/getres-build.sh
