@@ -1,4 +1,4 @@
-Tue Sep 14 04:10:54 MDT 2021
+Wed Sep 15 04:10:25 MDT 2021
 #!/bin/sh -l
 #PBS -N test-intel_18.0.5_openmpi_g.bat
 #PBS -l walltime=2:00:00
@@ -23,11 +23,13 @@ export ESMF_TESTWITHTHREADS='ON'
 make info 2>&1| tee info.log 
 make install 2>&1| tee install_$JOBID.log 
 make all_tests 2>&1| tee test_$JOBID.log 
+ssh cheyenne6 /glade/scratch/mpotts//glade/scratch/mpotts/intel_18.0.5_openmpi_g_develop/getres-int.sh
 export ESMFMKFILE=`find $PWD/DEFAULTINSTALLDIR -iname esmf.mk`
 chmod +x runpython.sh
 cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
+ssh cheyenne6 /glade/scratch/mpotts//glade/scratch/mpotts/intel_18.0.5_openmpi_g_develop/getres-int.sh
 
 cd ../src/addon/ESMPy
 
@@ -37,5 +39,4 @@ ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_openmpi_g_develop/runpython.sh 
 python3 setup.py test 2>&1 | tee python_test.log
 python3 setup.py test_examples 2>&1 | tee python_examples.log
 python3 setup.py test_regrid_from_file 2>&1 | tee python_regrid.log
-ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_openmpi_g_develop/getres-test.sh
 ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_openmpi_g_develop/getres-test.sh
