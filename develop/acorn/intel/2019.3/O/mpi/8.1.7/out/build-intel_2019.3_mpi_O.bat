@@ -1,4 +1,4 @@
-Thu Sep 16 12:12:10 UTC 2021
+Thu Sep 16 13:02:50 UTC 2021
 #!/bin/sh -l
 #PBS -N build-intel_2019.3_mpi_O.bat
 #PBS -l walltime=1:00:00
@@ -39,4 +39,3 @@ export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
 make -j 128 2>&1| tee build_$JOBID.log
 
-ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/getres-build.sh

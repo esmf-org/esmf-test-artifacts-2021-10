@@ -1,9 +1,9 @@
-Fri Sep 10 15:32:20 UTC 2021
+Thu Sep 16 12:59:26 UTC 2021
 #!/bin/sh -l
 #PBS -N test-gfortran_10.3.0_mpich3_g.bat
 #PBS -l walltime=1:00:00
-#PBS -q workq
-#PBS -A DEV-GFS
+#PBS -q dev
+#PBS -A GFS-DEV
 #PBS -l select=1:ncpus=128:mpiprocs=128
 JOBID="`echo $PBS_JOBID | cut -d. -f1`"
 
@@ -52,5 +52,3 @@ ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_g_develop/runpyt
 python3 setup.py test 2>&1 | tee python_test.log
 python3 setup.py test_examples 2>&1 | tee python_examples.log
 python3 setup.py test_regrid_from_file 2>&1 | tee python_regrid.log
-ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_g_develop/getres-test.sh
-ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_g_develop/getres-test.sh

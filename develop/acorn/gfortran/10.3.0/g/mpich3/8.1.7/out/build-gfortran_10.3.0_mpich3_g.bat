@@ -1,10 +1,10 @@
-Fri Sep 10 15:32:20 UTC 2021
+Thu Sep 16 12:59:26 UTC 2021
 #!/bin/sh -l
 #PBS -N build-gfortran_10.3.0_mpich3_g.bat
 #PBS -l walltime=1:00:00
 #PBS -l walltime=1:00:00
-#PBS -q workq
-#PBS -A DEV-GFS
+#PBS -q dev
+#PBS -A GFS-DEV
 #PBS -l select=1:ncpus=128:mpiprocs=128
 JOBID="`echo $PBS_JOBID | cut -d. -f1`"
 
@@ -38,4 +38,3 @@ export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
 make -j 128 2>&1| tee build_$JOBID.log
 
-ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/gfortran_10.3.0_mpich3_g_develop/getres-build.sh
