@@ -1,10 +1,10 @@
-Thu Sep 16 12:13:07 UTC 2021
+Thu Sep 16 12:34:11 UTC 2021
 #!/bin/sh -l
 #PBS -N build-intel_2019.3_mpi_g.bat
 #PBS -l walltime=1:00:00
 #PBS -l walltime=1:00:00
-#PBS -q workq
-#PBS -A DEV-GFS
+#PBS -q dev
+#PBS -A GFS-DEV
 #PBS -l select=1:ncpus=128:mpiprocs=128
 JOBID="`echo $PBS_JOBID | cut -d. -f1`"
 

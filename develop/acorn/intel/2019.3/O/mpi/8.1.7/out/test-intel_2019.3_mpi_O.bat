@@ -1,9 +1,9 @@
-Thu Sep 16 12:12:10 UTC 2021
+Thu Sep 16 12:33:29 UTC 2021
 #!/bin/sh -l
 #PBS -N test-intel_2019.3_mpi_O.bat
 #PBS -l walltime=1:00:00
-#PBS -q workq
-#PBS -A DEV-GFS
+#PBS -q dev
+#PBS -A GFS-DEV
 #PBS -l select=1:ncpus=128:mpiprocs=128
 JOBID="`echo $PBS_JOBID | cut -d. -f1`"
 
@@ -53,4 +53,5 @@ ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/runpython.sh
 python3 setup.py test 2>&1 | tee python_test.log
 python3 setup.py test_examples 2>&1 | tee python_examples.log
 python3 setup.py test_regrid_from_file 2>&1 | tee python_regrid.log
+ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/getres-test.sh
 ssh alogin01 /lfs/h1/emc/ptmp/Mark.Potts/intel_2019.3_mpi_O_develop/getres-test.sh
