@@ -1,6 +1,8 @@
-build time -- 2021-09-16 12:58:24
+build time -- 2021-09-16 16:32:36
   Beginning Test, file ESMF_VMGatherUTest.F90, line 67
   NUMBER_OF_PROCESSORS           4
+  PASS  Gather() Test for Integer, ESMF_VMGatherUTest.F90, line 109
+  PASS  Verifying array1 data after Gather() Test for Integer, ESMF_VMGatherUTest.F90, line 126
   Beginning Test, file ESMF_VMGatherUTest.F90, line 67
   NUMBER_OF_PROCESSORS           4
   PASS  Gather() Test for Integer, ESMF_VMGatherUTest.F90, line 109
@@ -106,9 +108,7 @@ build time -- 2021-09-16 12:58:24
            3  f4array1:    1.00000000    
            3  f4array1:    2.00000000    
            3  f4array1:    3.00000000    
-           3  f4arra  PASS  Gather() Test for Integer, ESMF_VMGatherUTest.F90, line 109
-  PASS  Verifying array1 data after Gather() Test for Integer, ESMF_VMGatherUTest.F90, line 126
- Contents after gather (should be 1,2,... at localPet=petCount-1 , 0 elsewhere), :
+           3  f4arra Contents after gather (should be 1,2,... at localPet=petCount-1 , 0 elsewhere), :
            0  array1:            0
            0  array1:            0
            0  array1:            0
@@ -141,7 +141,11 @@ build time -- 2021-09-16 12:58:24
            0  f4array1:    0.00000000    
            0  f4array1:    0.00000000    
            0  f4array1:    0.00000000    
-           0  f4array1:   y1:    0.00000000    
+           0  f4array1:    0.00000000    
+           0  f4array1:    0.00000000    
+           0  f4array1:    0.00000000    
+ contents after gather (should be localPet*2+1, localPet*2+2):
+ y1:    0.00000000    
            1  f4array1:    0.00000000    
            1  f4array1:    0.00000000    
            1  f4array1:    0.00000000    
@@ -249,11 +253,7 @@ build time -- 2021-09-16 12:58:24
            3  farray2:    7.0000000000000000     
            3  farray2:    8.0000000000000000     
   PASS  Verifying farray2 data after GatherV() Test for ESMF_KIND_R8, ESMF_VMGatherUTest.F90, line 369
-  PASS  GatherV() Test for ESMF_KIND_R4, ESMF_VMGath 0.00000000    
-           0  f4array1:    0.00000000    
-           0  f4array1:    0.00000000    
- contents after gather (should be localPet*2+1, localPet*2+2):
-           0  f4array2:    1.00000000    
+  PASS  GatherV() Test for ESMF_KIND_R4, ESMF_VMGath          0  f4array2:    1.00000000    
            0  f4array2:    2.00000000    
   PASS  Verifying f4array2 data after Gather() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 243
   PASS  GatherV() Test for Integer, ESMF_VMGatherUTest.F90, line 285
@@ -284,7 +284,10 @@ build time -- 2021-09-16 12:58:24
            0  farray2:    2.0000000000000000     
   PASS  Verifying farray2 data after GatherV() Test for ESMF_KIND_R8, ESMF_VMGatherUTest.F90, line 369
   PASS  GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 380
-  PASS  Verifying f4array1 data after GatherV() Test for ESMF_KIND_RerUTest.F90, line 380
+  PASS  Verifying f4array1 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 397
+ contents after gather (should be 1.,2.,... at localPet=petCount-1 , 0. elsewhere), :
+           0  f4array1:    0.00000000    
+erUTest.F90, line 380
   PASS  Verifying f4array1 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 397
  contents after gather (should be 1.,2.,... at localPet=petCount-1 , 0. elsewhere), :
            1  f4array1:    0.00000000    
@@ -300,7 +303,7 @@ build time -- 2021-09-16 12:58:24
            1  f4array2:    4.00000000    
   PASS  Verifying f4array2 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 419
   Ending Test, file ESMF_VMGatherUTest.F90, line 432
-  PET           1  Test Elapsed Time   0.63000000000000034       msec.
+  PET           1  Test Elapsed Time   0.66599999999999993       msec.
 erUTest.F90, line 380
   PASS  Verifying f4array1 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 397
  contents after gather (should be 1.,2.,... at localPet=petCount-1 , 0. elsewhere), :
@@ -317,7 +320,7 @@ erUTest.F90, line 380
            2  f4array2:    6.00000000    
   PASS  Verifying f4array2 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 419
   Ending Test, file ESMF_VMGatherUTest.F90, line 432
-  PET           2  Test Elapsed Time   0.64200000000000024       msec.
+  PET           2  Test Elapsed Time   0.68000000000000005       msec.
 erUTest.F90, line 380
   PASS  Verifying f4array1 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 397
  contents after gather (should be 1.,2.,... at localPet=petCount-1 , 0. elsewhere), :
@@ -334,10 +337,7 @@ erUTest.F90, line 380
            3  f4array2:    8.00000000    
   PASS  Verifying f4array2 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 419
   Ending Test, file ESMF_VMGatherUTest.F90, line 432
-  PET           3  Test Elapsed Time   0.63100000000000134       msec.
-4, ESMF_VMGatherUTest.F90, line 397
- contents after gather (should be 1.,2.,... at localPet=petCount-1 , 0. elsewhere), :
-           0  f4array1:    0.00000000    
+  PET           3  Test Elapsed Time   0.68200000000000027       msec.
            0  f4array1:    0.00000000    
            0  f4array1:    0.00000000    
            0  f4array1:    0.00000000    
@@ -350,4 +350,4 @@ erUTest.F90, line 380
            0  f4array2:    2.00000000    
   PASS  Verifying f4array2 data after GatherV() Test for ESMF_KIND_R4, ESMF_VMGatherUTest.F90, line 419
   Ending Test, file ESMF_VMGatherUTest.F90, line 432
-  PET           0  Test Elapsed Time   0.63799999999999968       msec.
+  PET           0  Test Elapsed Time   0.69300000000000095       msec.
