@@ -1,4 +1,4 @@
-Wed Sep 15 04:12:25 MDT 2021
+Fri Sep 17 04:02:42 MDT 2021
 #!/bin/sh -l
 #PBS -N test-intel_18.0.5_mpt_g.bat
 #PBS -l walltime=2:00:00
@@ -30,4 +30,3 @@ cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
 ssh cheyenne6 /glade/scratch/mpotts//glade/scratch/mpotts/intel_18.0.5_mpt_g_develop/getres-int.sh
-ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_mpt_g_develop/getres-test.sh
