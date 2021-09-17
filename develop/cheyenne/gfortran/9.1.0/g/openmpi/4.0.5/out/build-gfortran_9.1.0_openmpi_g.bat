@@ -1,4 +1,4 @@
-Wed Sep 15 04:41:50 MDT 2021
+Fri Sep 17 03:58:17 MDT 2021
 #!/bin/sh -l
 #PBS -N build-gfortran_9.1.0_openmpi_g.bat
 #PBS -l walltime=1:00:00
@@ -24,4 +24,3 @@ export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
 make -j 36 2>&1| tee build_$JOBID.log
 
-ssh cheyenne6 /glade/scratch/mpotts/gfortran_9.1.0_openmpi_g_develop/getres-build.sh

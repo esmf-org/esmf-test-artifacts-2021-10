@@ -1,4 +1,4 @@
-Wed Sep 15 04:10:26 MDT 2021
+Fri Sep 17 04:19:08 MDT 2021
 #!/bin/sh -l
 #PBS -N test-intel_18.0.5_intelmpi_O.bat
 #PBS -l walltime=2:00:00
@@ -39,4 +39,3 @@ ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_intelmpi_O_develop/runpython.sh
 python3 setup.py test 2>&1 | tee python_test.log
 python3 setup.py test_examples 2>&1 | tee python_examples.log
 python3 setup.py test_regrid_from_file 2>&1 | tee python_regrid.log
-ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_intelmpi_O_develop/getres-test.sh

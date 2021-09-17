@@ -1,4 +1,4 @@
-Wed Sep 15 04:12:46 MDT 2021
+Fri Sep 17 05:19:32 MDT 2021
 #!/bin/sh -l
 #PBS -N build-intel_18.0.5_mpt_O.bat
 #PBS -l walltime=1:00:00
@@ -23,4 +23,3 @@ export ESMF_TESTEXHAUSTIVE='ON'
 export ESMF_TESTWITHTHREADS='ON'
 make -j 36 2>&1| tee build_$JOBID.log
 
-ssh cheyenne6 /glade/scratch/mpotts/intel_18.0.5_mpt_O_develop/getres-build.sh

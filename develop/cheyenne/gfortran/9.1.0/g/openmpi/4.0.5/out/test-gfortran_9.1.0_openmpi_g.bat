@@ -1,4 +1,4 @@
-Wed Sep 15 04:41:50 MDT 2021
+Fri Sep 17 03:58:17 MDT 2021
 #!/bin/sh -l
 #PBS -N test-gfortran_9.1.0_openmpi_g.bat
 #PBS -l walltime=2:00:00
@@ -31,4 +31,3 @@ cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
 ssh cheyenne6 /glade/scratch/mpotts//glade/scratch/mpotts/gfortran_9.1.0_openmpi_g_develop/getres-int.sh
-ssh cheyenne6 /glade/scratch/mpotts/gfortran_9.1.0_openmpi_g_develop/getres-test.sh
