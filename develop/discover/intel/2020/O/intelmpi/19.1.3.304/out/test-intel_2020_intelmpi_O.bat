@@ -1,4 +1,4 @@
-Wed Sep 15 01:52:26 EDT 2021
+Sun Sep 19 01:13:46 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=s2326
 #SBATCH -o test-intel_2020_intelmpi_O.bat_%j.o
@@ -27,8 +27,10 @@ export ESMF_TESTWITHTHREADS='ON'
 make info 2>&1| tee info.log 
 make install 2>&1| tee install_$JOBID.log 
 make all_tests 2>&1| tee test_$JOBID.log 
+ssh discover23 /gpfsm/dnb04/projects/p98/mpotts/esmf//gpfsm/dnb04/projects/p98/mpotts/esmf/intel_2020_intelmpi_O_develop/getres-int.sh
 export ESMFMKFILE=`find $PWD/DEFAULTINSTALLDIR -iname esmf.mk`
 chmod +x runpython.sh
 cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
+ssh discover23 /gpfsm/dnb04/projects/p98/mpotts/esmf//gpfsm/dnb04/projects/p98/mpotts/esmf/intel_2020_intelmpi_O_develop/getres-int.sh
