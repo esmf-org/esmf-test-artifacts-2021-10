@@ -1,4 +1,4 @@
-Thu Sep 16 01:52:15 EDT 2021
+Sun Sep 19 00:24:30 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=nggps_emc
 #SBATCH -o test-gfortran_8.3.0_mpiuni_O.bat_%j.o
@@ -30,8 +30,10 @@ export ESMF_TESTWITHTHREADS='ON'
 make info 2>&1| tee info.log 
 make install 2>&1| tee install_$JOBID.log 
 make all_tests 2>&1| tee test_$JOBID.log 
+ssh gaea14 /lustre/f2/dev/ncep/Mark.Potts//lustre/f2/dev/ncep/Mark.Potts/gfortran_8.3.0_mpiuni_O_develop/getres-int.sh
 export ESMFMKFILE=`find $PWD/DEFAULTINSTALLDIR -iname esmf.mk`
 chmod +x runpython.sh
 cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
+ssh gaea14 /lustre/f2/dev/ncep/Mark.Potts//lustre/f2/dev/ncep/Mark.Potts/gfortran_8.3.0_mpiuni_O_develop/getres-int.sh
