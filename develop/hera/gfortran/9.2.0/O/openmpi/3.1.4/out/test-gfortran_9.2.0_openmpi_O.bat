@@ -1,4 +1,4 @@
-Sat Sep 18 06:54:52 UTC 2021
+Mon Sep 20 13:17:24 UTC 2021
 #!/bin/sh -l
 #SBATCH --account=da-cpu
 #SBATCH -o test-gfortran_9.2.0_openmpi_O.bat_%j.o
@@ -32,17 +32,19 @@ export ESMF_TESTWITHTHREADS='ON'
 make info 2>&1| tee info.log 
 make install 2>&1| tee install_$JOBID.log 
 make all_tests 2>&1| tee test_$JOBID.log 
+ssh hfe02 /scratch1/NCEPDEV/stmp2/Mark.Potts//scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/getres-int.sh
 export ESMFMKFILE=`find $PWD/DEFAULTINSTALLDIR -iname esmf.mk`
 chmod +x runpython.sh
 cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
+ssh hfe02 /scratch1/NCEPDEV/stmp2/Mark.Potts//scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/getres-int.sh
 
 cd ../src/addon/ESMPy
 
 export PATH=$PATH:$HOME/.local/bin
 python3 setup.py build 2>&1 | tee python_build.log
-ssh hfe10 /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/runpython.sh 2>&1 | tee python_build.log
+ssh hfe02 /scratch1/NCEPDEV/stmp2/Mark.Potts/gfortran_9.2.0_openmpi_O_develop/runpython.sh 2>&1 | tee python_build.log
 python3 setup.py test 2>&1 | tee python_test.log
 python3 setup.py test_examples 2>&1 | tee python_examples.log
 python3 setup.py test_regrid_from_file 2>&1 | tee python_regrid.log
