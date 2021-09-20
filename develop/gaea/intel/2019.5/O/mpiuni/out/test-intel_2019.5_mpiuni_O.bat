@@ -1,4 +1,4 @@
-Sat Sep 18 00:42:03 EDT 2021
+Mon Sep 20 11:26:00 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=nggps_emc
 #SBATCH -o test-intel_2019.5_mpiuni_O.bat_%j.o
@@ -27,8 +27,10 @@ export ESMF_TESTWITHTHREADS='ON'
 make info 2>&1| tee info.log 
 make install 2>&1| tee install_$JOBID.log 
 make all_tests 2>&1| tee test_$JOBID.log 
+ssh gaea10 /lustre/f2/dev/ncep/Mark.Potts//lustre/f2/dev/ncep/Mark.Potts/intel_2019.5_mpiuni_O_develop/getres-int.sh
 export ESMFMKFILE=`find $PWD/DEFAULTINSTALLDIR -iname esmf.mk`
 chmod +x runpython.sh
 cd nuopc-app-prototypes
 ./testProtos.sh 2>&1| tee ../nuopc_$JOBID.log 
 
+ssh gaea10 /lustre/f2/dev/ncep/Mark.Potts//lustre/f2/dev/ncep/Mark.Potts/intel_2019.5_mpiuni_O_develop/getres-int.sh
