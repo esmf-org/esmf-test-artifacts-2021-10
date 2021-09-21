@@ -1,4 +1,4 @@
-build time -- 2021-09-21 11:16:28
+build time -- 2021-09-21 16:33:47
  --------------------------------------- 
  Start of  System Test ESMF_TransferMeshSTest
  --------------------------------------- 
@@ -51,6 +51,16 @@ build time -- 2021-09-21 11:16:28
  Comp1 SetVM finished, rc=            0
  Comp1 SetVM finished, rc=            0
  Comp1 SetVM finished, rc=            0
+ User Comp1 Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Comp1 Register returning
+ User Comp1 Register starting
+ Registered Initialize, Run, and Finalize routines
+ User Comp1 Register returning
+ Comp1 SetServices finished, rc=            0
+ Comp2 SetVM finished, rc=            0
+ Comp2 SetServices finished, rc=            0
+ Cpl SetVM finished, rc=            0
  User Comp2 Register starting
  Registered Initialize, Run, and Finalize routines
  User Comp2 Register returning
@@ -58,24 +68,14 @@ build time -- 2021-09-21 11:16:28
  Cpl SetVM finished, rc=            0
  Comp2 SetServices finished, rc=            0
  Cpl SetVM finished, rc=            0
- User Comp1 Register starting
+ Comp1 SetServices finished, rc=            0
+ Comp2 SetVM finished, rc=            0
+ Comp2 SetServices finished, rc=            0
+ Cpl SetVM finished, rc=            0
+ User Coupler Register starting
  Registered Initialize, Run, and Finalize routines
- User Comp1 Register returning
- Comp1 SetServices finished, rc=            0
- Comp2 SetVM finished, rc=            0
- Comp2 SetServices finished, rc=            0
- Cpl SetVM finished, rc=            0
- Comp1 SetServices finished, rc=            0
- Comp2 SetVM finished, rc=            0
- Comp2 SetServices finished, rc=            0
- Cpl SetVM finished, rc=            0
- User Comp1 Register starting
- Registered Initialize, Run, and Finalize routines
- User Comp1 Register returning
- Comp1 SetServices finished, rc=            0
- Comp2 SetVM finished, rc=            0
- Comp2 SetServices finished, rc=            0
- Cpl SetVM finished, rc=            0
+ User Coupler Register returning
+ Cpl SetServices finished, rc=            0
  Comp1 SetServices finished, rc=            0
  Comp2 SetVM finished, rc=            0
  Comp2 SetServices finished, rc=            0
@@ -88,11 +88,10 @@ build time -- 2021-09-21 11:16:28
  Registered Initialize, Run, and Finalize routines
  User Coupler Register returning
  Cpl SetServices finished, rc=            0
- User Coupler Register starting
- Registered Initialize, Run, and Finalize routines
- User Coupler Register returning
- Cpl SetServices finished, rc=            0
- User Comp1 Init phase=1 starting
+ Comp1 SetServices finished, rc=            0
+ Comp2 SetVM finished, rc=            0
+ Comp2 SetServices finished, rc=            0
+ Cpl SetVM finished, rc=            0
  User Coupler Register starting
  Registered Initialize, Run, and Finalize routines
  User Coupler Register returning
@@ -103,12 +102,13 @@ build time -- 2021-09-21 11:16:28
  Cpl SetServices finished, rc=            0
  Comp 1 Initialize phase=1 finished, rc =           0           0
  User Comp2 Init phase=1 starting
+ User Comp1 Init phase=1 starting
+ User Comp1 Init phase=1 starting
  User Coupler Register starting
  Registered Initialize, Run, and Finalize routines
  User Coupler Register returning
  Cpl SetServices finished, rc=            0
  Comp 1 Initialize phase=1 finished, rc =           0           0
- User Comp1 Init phase=1 starting
  User Comp2 Init phase=1 returning
  Comp 2 Initialize phase=1 finished, rc =           0           0
  User Coupler Init phase=1 starting
@@ -197,19 +197,19 @@ DistGrid-VM: petCount = 1, CurrentVM: petCount = 1
  Coupler Initialize phase=2 finished, rc =           0           0
  User Coupler Init phase=2 returning
  Coupler Initialize phase=2 finished, rc =           0           0
- User Comp1 Init phase=3 starting
  User Coupler Init phase=2 returning
  Coupler Initialize phase=2 finished, rc =           0           0
- Comp 1 Initialize phase=3 finished, rc =           0           0
- User Comp2 Init phase=3 starting
  User Comp1 Init phase=3 starting
- User Coupler Init phase=2 returning
- Coupler Initialize phase=2 finished, rc =           0           0
  User Coupler Init phase=2 returning
  Coupler Initialize phase=2 finished, rc =           0           0
  User Coupler Init phase=2 returning
  Coupler Initialize phase=2 finished, rc =           0           0
  Comp 1 Initialize phase=3 finished, rc =           0           0
+ User Comp2 Init phase=3 starting
+ User Coupler Init phase=2 returning
+ Coupler Initialize phase=2 finished, rc =           0           0
+ Comp 1 Initialize phase=3 finished, rc =           0           0
+ User Comp1 Init phase=3 starting
  User Comp1 Init phase=3 returning
  Comp 1 Initialize phase=3 finished, rc =           0           0
  Comp 2 Initialize phase=3 finished, rc =           0           0
@@ -236,6 +236,11 @@ DistGrid-VM: petCount = 1, CurrentVM: petCount = 1
  Comp 1 Run finished, rc =           0           0
  User Coupler Run starting
  User Coupler Run returning
+ Coupler Run finished, rc =           0           0
+ Comp 2 Run returned, rc =           0
+ User Coupler Final starting
+ User Coupler Final returning
+ Coupler Finalize finished, rc =           0           0
  User Coupler Init phase=3 returning
  Coupler Initialize phase=3 finished, rc =           0           0
  User Comp1 Run starting
@@ -250,6 +255,8 @@ DistGrid-VM: petCount = 1, CurrentVM: petCount = 1
  Coupler Finalize finished, rc =           0           0
  User Comp1 Final starting
  User Comp1 Final returning
+ Comp 1 Finalize finished, rc =           0           0
+ Comp 2 Finalize finished, rc =           0           0
  User Coupler Init phase=3 returning
  Coupler Initialize phase=3 finished, rc =           0           0
  Comp 1 Run finished, rc =           0           0
@@ -289,8 +296,8 @@ DistGrid dimCount = 1
 deCount = 6
 localDeCount = 1
 ~ local data in LocalArray for DE 4 ~
-LocalArrayPrint: Array at address 0x11e2af0:
-            rank = 1, typekind = 6, base_addr = 0x11daa70
+LocalArrayPrint: Array at address 0x1cb6ba0:
+            rank = 1, typekind = 6, base_addr = 0x1cb0810
             dim[0] = 6  
   Real, *8, Dim 1, Data values:
 ( 1) =  2
@@ -312,6 +319,9 @@ dim 1: [0]: [1 [1 [1, 6] 6] 6]
            7          -1          -1               -1          -1
  Field Print Ends   ====>
  User Comp2 Run returning
+ Comp 2 Run returned, rc =           0
+ User Coupler Final starting
+ User Coupler Final returning
  User Coupler Init phase=3 returning
  Coupler Initialize phase=3 finished, rc =           0           0
  Comp 1 Run finished, rc =           0           0
@@ -350,11 +360,6 @@ dim 1: [0]: [1 [1 [1, 6] 6] 6]
   System Test ESMF_TransferMeshSTest
   SUCCESS:  System Test ESMF_TransferMeshSTest finished correctly.
  
- Coupler Run finished, rc =           0           0
- Comp 2 Run returned, rc =           0
- User Coupler Final starting
- User Coupler Final returning
- Coupler Finalize finished, rc =           0           0
  Comp 1 Finalize finished, rc =           0           0
  Comp 2 Finalize finished, rc =           0           0
  All Destroy routines done
@@ -369,8 +374,6 @@ dim 1: [0]: [1 [1 [1, 6] 6] 6]
   System Test ESMF_TransferMeshSTest
   SUCCESS:  System Test ESMF_TransferMeshSTest finished correctly.
  
- Comp 1 Finalize finished, rc =           0           0
- Comp 2 Finalize finished, rc =           0           0
  All Destroy routines done
   System Test ESMF_TransferMeshSTest                                                                                                                                                                                                                              complete.
  ------------------------------------------------------------
@@ -395,9 +398,6 @@ dim 1: [0]: [1 [1 [1, 6] 6] 6]
   System Test ESMF_TransferMeshSTest
   SUCCESS:  System Test ESMF_TransferMeshSTest finished correctly.
  
- Comp 2 Run returned, rc =           0
- User Coupler Final starting
- User Coupler Final returning
  Coupler Finalize finished, rc =           0           0
  Comp 1 Finalize finished, rc =           0           0
  User Comp2 Final starting
