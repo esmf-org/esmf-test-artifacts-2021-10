@@ -1,39 +1,32 @@
-build time -- 2021-08-04 12:28:55.543056
-  Beginning Test, file ESMF_IO_PIOUTest.F90, line 83
-  NUMBER_OF_PROCESSORS           1
-  PASS  Checking sizeof(iosystem_desc_t) vs PIO_SIZE_IOSYSTEM_DESC, ESMF_IO_PIOUTest.F90, line 119
-  PASS  Checking sizeof(file_desc_t) vs PIO_SIZE_FILE_DESC, ESMF_IO_PIOUTest.F90, line 137
-  PASS  Checking sizeof(io_desc_t) vs PIO_SIZE_IO_DESC, ESMF_IO_PIOUTest.F90, line 155
-  PASS  Checking sizeof(var_desc_t) vs PIO_SIZE_VAR_DESC, ESMF_IO_PIOUTest.F90, line 173
-  PASS  Initialize a PIO instance, ESMF_IO_PIOUTest.F90, line 196
-  PASS  Create PIO NETCDF file: pio_file1f_netcdf.dat, ESMF_IO_PIOUTest.F90, line 223
-  PASS  Create a PIO NETCDF mapping, ESMF_IO_PIOUTest.F90, line 245
-  PASS  PIO NETCDF define dimension, ESMF_IO_PIOUTest.F90, line 263
-  PASS  PIO NETCDF define variable, ESMF_IO_PIOUTest.F90, line 282
-  PASS  PIO NETCDF ending define mode, ESMF_IO_PIOUTest.F90, line 297
-  PASS  PIO NETCDF setframe test, ESMF_IO_PIOUTest.F90, line 312
-  PASS  Write data to PIO NETCDF file, ESMF_IO_PIOUTest.F90, line 336
-  PASS  PIO NETCDF closefile after write test, ESMF_IO_PIOUTest.F90, line 351
-  PASS  Open PIO NETCDF file for read: pio_file1f_netcdf.dat, ESMF_IO_PIOUTest.F90, line 371
-  PASS  PIO NETCDF setframe for read test, ESMF_IO_PIOUTest.F90, line 386
-  PASS  Read data from PIO NETCDF file, ESMF_IO_PIOUTest.F90, line 407
-  PASS  Compare written data with data read back, ESMF_IO_PIOUTest.F90, line 430
-  PASS  Free PIO NETCDF decomposition, ESMF_IO_PIOUTest.F90, line 448
-  PASS  Close PIO NETCDF file after read, ESMF_IO_PIOUTest.F90, line 465
-  PASS  Create PNETCDF PIO file: pio_file1f_pnetcdf.dat, ESMF_IO_PIOUTest.F90, line 493
-  PASS  Create a PIO PNETCDF mapping, ESMF_IO_PIOUTest.F90, line 515
-  PASS  PIO PNETCDF define dimension, ESMF_IO_PIOUTest.F90, line 533
-  PASS  PIO PNETCDF define variable, ESMF_IO_PIOUTest.F90, line 552
-  PASS  PIO PNETCDF ending define mode, ESMF_IO_PIOUTest.F90, line 567
-  PASS  PIO PNETCDF setframe test, ESMF_IO_PIOUTest.F90, line 582
-  PASS  Write data to PIO file, ESMF_IO_PIOUTest.F90, line 606
-  PASS  PIO PNETCDF closefile after write test, ESMF_IO_PIOUTest.F90, line 621
-  PASS  Open PNETCDF PIO file for read: pio_file1f_pnetcdf.dat, ESMF_IO_PIOUTest.F90, line 641
-  PASS  PIO PNETCDF setframe for read test, ESMF_IO_PIOUTest.F90, line 656
-  PASS  Read data from PIO PNETCDF file, ESMF_IO_PIOUTest.F90, line 677
-  PASS  Compare written data with data read back, ESMF_IO_PIOUTest.F90, line 700
-  PASS  Free PIO PNETCDF decomposition, ESMF_IO_PIOUTest.F90, line 718
-  PASS  Close PIO PNETCDF file after read, ESMF_IO_PIOUTest.F90, line 735
-  PASS  Finalize PIO instance, ESMF_IO_PIOUTest.F90, line 755
-  Ending Test, file ESMF_IO_PIOUTest.F90, line 764
-  PET           0  Test Elapsed Time    4.1449999999999996       msec.
+build time -- 2021-09-20 20:04:43.875145
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x14655dec8f1f in ???
+#1  0x14655f3f2447 in ???
+#2  0x146561cb749b in _ZN5ESMCI3VMK4initEib
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:424
+#3  0x146561cad9f0 in _ZN5ESMCI2VM10initializeEibPi
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3081
+#4  0x146561cd3fc1 in c_esmc_vminitialize_
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1147
+#5  0x146562a4c390 in __esmf_vmmod_MOD_esmf_vminitialize
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9254
+#6  0x1465627c4835 in __esmf_initmod_MOD_esmf_frameworkinternalinit
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:881
+#7  0x1465627c71d7 in __esmf_initmod_MOD_esmf_initialize
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:286
+#8  0x146562a01359 in __esmf_testmod_MOD_esmf_teststart
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/epilogue/src/ESMF_Test.F90:810
+#9  0x4022b8 in esmf_io_pioutest
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/IO/tests/ESMF_IO_PIOUTest.F90:83
+#10  0x406982 in main
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/IO/tests/ESMF_IO_PIOUTest.F90:27
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node chianti exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

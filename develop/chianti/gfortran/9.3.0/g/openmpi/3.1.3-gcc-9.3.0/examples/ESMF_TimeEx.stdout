@@ -1,15 +1,30 @@
-build time -- 2021-08-04 12:28:55.543056
- Time1 = 
-Time -----------------------------------
-2000-02-28T02:24:45
-end Time -------------------------------
+build time -- 2021-09-20 20:04:43.875145
 
- Timeinterval1 = 
-TimeInterval ---------------------------
-P0Y0M2DT8H36M15S
-end TimeInterval -----------------------
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
 
- time2 = time1 + timeinterval1 =         2000 /           3 /           1            11 :           1 :           0
- time2 is larger than time1
-  PASS  Example ESMF_TimeEx, ESMF_TimeEx.F90, line 141
- PASS: ESMF_TimeEx.F90
+Backtrace for this error:
+#0  0x15489bf04f1f in ???
+#1  0x15489d42e447 in ???
+#2  0x15489fcf349b in _ZN5ESMCI3VMK4initEib
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VMKernel.C:424
+#3  0x15489fce99f0 in _ZN5ESMCI2VM10initializeEibPi
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/src/ESMCI_VM.C:3081
+#4  0x15489fd0ffc1 in c_esmc_vminitialize_
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMCI_VM_F.C:1147
+#5  0x1548a0a88390 in __esmf_vmmod_MOD_esmf_vminitialize
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/VM/interface/ESMF_VM.F90:9254
+#6  0x1548a0800835 in __esmf_initmod_MOD_esmf_frameworkinternalinit
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:881
+#7  0x1548a08031d7 in __esmf_initmod_MOD_esmf_initialize
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Superstructure/ESMFMod/src/ESMF_Init.F90:286
+#8  0x4012a7 in esmf_timeex
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/TimeMgr/examples/ESMF_TimeEx.F90:68
+#9  0x401afe in main
+	at /home/mpotts/gfortran_9.3.0_openmpi_g_develop/src/Infrastructure/TimeMgr/examples/ESMF_TimeEx.F90:28
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node chianti exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
