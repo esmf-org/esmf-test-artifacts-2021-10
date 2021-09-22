@@ -1,4 +1,4 @@
-build time -- 2021-09-21 00:24:37
+build time -- 2021-09-22 00:17:45
 # ESMF application makefile fragment
 #
 # Use the following ESMF_ variables to compile and link
@@ -86,6 +86,7 @@ ESMF_TRACE_STATICLINKLIBS=-lesmftrace_static
 # Internal ESMF variables, do NOT depend on these!
 
 ESMF_INTERNAL_DIR=/lustre/f2/dev/ncep/Mark.Potts/gfortran_8.3.0_mpiuni_O_develop
+ESMF_INTERNAL_MPIRUN=/lustre/f2/dev/ncep/Mark.Potts/gfortran_8.3.0_mpiuni_O_develop/src/Infrastructure/stubs/mpiuni/mpirun
 
 #
 # !!! The following options were used on this ESMF build !!!
