@@ -1,8 +1,8 @@
-Wed Sep 22 06:09:59 MDT 2021
+Thu Sep 23 04:10:30 MDT 2021
 #!/bin/sh -l
 #PBS -N build-intel_18.0.5_mpt_O.bat
 #PBS -l walltime=1:00:00
-#PBS -l walltime=2:00:00
+#PBS -l walltime=3:00:00
 #PBS -q regular
 #PBS -A p48503002
 #PBS -l select=1:ncpus=36:mpiprocs=36
