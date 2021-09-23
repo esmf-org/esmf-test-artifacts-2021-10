@@ -1,7 +1,7 @@
-Wed Sep 22 06:07:28 MDT 2021
+Thu Sep 23 04:08:39 MDT 2021
 #!/bin/sh -l
 #PBS -N test-intel_18.0.5_openmpi_g.bat
-#PBS -l walltime=2:00:00
+#PBS -l walltime=3:00:00
 #PBS -q regular
 #PBS -A p48503002
 #PBS -l select=1:ncpus=36:mpiprocs=36
