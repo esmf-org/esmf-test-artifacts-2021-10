@@ -1,9 +1,9 @@
-Wed Sep 22 01:28:12 EDT 2021
+Thu Sep 23 00:30:39 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=nggps_emc
 #SBATCH -o test-intel_2019.5_mpiuni_O.bat_%j.o
 #SBATCH -e test-intel_2019.5_mpiuni_O.bat_%j.e
-#SBATCH --time=1:00:00
+#SBATCH --time=3:00:00
 #SBATCH --cluster=c4
 #SBATCH --qos=normal
 #SBATCH --nodes=1
