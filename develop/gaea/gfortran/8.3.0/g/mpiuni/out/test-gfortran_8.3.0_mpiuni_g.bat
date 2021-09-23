@@ -1,9 +1,9 @@
-Wed Sep 22 02:26:10 EDT 2021
+Thu Sep 23 00:27:52 EDT 2021
 #!/bin/sh -l
 #SBATCH --account=nggps_emc
 #SBATCH -o test-gfortran_8.3.0_mpiuni_g.bat_%j.o
 #SBATCH -e test-gfortran_8.3.0_mpiuni_g.bat_%j.e
-#SBATCH --time=2:00:00
+#SBATCH --time=3:00:00
 #SBATCH --cluster=c4
 #SBATCH --qos=normal
 #SBATCH --nodes=1
