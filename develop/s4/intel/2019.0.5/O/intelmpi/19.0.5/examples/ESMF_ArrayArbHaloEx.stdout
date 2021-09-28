@@ -1,4 +1,4 @@
-build time -- 2021-09-27 17:26:46
+build time -- 2021-09-28 17:26:10
  seqIndexOffset=         1099511627776
  seqIndexOffset=         1099511627776
  seqIndexOffset=         1099511627776
@@ -31,6 +31,7 @@ tileListPDe: 1 1 1 1
 elementCountPDe: 5 5 5 5 
 contigFlagPDimPDe (dims separated by / ):
  for DE 0: 1 / 
+ for DE 1: 1 / 
 elementCountPTile: 20 
 regDecomp = NO
 tileListPDe: 1 1 1 1 
@@ -52,6 +53,8 @@ contigFlagPDimPDe (dims separated by / ):
 (min,max)IndexPDimPDe (dims separated by / ):
  for DE 0: (1, 5) / 
  for DE 1: (6, 10) / 
+ for DE 2: (11, 15) / 
+ for DE 3: (16, 20) / 
 contigFlagPDimPDe (dims separated by / ):
  for DE 0: 1 / 
  for DE 1: 1 / 
@@ -63,7 +66,6 @@ contigFlagPDimPDe (dims separated by / ):
  for DE 2: (11, 15) / 
  for DE 3: (16, 20) / 
 indexListPDimPLocalDe (dims separated by / ):
- for DE 1: 1 / 
  for DE 2: 1 / 
  for DE 3: 1 / 
 (min,max)IndexPDimPDe (dims separated by / ):
@@ -72,6 +74,7 @@ indexListPDimPLocalDe (dims separated by / ):
  for DE 2: (11, 15) / 
  for DE 3: (16, 20) / 
 indexListPDimPLocalDe (dims separated by / ):
+ for localDE 0 - DE 3:  (16, 17, 18, 19, 20) /
  for DE 1: (6, 10) / 
  for DE 2: (11, 15) / 
  for DE 3: (16, 20) / 
@@ -83,8 +86,10 @@ arbSeqIndexListPCollPLocalDe:
  for collocation 1, localDE 0 - DE 0 -  elementCountPCollPLocalDe 5: (1099511627777, 1099511627781, 1099511627785, 1099511627789, 1099511627793)
 connectionCount = 0
 ~ lower class' values ~
- for DE 2: (11, 15) / 
- for DE 3: (16, 20) / 
+deCount = 4
+Member on this PET appears to be an actual member.
+DistGrid-VM: localPet = 0, CurrentVM: localPet = 0
+DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
 indexListPDimPLocalDe (dims separated by / ):
  for localDE 0 - DE 1:  (6, 7, 8, 9, 10) /
 diffCollocationCount = 1
@@ -96,6 +101,8 @@ connectionCount = 0
 deCount = 4
 Member on this PET appears to be an actual member.
 DistGrid-VM: localPet = 1, CurrentVM: localPet = 1
+DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
+--- ESMCI::DistGrid::print end ---
  for localDE 0 - DE 2:  (11, 12, 13, 14, 15) /
 diffCollocationCount = 1
 collocationPDim:	1
@@ -108,7 +115,6 @@ Member on this PET appears to be an actual member.
 DistGrid-VM: localPet = 2, CurrentVM: localPet = 2
 DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
 --- ESMCI::DistGrid::print end ---
- for localDE 0 - DE 3:  (16, 17, 18, 19, 20) /
 diffCollocationCount = 1
 collocationPDim:	1
 arbSeqIndexListPCollPLocalDe:
@@ -120,16 +126,9 @@ Member on this PET appears to be an actual member.
 DistGrid-VM: localPet = 3, CurrentVM: localPet = 3
 DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
 --- ESMCI::DistGrid::print end ---
-deCount = 4
-Member on this PET appears to be an actual member.
-DistGrid-VM: localPet = 0, CurrentVM: localPet = 0
-DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
---- ESMCI::DistGrid::print end ---
-DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
 --- ESMCI::DistGrid::print end ---
  farrayPtr1d:    1099511627777.00        1099511627781.00     
    1099511627785.00        1099511627789.00        1099511627793.00     
-  0.000000000000000E+000
  farrayPtr1d:    1099511627778.00        1099511627782.00     
    1099511627786.00        1099511627790.00        1099511627794.00     
   0.000000000000000E+000  0.000000000000000E+000
@@ -140,9 +139,9 @@ DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
    1099511627788.00        1099511627792.00        1099511627796.00     
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
   0.000000000000000E+000
+  0.000000000000000E+000
  farrayPtr1d:    1099511627777.00        1099511627781.00     
    1099511627785.00        1099511627789.00        1099511627793.00     
-   1099511627782.00     
  farrayPtr1d:    1099511627778.00        1099511627782.00     
    1099511627786.00        1099511627790.00        1099511627794.00     
    1099511627777.00        1099511627795.00     
@@ -153,6 +152,7 @@ DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
    1099511627788.00        1099511627792.00        1099511627796.00     
    1099511627777.00        1099511627779.00        1099511627777.00     
    1099511627780.00     
+   1099511627782.00     
   PASS  Example ESMF_ArrayArbHaloEx, ESMF_ArrayArbHaloEx.F90, line 650
   PASS  Example ESMF_ArrayArbHaloEx, ESMF_ArrayArbHaloEx.F90, line 650
   PASS  Example ESMF_ArrayArbHaloEx, ESMF_ArrayArbHaloEx.F90, line 650
@@ -161,15 +161,15 @@ DistGrid-VM: petCount = 4, CurrentVM: petCount = 4
  PASS: ESMF_ArrayArbHaloEx.F90
  PASS: ESMF_ArrayArbHaloEx.F90
  PASS: ESMF_ArrayArbHaloEx.F90
-TOTCPU=20:50:40 ELAP=00:39:05 REQMEM=5875Mc REQCPUS=24 ALLOCCPUS=32 TIMELIMIT=02:30:00 PART=s4 ACCT=star
+TOTCPU=18:34:40 ELAP=00:34:50 REQMEM=5875Mc REQCPUS=24 ALLOCCPUS=32 TIMELIMIT=02:30:00 PART=s4 ACCT=star
 MAXRSS=0 MAXVMSIZE=196896K
 ________________________________________________________________
-Job Resource Usage Summary for 11424844
+Job Resource Usage Summary for 11443966
 
-  CPU Time Used : 20:50:40
+  CPU Time Used : 18:34:40
   Memory Used : 0
   Virtual Memory Used : 196896K
-  Walltime Used : 00:39:05
+  Walltime Used : 00:34:50
 
   Memory Requested : 5875Mc (n=per node; c=per core)
   CPUs Requested / Allocated : 24 / 32
@@ -179,6 +179,6 @@ Job Resource Usage Summary for 11424844
   Head Node : 
   Charged to : star
 
-  Job Stopped : Mon Sep 27 18:05:52 UTC 2021
+  Job Stopped : Tue Sep 28 18:01:01 UTC 2021
 _____________________________________________________________________
 
