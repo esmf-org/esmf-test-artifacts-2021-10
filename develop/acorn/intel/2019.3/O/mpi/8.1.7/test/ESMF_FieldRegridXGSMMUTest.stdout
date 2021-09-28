@@ -1,4 +1,4 @@
-build time -- 2021-09-27 20:33:20
+build time -- 2021-09-28 20:12:49
   Beginning Test, file ESMF_FieldRegridXGSMMUTest.F90, line 51
   NUMBER_OF_PROCESSORS           2
   Beginning Test, file ESMF_FieldRegridXGSMMUTest.F90, line 51
@@ -175,6 +175,13 @@ DistGrid-VM: petCount = 2, CurrentVM: petCount = 2
  Status: Base = Ready,  object = Ready
  Proxy        = no
  Root Info (Attributes):
+{} Field status =            4
+ gridrank =            1
+--- ESMCI::Array::print start ---
+ Base name    = Array031
+ Status: Base = Ready,  object = Ready
+ Proxy        = no
+ Root Info (Attributes):
  Base name    = Field030
  Status: Base = Ready,  object = Ready
  Proxy        = no
@@ -192,8 +199,8 @@ DistGrid dimCount = 1
 deCount = 2
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x20415a0:
-            rank = 1, typekind = 6, base_addr = 0x14fce366ba00
+LocalArrayPrint: Array at address 0x27e75a0:
+            rank = 1, typekind = 6, base_addr = 0x154c2880ba00
             dim[0] = 7  
   Real, *8, Dim 1, Data values:
 ( 1) =  0
@@ -212,21 +219,17 @@ dim 1: [0]: [1 [1 [1, 7] 7] 7]
           -1          -1          -1               -1          -1
           -1          -1          -1               -1          -1
           -1          -1          -1               -1          -1
-{} Field status =            4
- gridrank =            1
---- ESMCI::Array::print start ---
- Base name    = Array031
- Status: Base = Ready,  object = Ready
- Proxy        = no
- Root Info (Attributes):
+          -1          -1          -1               -1          -1
+          -1          -1          -1               -1          -1
+ Field Print Ends   ====>
 {}Array typekind/rank: Real*8 / 1 
 ~ lower class' values ~
 DistGrid dimCount = 1
 deCount = 2
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x2683080:
-            rank = 1, typekind = 6, base_addr = 0x14ac41a6bb80
+LocalArrayPrint: Array at address 0xda5080:
+            rank = 1, typekind = 6, base_addr = 0x15457e2b7b80
             dim[0] = 5  
   Real, *8, Dim 1, Data values:
 ( 1) =  0
@@ -243,9 +246,6 @@ dim 1: [0]: [1 [1 [1, 5] 5] 5]
           -1          -1          -1               -1          -1
           -1          -1          -1               -1          -1
           -1          -1          -1               -1          -1
-          -1          -1          -1               -1          -1
-          -1          -1          -1               -1          -1
- Field Print Ends   ====>
           -1          -1          -1               -1          -1
           -1          -1          -1               -1          -1
  Field Print Ends   ====>
@@ -425,8 +425,8 @@ DistGrid dimCount = 1
 deCount = 2
 localDeCount = 1
 ~ local data in LocalArray for DE 0 ~
-LocalArrayPrint: Array at address 0x20415a0:
-            rank = 1, typekind = 6, base_addr = 0x14fce366b740
+LocalArrayPrint: Array at address 0x27e75a0:
+            rank = 1, typekind = 6, base_addr = 0x154c2880b740
             dim[0] = 7  
   Real, *8, Dim 1, Data values:
 ( 1) =  0
@@ -483,8 +483,8 @@ DistGrid dimCount = 1
 deCount = 2
 localDeCount = 1
 ~ local data in LocalArray for DE 1 ~
-LocalArrayPrint: Array at address 0x2683080:
-            rank = 1, typekind = 6, base_addr = 0x14ac41a6b9c0
+LocalArrayPrint: Array at address 0xda5080:
+            rank = 1, typekind = 6, base_addr = 0x15457e2b79c0
             dim[0] = 5  
   Real, *8, Dim 1, Data values:
 ( 1) =  0
@@ -509,12 +509,12 @@ dim 1: [0]: [1 [1 [1, 5] 5] 5]
   0.000000000000000E+000  0.000000000000000E+000  0.000000000000000E+000
 0000000E+000
  - SMM from A -> X
- - SMM from A -> X
-   1.00000000000000        1.00000000000000        1.00000000000000     
-  0.000000000000000E+000  0.000000000000000E+000
    1.00000000000000        1.00000000000000        1.00000000000000     
    1.00000000000000        1.00000000000000        1.00000000000000     
   0.000000000000000E+000
+ - SMM from A -> X
+   1.00000000000000        1.00000000000000        1.00000000000000     
+  0.000000000000000E+000  0.000000000000000E+000
  - SMM from A -> X
    1.00000000000000        1.00000000000000        1.00000000000000     
    1.00000000000000        1.00000000000000        1.00000000000000     
@@ -554,7 +554,6 @@ dim 1: [0]: [1 [1 [1, 5] 5] 5]
           22 ->          10
           31 ->          13
           32 ->          14
-          16          16
            1 weights:            8 -   1.00000000000000     
    1.00000000000000        1.00000000000000       0.999999999999999     
    1.00000000000000        1.00000000000000        1.00000000000000     
@@ -568,6 +567,7 @@ dim 1: [0]: [1 [1 [1, 5] 5] 5]
           24 ->          12
           33 ->          15
           34 ->          16
+          16          16
           16          16
            0 flux on xgrid:    2.00000000000000        2.00000000000000     
    2.00000000000000        2.00000000000000        2.00000000000000     
@@ -640,20 +640,17 @@ dim 1: [0]: [1 [1 [1, 5] 5] 5]
            0 weights:         3741
            0 indices:         3741
         7569        7569
+           0 src idx range:            1          74
+           0 dst idx range:            1        6360
            1 weights:         3828
            1 indices:         3828
         7569        7569
            1 src idx range:            4          78
            1 dst idx range:           41        6400
-           0 src idx range:            1          74
-           0 dst idx range:            1        6360
   PASS  Regrid then create xgrid and regrid through xgrid, check clipping, ESMF_
  FieldRegridXGSMMUTest.F90, line 88
   PASS  Regrid then create xgrid and regrid through xgrid, check clipping, ESMF_
  FieldRegridXGSMMUTest.F90, line 88
-           1          32 -   1.00000000000000        1.00000000000000     
-   1.00000000000000        1.00000000000000        1.00000000000000     
-   1.00000000000000        1.00000000000000        1.00000000000000     
            0          32 -   1.00000000000000        1.00000000000000     
    1.00000000000000        1.00000000000000        1.00000000000000     
    1.00000000000000        1.00000000000000        1.00000000000000     
@@ -699,6 +696,9 @@ dim 1: [0]: [1 [1 [1, 5] 5] 5]
           73 ->          59
           74 ->          60
           78          64
+           1          32 -   1.00000000000000        1.00000000000000     
+   1.00000000000000        1.00000000000000        1.00000000000000     
+   1.00000000000000        1.00000000000000        1.00000000000000     
    1.00000000000000        1.00000000000000       0.999999999999999     
    1.00000000000000       0.999999999999999        1.00000000000000     
    1.00000000000000       0.999999999999999        1.00000000000000     
@@ -752,11 +752,7 @@ elementCountPDe: 32 32
 contigFlagPDimPDe (dims separated by / ):
  for DE 0: 1 / 
  for DE 1: 1 / 
-(min,max)IndexPDimPDe (dims separated by / ):
- for DE 0: (1, 32) / 
- for DE 1: (33, 64) / 
-indexListPDimPLocalDe (dims separated by / ):
- for localDE 0 - DE 1:  (33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, --- ESMCI::DistGrid::print start ---
+(min,max)IndexPDimPDe (dims separated by / ):--- ESMCI::DistGrid::print start ---
 indexTK: Integer*4
 dimCount = 1
 tileCount = 1
@@ -783,7 +779,11 @@ Member on this PET appears to be an actual member.
 DistGrid-VM: localPet = 0, CurrentVM: localPet = 0
 DistGrid-VM: petCount = 2, CurrentVM: petCount = 2
 --- ESMCI::DistGrid::print end ---
-59, 60, 61, 62, 63, 64) /
+
+ for DE 0: (1, 32) / 
+ for DE 1: (33, 64) / 
+indexListPDimPLocalDe (dims separated by / ):
+ for localDE 0 - DE 1:  (33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64) /
 diffCollocationCount = 1
 collocationPDim:	1
 arbSeqIndexListPCollPLocalDe:
@@ -1629,5 +1629,5 @@ DistGrid-VM: petCount = 2, CurrentVM: petCount = 2
   PASS  Regrid then create xgrid and regrid through xgrid, overlapping cut, ESMF
  _FieldRegridXGSMMUTest.F90, line 102
   Ending Test, file ESMF_FieldRegridXGSMMUTest.F90, line 112
-  PET           0  Test Elapsed Time    71.0100000000000       msec.
-  PET           1  Test Elapsed Time    70.3460000000000       msec.
+  PET           0  Test Elapsed Time    72.0190000000000       msec.
+  PET           1  Test Elapsed Time    71.2190000000000       msec.
